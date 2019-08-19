@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.ComcustomerlevelDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Comcustomerlevel">
+        <result column="LevelID" property="LevelID" />
+        <result column="LevelName" property="LevelName" />
+        <result column="Memo" property="Memo" />
+        <result column="MergeOutState" property="MergeOutState" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        LevelID, LevelName, Memo, MergeOutState
+    </sql>
+
+</mapper>

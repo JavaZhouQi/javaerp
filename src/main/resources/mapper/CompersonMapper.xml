@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.CompersonDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Comperson">
+        <result column="PersonID" property="PersonID" />
+        <result column="DepartID" property="DepartID" />
+        <result column="PersonName" property="PersonName" />
+        <result column="EngName" property="EngName" />
+        <result column="GroupID" property="GroupID" />
+        <result column="IdentityNumber" property="IdentityNumber" />
+        <result column="SexDistinction" property="SexDistinction" />
+        <result column="ProfTitle" property="ProfTitle" />
+        <result column="EngProfTitle" property="EngProfTitle" />
+        <result column="Birthday" property="Birthday" />
+        <result column="OnJobDate" property="OnJobDate" />
+        <result column="Nationality" property="Nationality" />
+        <result column="FamilyReg" property="FamilyReg" />
+        <result column="LeaveJobDate" property="LeaveJobDate" />
+        <result column="MaritalStatus" property="MaritalStatus" />
+        <result column="Address1" property="Address1" />
+        <result column="Address2" property="Address2" />
+        <result column="Phone1" property="Phone1" />
+        <result column="MobilePhone" property="MobilePhone" />
+        <result column="Email" property="Email" />
+        <result column="Memo" property="Memo" />
+        <result column="UsrDef1" property="UsrDef1" />
+        <result column="UsrDef2" property="UsrDef2" />
+        <result column="BloodType" property="BloodType" />
+        <result column="BPMachine" property="BPMachine" />
+        <result column="Country" property="Country" />
+        <result column="PosiID" property="PosiID" />
+        <result column="MergeOutState" property="MergeOutState" />
+        <result column="DataVer" property="DataVer" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        PersonID, DepartID, PersonName, EngName, GroupID, IdentityNumber, SexDistinction, ProfTitle, EngProfTitle, Birthday, OnJobDate, Nationality, FamilyReg, LeaveJobDate, MaritalStatus, Address1, Address2, Phone1, MobilePhone, Email, Memo, UsrDef1, UsrDef2, BloodType, BPMachine, Country, PosiID, MergeOutState, DataVer
+    </sql>
+
+</mapper>

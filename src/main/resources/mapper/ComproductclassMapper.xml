@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.ComproductclassDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Comproductclass">
+        <result column="ClassID" property="ClassID" />
+        <result column="ClassName" property="ClassName" />
+        <result column="EngName" property="EngName" />
+        <result column="AccInventory" property="AccInventory" />
+        <result column="AccPurchased" property="AccPurchased" />
+        <result column="ReturnPurchase" property="ReturnPurchase" />
+        <result column="AccSale" property="AccSale" />
+        <result column="AccSaleCost" property="AccSaleCost" />
+        <result column="ReturnSale" property="ReturnSale" />
+        <result column="GiftExpense" property="GiftExpense" />
+        <result column="MaterialWarehouse" property="MaterialWarehouse" />
+        <result column="MergeOutState" property="MergeOutState" />
+        <result column="DataVer" property="DataVer" />
+        <result column="OtherExpense" property="OtherExpense" />
+        <result column="OtherIncome" property="OtherIncome" />
+        <result column="OtherCost" property="OtherCost" />
+        <result column="Memo" property="Memo" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ClassID, ClassName, EngName, AccInventory, AccPurchased, ReturnPurchase, AccSale, AccSaleCost, ReturnSale, GiftExpense, MaterialWarehouse, MergeOutState, DataVer, OtherExpense, OtherIncome, OtherCost, Memo
+    </sql>
+
+</mapper>
