@@ -25,6 +25,7 @@ public class Comcustclass extends Model<Comcustclass> {
 
     private static final long serialVersionUID = 1L;
 
+    // 1 客户  2 供应商  3 潜在客户
     @TableField("Flag")
     private Integer Flag;
 
