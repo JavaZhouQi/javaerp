@@ -58,6 +58,19 @@ public class ComcustclassController {
         return new Result(ResultCode.SUCCESS,pageResult);
     }
 
+
+    /**
+     * 根据分类查询
+     */
+    @RequestMapping("/findByFlag")
+    public Result findByFlag(Integer flag){
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq(Comcustclass.FLAG,flag);
+        List<Comcustclass> list = comcustclassService.list(wrapper);
+        return new Result(ResultCode.SUCCESS,list);
+    }
+
+
     @RequestMapping("/findAll")
     public Result findAll(){
         List<Comcustclass> list = comcustclassService.list();

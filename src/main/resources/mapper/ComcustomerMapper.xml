@@ -4,8 +4,10 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.accp.erp.entity.Comcustomer">
-        <result column="Flag" property="Flag" />
+        <id column="Flag" property="Flag" />
         <result column="ID" property="id" />
+        <result column="engFullName" property="engFullName" />
+        <result column="engShortName" property="engShortName" />
         <result column="FundsAttribution" property="FundsAttribution" />
         <result column="TransNewID" property="TransNewID" />
         <result column="ClassID" property="ClassID" />
@@ -66,11 +68,42 @@
         <result column="CustIntro" property="CustIntro" />
         <result column="Efficiency" property="Efficiency" />
         <result column="InvoTypeID" property="InvoTypeID" />
+        <result column="firstTradeDate" property="firstTradeDate" />
+        <result column="earliestTradeDate" property="earliestTradeDate" />
+        <result column="BankId" property="BankId" />
+        <result column="PriceRank" property="PriceRank" />
+        <result column="latelyTradeDate" property="latelyTradeDate" />
+        <result column="latelyReturnDate" property="latelyReturnDate" />
+        <result column="finalTradeDate" property="finalTradeDate" />
+        <result column="amountQuota" property="amountQuota" />
+        <result column="billQuota" property="billQuota" />
+        <result column="unEnCashQuota" property="unEnCashQuota" />
+        <result column="noChkUnEnCashQuota" property="noChkUnEnCashQuota" />
+        <result column="dayOfClose" property="dayOfClose" />
+        <result column="dayOfRecv" property="dayOfRecv" />
+        <result column="endreceivables" property="endreceivables" />
+        <result column="distDays" property="distDays" />
+        <result column="initialreceivables" property="initialreceivables" />
+        <result column="creditLevel" property="creditLevel" />
+        <result column="accBillRecv" property="accBillRecv" />
+        <result column="invoiceType" property="invoiceType" />
+        <result column="taxKind" property="taxKind" />
+        <result column="rateOfDiscount" property="rateOfDiscount" />
+        <collection property="comcustaddressList" select="com.accp.erp.dao.ComcustaddressDao.findByIdAndFlag" column="{id=ID,flag=Flag}"></collection>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        Flag, ID, FundsAttribution, TransNewID, ClassID, AreaID, CurrencyID, FullName, IsTemp, IsForeign, ShortName, TaxNo, ChiefName, Capitalization, LinkMan, LinkManProf, Telephone1, Telephone2, Telephone3, MobileTel, Moderm, FaxNo, PersonID, ServerID, DealerID, IndustrialClass, Email, WebAddress, MergeOutState, IsFactory, StartReceivable, PriceofTax, DirectCust, VIP, VIPLevel, DataVer, MemberCodeNo, MembercodeDate, IdentityNO, MaritalStatus, SexDistinction, Metier, NativePlace, NativeAddress, FamilyAddress, ZipCode, InvoiceHead, GatherOther, CheckOther, InvoTax, LastVisitDate, BookVisitDate, UsePerms, BuildUpDate, LevelID, StageID, LeaderID, BeginStageDate, BargainAmt, CustIntro, Efficiency, InvoTypeID
+        Flag, ID, engFullName, engShortName, FundsAttribution, TransNewID, ClassID, AreaID, CurrencyID, FullName, IsTemp, IsForeign, ShortName, TaxNo, ChiefName, Capitalization, LinkMan, LinkManProf, Telephone1, Telephone2, Telephone3, MobileTel, Moderm, FaxNo, PersonID, ServerID, DealerID, IndustrialClass, Email, WebAddress, MergeOutState, IsFactory, StartReceivable, PriceofTax, DirectCust, VIP, VIPLevel, DataVer, MemberCodeNo, MembercodeDate, IdentityNO, MaritalStatus, SexDistinction, Metier, NativePlace, NativeAddress, FamilyAddress, ZipCode, InvoiceHead, GatherOther, CheckOther, InvoTax, LastVisitDate, BookVisitDate, UsePerms, BuildUpDate, LevelID, StageID, LeaderID, BeginStageDate, BargainAmt, CustIntro, Efficiency, InvoTypeID, firstTradeDate, earliestTradeDate, BankId, PriceRank, latelyTradeDate, latelyReturnDate, finalTradeDate, amountQuota, billQuota, unEnCashQuota, noChkUnEnCashQuota, dayOfClose, dayOfRecv, endreceivables, distDays, initialreceivables, creditLevel, accBillRecv, invoiceType, taxKind,rateOfDiscount
     </sql>
+
+    <select id="select" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM comcustomer
+        <where>
+            ${ew.sqlSegment}
+        </where>
+    </select>
 
 </mapper>

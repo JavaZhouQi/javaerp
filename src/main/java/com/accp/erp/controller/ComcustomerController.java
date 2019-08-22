@@ -1,7 +1,9 @@
 package com.accp.erp.controller;
 
 
+import com.accp.erp.entity.Comcustaddress;
 import com.accp.erp.entity.Comcustomer;
+import com.accp.erp.service.IComcustaddressService;
 import com.accp.erp.service.IComcustomerService;
 import com.accp.erp.uitis.PageResult;
 import com.accp.erp.uitis.Result;
@@ -24,13 +26,17 @@ import java.util.List;
  * </p>
  *
  * @author zq
- * @since 2019-08-15
+ * @since 2019-08-22
  */
 @RestController
 @RequestMapping("/comcustomer")
 public class ComcustomerController {
     @Autowired
     IComcustomerService comcustomerService;
+
+    @Autowired
+    IComcustaddressService comcustaddressService;
+
     /**
      * 分页查询
      */
@@ -47,7 +53,9 @@ public class ComcustomerController {
             wrapper.like(Comcustomer.FULLNAME,comcustomer.getFullName());
         }
 
-        IPage<Comcustomer> page = comcustomerService.page(new Page<>(current,size),wrapper);
+//        IPage<Comcustomer> page = comcustomerService.page(new Page<>(current,size),wrapper);
+//        PageResult pageResult = new PageResult(page.getTotal(),page.getRecords());
+        IPage page = comcustomerService.select(new Page(current,size),wrapper);
         PageResult pageResult = new PageResult(page.getTotal(),page.getRecords());
 
         return new Result(ResultCode.SUCCESS,pageResult);
@@ -72,6 +80,14 @@ public class ComcustomerController {
     @RequestMapping("/add")
     public Result add(@RequestBody Comcustomer comcustomer){
         comcustomerService.save(comcustomer);
+        // 保存地址
+        if (comcustomer.getComcustaddressList() != null) {
+            for (Comcustaddress comcustaddress : comcustomer.getComcustaddressList()) {
+                comcustaddress.setAddrID(comcustomer.getId());
+                comcustaddress.setFlag(comcustomer.getFlag());
+                comcustaddressService.save(comcustaddress);
+            }
+        }
         return new Result(ResultCode.SUCCESS,"新增成功");
     }
 
@@ -84,6 +100,19 @@ public class ComcustomerController {
         wrapper.eq(Comcustomer.ID,comcustomer.getId());
         wrapper.eq(Comcustomer.FLAG,comcustomer.getFlag());
         comcustomerService.update(comcustomer,wrapper);
+        // 保存地址
+        if (comcustomer.getComcustaddressList() != null) {
+            QueryWrapper queryWrapper = new QueryWrapper();
+            queryWrapper.eq(Comcustaddress.FLAG,comcustomer.getFlag());
+            queryWrapper.eq(Comcustaddress.ADDRID,comcustomer.getId());
+            comcustaddressService.remove(queryWrapper);
+            for (Comcustaddress comcustaddress : comcustomer.getComcustaddressList()) {
+                comcustaddress.setAddrID(comcustomer.getId());
+                comcustaddress.setFlag(comcustomer.getFlag());
+                comcustaddressService.save(comcustaddress);
+            }
+        }
+
         return new Result(ResultCode.SUCCESS,"修改成功");
     }
 

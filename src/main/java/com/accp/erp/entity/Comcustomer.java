@@ -2,10 +2,13 @@ package com.accp.erp.entity;
 
 import java.math.BigDecimal;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import java.time.LocalDate;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+import java.util.List;
+
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -16,7 +19,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author zq
- * @since 2019-08-15
+ * @since 2019-08-22
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -26,11 +29,17 @@ public class Comcustomer extends Model<Comcustomer> {
 
     private static final long serialVersionUID = 1L;
 
-    @TableField("Flag")
+    @TableId("Flag")
     private Integer Flag;
 
     @TableField("ID")
     private String id;
+
+    @TableField("engFullName")
+    private String engFullName;
+
+    @TableField("engShortName")
+    private String engShortName;
 
     @TableField("FundsAttribution")
     private String FundsAttribution;
@@ -138,7 +147,7 @@ public class Comcustomer extends Model<Comcustomer> {
     private String MemberCodeNo;
 
     @TableField("MembercodeDate")
-    private Integer MembercodeDate;
+    private LocalDate MembercodeDate;
 
     @TableField("IdentityNO")
     private String IdentityNO;
@@ -174,19 +183,19 @@ public class Comcustomer extends Model<Comcustomer> {
     private String CheckOther;
 
     @TableField("InvoTax")
-    private Boolean InvoTax;
+    private Integer InvoTax;
 
     @TableField("LastVisitDate")
-    private Integer LastVisitDate;
+    private LocalDate LastVisitDate;
 
     @TableField("BookVisitDate")
-    private Integer BookVisitDate;
+    private LocalDate BookVisitDate;
 
     @TableField("UsePerms")
     private Boolean UsePerms;
 
     @TableField("BuildUpDate")
-    private Integer BuildUpDate;
+    private LocalDate BuildUpDate;
 
     @TableField("LevelID")
     private String LevelID;
@@ -198,7 +207,7 @@ public class Comcustomer extends Model<Comcustomer> {
     private String LeaderID;
 
     @TableField("BeginStageDate")
-    private Integer BeginStageDate;
+    private LocalDate BeginStageDate;
 
     @TableField("BargainAmt")
     private BigDecimal BargainAmt;
@@ -212,10 +221,79 @@ public class Comcustomer extends Model<Comcustomer> {
     @TableField("InvoTypeID")
     private String InvoTypeID;
 
+    @TableField("firstTradeDate")
+    private LocalDate firstTradeDate;
+
+    @TableField("earliestTradeDate")
+    private LocalDate earliestTradeDate;
+
+    @TableField("BankId")
+    private String BankId;
+
+    @TableField("PriceRank")
+    private String PriceRank;
+
+    @TableField("latelyTradeDate")
+    private LocalDate latelyTradeDate;
+
+    @TableField("latelyReturnDate")
+    private LocalDate latelyReturnDate;
+
+    @TableField("finalTradeDate")
+    private LocalDate finalTradeDate;
+
+    @TableField("amountQuota")
+    private BigDecimal amountQuota;
+
+    @TableField("billQuota")
+    private BigDecimal billQuota;
+
+    @TableField("unEnCashQuota")
+    private BigDecimal unEnCashQuota;
+
+    @TableField("nOChkUnEnCashQuota")
+    private BigDecimal noChkUnEnCashQuota;
+
+    @TableField("dayOfClose")
+    private Integer dayOfClose;
+
+    @TableField("dayOfRecv")
+    private Integer dayOfRecv;
+
+    private BigDecimal endreceivables;
+
+    @TableField("distDays")
+    private Integer distDays;
+
+    private BigDecimal initialreceivables;
+
+    @TableField("creditLevel")
+    private String creditLevel;
+
+    @TableField("accBillRecv")
+    private Integer accBillRecv;
+
+    @TableField("invoiceType")
+    private Integer invoiceType;
+
+    @TableField("taxKind")
+    private Integer taxKind;
+
+    @TableField("rateOfDiscount")
+    private Integer rateOfDiscount;
+
+    @TableField(exist=false)
+    private List<Comcustaddress> comcustaddressList;
+
+    public static final String RATEOFDISCOUNT = "rateOfDiscount";
 
     public static final String FLAG = "Flag";
 
     public static final String ID = "ID";
+
+    public static final String ENGFULLNAME = "engFullName";
+
+    public static final String ENGSHORTNAME = "engShortName";
 
     public static final String FUNDSATTRIBUTION = "FundsAttribution";
 
@@ -337,9 +415,49 @@ public class Comcustomer extends Model<Comcustomer> {
 
     public static final String INVOTYPEID = "InvoTypeID";
 
+    public static final String FIRSTTRADEDATE = "firstTradeDate";
+
+    public static final String EARLIESTTRADEDATE = "earliestTradeDate";
+
+    public static final String BANKID = "BankId";
+
+    public static final String PRICERANK = "PriceRank";
+
+    public static final String LATELYTRADEDATE = "latelyTradeDate";
+
+    public static final String LATELYRETURNDATE = "latelyReturnDate";
+
+    public static final String FINALTRADEDATE = "finalTradeDate";
+
+    public static final String AMOUNTQUOTA = "amountQuota";
+
+    public static final String BILLQUOTA = "billQuota";
+
+    public static final String UNENCASHQUOTA = "unEnCashQuota";
+
+    public static final String NOCHKUNENCASHQUOTA = "nOChkUnEnCashQuota";
+
+    public static final String DAYOFCLOSE = "dayOfClose";
+
+    public static final String DAYOFRECV = "dayOfRecv";
+
+    public static final String ENDRECEIVABLES = "endreceivables";
+
+    public static final String DISTDAYS = "distDays";
+
+    public static final String INITIALRECEIVABLES = "initialreceivables";
+
+    public static final String CREDITLEVEL = "creditLevel";
+
+    public static final String ACCBILLRECV = "accBillRecv";
+
+    public static final String INVOICETYPE = "invoiceType";
+
+    public static final String TAXKIND = "taxKind";
+
     @Override
     protected Serializable pkVal() {
-        return null;
+        return this.Flag;
     }
 
 }
