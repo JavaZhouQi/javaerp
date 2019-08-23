@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author zq
- * @since 2019-08-15
+ * @since 2019-08-23
  */
 @Service
 public class CompersonServiceImpl extends ServiceImpl<CompersonDao, Comperson> implements ICompersonService {

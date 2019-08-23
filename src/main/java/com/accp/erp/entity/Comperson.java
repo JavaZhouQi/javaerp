@@ -1,6 +1,8 @@
 package com.accp.erp.entity;
 
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import java.time.LocalDate;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
@@ -15,7 +17,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author zq
- * @since 2019-08-15
+ * @since 2019-08-23
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -25,7 +27,7 @@ public class Comperson extends Model<Comperson> {
 
     private static final long serialVersionUID = 1L;
 
-    @TableField("PersonID")
+    @TableId("PersonID")
     private String PersonID;
 
     @TableField("DepartID")
@@ -44,7 +46,7 @@ public class Comperson extends Model<Comperson> {
     private String IdentityNumber;
 
     @TableField("SexDistinction")
-    private Boolean SexDistinction;
+    private Integer SexDistinction;
 
     @TableField("ProfTitle")
     private String ProfTitle;
@@ -53,19 +55,22 @@ public class Comperson extends Model<Comperson> {
     private String EngProfTitle;
 
     @TableField("Birthday")
-    private Integer Birthday;
+    private LocalDate Birthday;
 
     @TableField("OnJobDate")
-    private Integer OnJobDate;
+    private LocalDate OnJobDate;
 
     @TableField("Nationality")
     private String Nationality;
+
+    @TableField("technicalTitle")
+    private String technicalTitle;
 
     @TableField("FamilyReg")
     private String FamilyReg;
 
     @TableField("LeaveJobDate")
-    private Integer LeaveJobDate;
+    private LocalDate LeaveJobDate;
 
     @TableField("MaritalStatus")
     private Integer MaritalStatus;
@@ -112,6 +117,45 @@ public class Comperson extends Model<Comperson> {
     @TableField("DataVer")
     private Integer DataVer;
 
+    @TableField("PoliticCountenance")
+    private String PoliticCountenance;
+
+    @TableField("humschoolId")
+    private Integer humschoolId;
+
+    @TableField("maturityDate")
+    private LocalDate maturityDate;
+
+    @TableField("academicDegree")
+    private String academicDegree;
+
+    private LocalDate dateofentry;
+
+    @TableField("graduationSchool")
+    private String graduationSchool;
+
+    private String passport;
+
+    private String major;
+
+    @TableField("Startingdateofcontract")
+    private LocalDate Startingdateofcontract;
+
+    private String englishlevel;
+
+    @TableField("TerminationDateofContract")
+    private LocalDate TerminationDateofContract;
+
+    @TableField("Dateofphysicalexamination")
+    private LocalDate Dateofphysicalexamination;
+
+    private String emergencycontact;
+
+    private String phone2;
+
+    @TableField("Address3")
+    private String Address3;
+
 
     public static final String PERSONID = "PersonID";
 
@@ -136,6 +180,8 @@ public class Comperson extends Model<Comperson> {
     public static final String ONJOBDATE = "OnJobDate";
 
     public static final String NATIONALITY = "Nationality";
+
+    public static final String TECHNICALTITLE = "technicalTitle";
 
     public static final String FAMILYREG = "FamilyReg";
 
@@ -171,9 +217,39 @@ public class Comperson extends Model<Comperson> {
 
     public static final String DATAVER = "DataVer";
 
+    public static final String POLITICCOUNTENANCE = "PoliticCountenance";
+
+    public static final String HUMSCHOOLID = "humschoolId";
+
+    public static final String MATURITYDATE = "maturityDate";
+
+    public static final String ACADEMICDEGREE = "academicDegree";
+
+    public static final String DATEOFENTRY = "dateofentry";
+
+    public static final String GRADUATIONSCHOOL = "graduationSchool";
+
+    public static final String PASSPORT = "passport";
+
+    public static final String MAJOR = "major";
+
+    public static final String STARTINGDATEOFCONTRACT = "Startingdateofcontract";
+
+    public static final String ENGLISHLEVEL = "englishlevel";
+
+    public static final String TERMINATIONDATEOFCONTRACT = "TerminationDateofContract";
+
+    public static final String DATEOFPHYSICALEXAMINATION = "Dateofphysicalexamination";
+
+    public static final String EMERGENCYCONTACT = "emergencycontact";
+
+    public static final String PHONE2 = "phone2";
+
+    public static final String ADDRESS3 = "Address3";
+
     @Override
     protected Serializable pkVal() {
-        return null;
+        return this.PersonID;
     }
 
 }

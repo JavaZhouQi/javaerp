@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author zq
- * @since 2019-08-15
+ * @since 2019-08-23
  */
 public interface CompersonDao extends BaseMapper<Comperson> {
 

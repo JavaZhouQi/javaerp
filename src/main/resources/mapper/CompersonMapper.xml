@@ -4,7 +4,7 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.accp.erp.entity.Comperson">
-        <result column="PersonID" property="PersonID" />
+        <id column="PersonID" property="PersonID" />
         <result column="DepartID" property="DepartID" />
         <result column="PersonName" property="PersonName" />
         <result column="EngName" property="EngName" />
@@ -16,6 +16,7 @@
         <result column="Birthday" property="Birthday" />
         <result column="OnJobDate" property="OnJobDate" />
         <result column="Nationality" property="Nationality" />
+        <result column="technicalTitle" property="technicalTitle" />
         <result column="FamilyReg" property="FamilyReg" />
         <result column="LeaveJobDate" property="LeaveJobDate" />
         <result column="MaritalStatus" property="MaritalStatus" />
@@ -33,11 +34,26 @@
         <result column="PosiID" property="PosiID" />
         <result column="MergeOutState" property="MergeOutState" />
         <result column="DataVer" property="DataVer" />
+        <result column="PoliticCountenance" property="PoliticCountenance" />
+        <result column="humschoolId" property="humschoolId" />
+        <result column="maturityDate" property="maturityDate" />
+        <result column="academicDegree" property="academicDegree" />
+        <result column="dateofentry" property="dateofentry" />
+        <result column="graduationSchool" property="graduationSchool" />
+        <result column="passport" property="passport" />
+        <result column="major" property="major" />
+        <result column="Startingdateofcontract" property="Startingdateofcontract" />
+        <result column="englishlevel" property="englishlevel" />
+        <result column="TerminationDateofContract" property="TerminationDateofContract" />
+        <result column="Dateofphysicalexamination" property="Dateofphysicalexamination" />
+        <result column="emergencycontact" property="emergencycontact" />
+        <result column="phone2" property="phone2" />
+        <result column="Address3" property="Address3" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        PersonID, DepartID, PersonName, EngName, GroupID, IdentityNumber, SexDistinction, ProfTitle, EngProfTitle, Birthday, OnJobDate, Nationality, FamilyReg, LeaveJobDate, MaritalStatus, Address1, Address2, Phone1, MobilePhone, Email, Memo, UsrDef1, UsrDef2, BloodType, BPMachine, Country, PosiID, MergeOutState, DataVer
+        PersonID, DepartID, PersonName, EngName, GroupID, IdentityNumber, SexDistinction, ProfTitle, EngProfTitle, Birthday, OnJobDate, Nationality, technicalTitle, FamilyReg, LeaveJobDate, MaritalStatus, Address1, Address2, Phone1, MobilePhone, Email, Memo, UsrDef1, UsrDef2, BloodType, BPMachine, Country, PosiID, MergeOutState, DataVer, PoliticCountenance, humschoolId, maturityDate, academicDegree, dateofentry, graduationSchool, passport, major, Startingdateofcontract, englishlevel, TerminationDateofContract, Dateofphysicalexamination, emergencycontact, phone2, Address3
     </sql>
 
 </mapper>
