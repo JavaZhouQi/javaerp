@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.YzqsellcancelDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Yzqsellcancel">
+        <id column="billNo" property="billNo" />
+        <result column="billDate" property="billDate" />
+        <result column="custId" property="custId" />
+        <result column="custShortName" property="custShortName" />
+        <result column="addrId" property="addrId" />
+        <result column="custAddress" property="custAddress" />
+        <result column="priceOfTax" property="priceOfTax" />
+        <result column="wareId" property="wareId" />
+        <result column="wareName" property="wareName" />
+        <result column="isDeduct" property="isDeduct" />
+        <result column="salesId" property="salesId" />
+        <result column="salesName" property="salesName" />
+        <result column="departId" property="departId" />
+        <result column="departName" property="departName" />
+        <result column="maker" property="maker" />
+        <result column="permitter" property="permitter" />
+        <result column="remark" property="remark" />
+        <result column="total" property="total" />
+        <result column="tax" property="tax" />
+        <result column="sumAmtATax" property="sumAmtATax" />
+        <result column="sumNum" property="sumNum" />
+        <result column="hasForeignTrade" property="hasForeignTrade" />
+        <result column="voucherNo" property="voucherNo" />
+        <result column="projectId" property="projectId" />
+        <result column="projectName" property="projectName" />
+        <result column="dueTo" property="dueTo" />
+        <result column="prepayDay" property="prepayDay" />
+        <result column="recvWay" property="recvWay" />
+        <result column="gatherDelay" property="gatherDelay" />
+        <result column="accMonth" property="accMonth" />
+        <result column="addfield1" property="addfield1" />
+        <result column="addfield2" property="addfield2" />
+        <result column="checkstate" property="checkstate" />
+        <result column="enables" property="enables" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        billNo, billDate, custId, custShortName, addrId, custAddress, priceOfTax, wareId, wareName, isDeduct, salesId, salesName, departId, departName, maker, permitter, remark, total, tax, sumAmtATax, sumNum, hasForeignTrade, voucherNo, projectId, projectName, dueTo, prepayDay, recvWay, gatherDelay, accMonth, addfield1, addfield2, checkstate, enables
+    </sql>
+
+</mapper>

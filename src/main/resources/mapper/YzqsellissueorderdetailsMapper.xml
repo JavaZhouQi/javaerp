@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.YzqsellissueorderdetailsDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Yzqsellissueorderdetails">
+        <id column="billNo" property="billNo" />
+        <result column="serNo" property="serNo" />
+        <result column="prodId" property="prodId" />
+        <result column="prodName" property="prodName" />
+        <result column="prodSize" property="prodSize" />
+        <result column="sUnit" property="sUnit" />
+        <result column="sQuantity" property="sQuantity" />
+        <result column="oldPrice" property="oldPrice" />
+        <result column="discount" property="discount" />
+        <result column="sPrice" property="sPrice" />
+        <result column="amount" property="amount" />
+        <result column="taxRate" property="taxRate" />
+        <result column="taxAmt" property="taxAmt" />
+        <result column="amountATax" property="amountATax" />
+        <result column="isGift" property="isGift" />
+        <result column="tranType" property="tranType" />
+        <result column="fromNo" property="fromNo" />
+        <result column="haveBatch" property="haveBatch" />
+        <result column="hasCombine" property="hasCombine" />
+        <result column="hasInv" property="hasInv" />
+        <result column="noInvCount" property="noInvCount" />
+        <result column="itemRemark" property="itemRemark" />
+        <result column="enables" property="enables" />
+        <result column="safetyone" property="safetyone" />
+        <result column="safetytwo" property="safetytwo" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        billNo, serNo, prodId, prodName, prodSize, sUnit, sQuantity, oldPrice, discount, sPrice, amount, taxRate, taxAmt, amountATax, isGift, tranType, fromNo, haveBatch, hasCombine, hasInv, noInvCount, itemRemark, enables, safetyone, safetytwo
+    </sql>
+
+</mapper>

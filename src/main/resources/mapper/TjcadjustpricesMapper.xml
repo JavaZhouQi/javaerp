@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.TjcadjustpricesDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Tjcadjustprices">
+        <id column="adjustpricesID" property="adjustpricesID" />
+        <result column="billNo" property="billNo" />
+        <result column="adjustDate" property="adjustDate" />
+        <result column="maker" property="maker" />
+        <result column="permitter" property="permitter" />
+        <result column="udef1" property="udef1" />
+        <result column="udef2" property="udef2" />
+        <result column="remark" property="remark" />
+        <result column="sumQty" property="sumQty" />
+        <result column="sumCost" property="sumCost" />
+        <result column="voucherNO" property="voucherNO" />
+        <result column="engName" property="engName" />
+        <result column="incSubjectID" property="incSubjectID" />
+        <result column="incSubjectName" property="incSubjectName" />
+        <result column="decSujectID" property="decSujectID" />
+        <result column="decSujectName" property="decSujectName" />
+        <result column="makerSign" property="makerSign" />
+        <result column="permitterSign" property="permitterSign" />
+        <result column="adjustType" property="adjustType" />
+        <result column="adjustStyle" property="adjustStyle" />
+        <result column="mergeOutState" property="mergeOutState" />
+        <result column="departID" property="departID" />
+        <result column="departName" property="departName" />
+        <result column="makerID" property="makerID" />
+        <result column="permitterID" property="permitterID" />
+        <result column="dateVar" property="dateVar" />
+        <result column="hasCheck" property="hasCheck" />
+        <result column="hasBillAttach" property="hasBillAttach" />
+        <result column="noPowerToViewAdvPerms" property="noPowerToViewAdvPerms" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        adjustpricesID, billNo, adjustDate, maker, permitter, udef1, udef2, remark, sumQty, sumCost, voucherNO, engName, incSubjectID, incSubjectName, decSujectID, decSujectName, makerSign, permitterSign, adjustType, adjustStyle, mergeOutState, departID, departName, makerID, permitterID, dateVar, hasCheck, hasBillAttach, noPowerToViewAdvPerms
+    </sql>
+
+</mapper>

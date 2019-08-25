@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.TjcmaterialdullDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Tjcmaterialdull">
+        <id column="materialDullID" property="materialDullID" />
+        <result column="materialSectionStart" property="materialSectionStart" />
+        <result column="materialSectionOver" property="materialSectionOver" />
+        <result column="materialTypeStart" property="materialTypeStart" />
+        <result column="materialTypeOver" property="materialTypeOver" />
+        <result column="materialDate" property="materialDate" />
+        <result column="dullCountDate" property="dullCountDate" />
+        <result column="test1" property="test1" />
+        <result column="test2" property="test2" />
+        <result column="test3" property="test3" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        materialDullID, materialSectionStart, materialSectionOver, materialTypeStart, materialTypeOver, materialDate, dullCountDate, test1, test2, test3
+    </sql>
+
+</mapper>

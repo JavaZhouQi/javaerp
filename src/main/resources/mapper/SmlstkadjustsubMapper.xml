@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.SmlstkadjustsubDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Smlstkadjustsub">
+        <result column="flag" property="flag" />
+        <result column="adjustNO" property="adjustNO" />
+        <result column="rowNo" property="rowNo" />
+        <result column="serNO" property="serNO" />
+        <result column="adjustDate" property="adjustDate" />
+        <result column="price" property="price" />
+        <result column="amount" property="amount" />
+        <result column="haveBatch" property="haveBatch" />
+        <result column="itemRemark" property="itemRemark" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        flag, adjustNO, rowNo, serNO, adjustDate, price, amount, haveBatch, itemRemark
+    </sql>
+
+</mapper>

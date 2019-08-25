@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.ZwjwarehousewarrantDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Zwjwarehousewarrant">
+        <result column="BillNo" property="BillNo" />
+        <result column="CustID" property="CustID" />
+        <result column="SaleClassName" property="SaleClassName" />
+        <result column="BillDate" property="BillDate" />
+        <result column="VoucherNo" property="VoucherNo" />
+        <result column="SaleID" property="SaleID" />
+        <result column="DepartID" property="DepartID" />
+        <result column="Maker" property="Maker" />
+        <result column="Permitter" property="Permitter" />
+        <result column="CsOne" property="CsOne" />
+        <result column="CsTow" property="CsTow" />
+        <result column="CsThree" property="CsThree" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        BillNo, CustID, SaleClassName, BillDate, VoucherNo, SaleID, DepartID, Maker, Permitter, CsOne, CsTow, CsThree
+    </sql>
+
+</mapper>

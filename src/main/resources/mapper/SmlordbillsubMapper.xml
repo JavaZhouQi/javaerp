@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.SmlordbillsubDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Smlordbillsub">
+        <result column="flag" property="flag" />
+        <result column="billNo" property="billNo" />
+        <result column="rowNO" property="rowNO" />
+        <result column="serNO" property="serNO" />
+        <result column="billDate" property="billDate" />
+        <result column="prodID" property="prodID" />
+        <result column="prodName" property="prodName" />
+        <result column="prodSize" property="prodSize" />
+        <result column="quantity" property="quantity" />
+        <result column="unit" property="unit" />
+        <result column="oldPrice" property="oldPrice" />
+        <result column="price" property="price" />
+        <result column="amount" property="amount" />
+        <result column="taxRate" property="taxRate" />
+        <result column="taxAmt" property="taxAmt" />
+        <result column="mlTaxAmt" property="mlTaxAmt" />
+        <result column="discount" property="discount" />
+        <result column="isGift" property="isGift" />
+        <result column="itemRemark" property="itemRemark" />
+        <result column="detail" property="detail" />
+        <result column="preInDate" property="preInDate" />
+        <result column="needExamine" property="needExamine" />
+        <result column="arrangeNO" property="arrangeNO" />
+        <result column="fromRow" property="fromRow" />
+        <result column="fromNO" property="fromNO" />
+        <result column="tranType" property="tranType" />
+        <result column="qtyRemain" property="qtyRemain" />
+        <result column="converRate" property="converRate" />
+        <result column="outQty" property="outQty" />
+        <result column="custBillNo" property="custBillNo" />
+        <result column="mark" property="mark" />
+        <result column="mlAmount" property="mlAmount" />
+        <result column="hasCheck" property="hasCheck" />
+        <result column="sPrice" property="sPrice" />
+        <result column="sQuantity" property="sQuantity" />
+        <result column="unitRelation" property="unitRelation" />
+        <result column="sUnitID" property="sUnitID" />
+        <result column="eQuantity" property="eQuantity" />
+        <result column="eUnitID" property="eUnitID" />
+        <result column="eUnitRelation" property="eUnitRelation" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        flag, billNo, rowNO, serNO, billDate, prodID, prodName, prodSize, quantity, unit, oldPrice, price, amount, taxRate, taxAmt, mlTaxAmt, discount, isGift, itemRemark, detail, preInDate, needExamine, arrangeNO, fromRow, fromNO, tranType, qtyRemain, converRate, outQty, custBillNo, mark, mlAmount, hasCheck, sPrice, sQuantity, unitRelation, sUnitID, eQuantity, eUnitID, eUnitRelation
+    </sql>
+
+</mapper>

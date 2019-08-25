@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.ChladvancegatherdetailsDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Chladvancegatherdetails">
+        <id column="Billid" property="Billid" />
+        <result column="Cotemark" property="Cotemark" />
+        <result column="Promisedmoney" property="Promisedmoney" />
+        <result column="Advancemoney" property="Advancemoney" />
+        <result column="Sinname" property="Sinname" />
+        <result column="Originbillid" property="Originbillid" />
+        <result column="Summary" property="Summary" />
+        <result column="Enables" property="Enables" />
+        <result column="Safetyone" property="Safetyone" />
+        <result column="Safetytwo" property="Safetytwo" />
+        <result column="Extend0" property="Extend0" />
+        <result column="Extend1" property="Extend1" />
+        <result column="Extend2" property="Extend2" />
+        <result column="Extend3" property="Extend3" />
+        <result column="Extend4" property="Extend4" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        Billid, Cotemark, Promisedmoney, Advancemoney, Sinname, Originbillid, Summary, Enables, Safetyone, Safetytwo, Extend0, Extend1, Extend2, Extend3, Extend4
+    </sql>
+
+</mapper>
