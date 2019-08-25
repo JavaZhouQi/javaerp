@@ -175,6 +175,67 @@ CREATE TABLE `chlclashfunddetailstwo` (
 
 /*Data for the table `chlclashfunddetailstwo` */
 
+/*Table structure for table `chlsmbinvoicemain` */
+
+DROP TABLE IF EXISTS `chlsmbinvoicemain`;
+
+CREATE TABLE `chlsmbinvoicemain` (
+  `BillNo` varchar(15) NOT NULL COMMENT '单据号码，主键，PK',
+  `Flag` int(11) NOT NULL COMMENT '标记，主键，PK，',
+  `AffirmState` smallint(6) DEFAULT NULL COMMENT '销售核对状态',
+  `BillType` smallint(6) DEFAULT NULL COMMENT '单据类型',
+  `PayTerm` smallint(6) DEFAULT NULL COMMENT '收款条件',
+  `DelayDays` int(11) DEFAULT NULL COMMENT '收款天数',
+  `InvoTypeId` varchar(6) DEFAULT NULL COMMENT '发票类型',
+  `GatherOther` varchar(20) DEFAULT NULL COMMENT '其他收款方式',
+  `ExportDate` int(11) DEFAULT NULL COMMENT '导出日期',
+  `ExportID` varchar(20) DEFAULT NULL COMMENT '导出人员',
+  PRIMARY KEY (`BillNo`,`Flag`),
+  UNIQUE KEY `BillNo` (`BillNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='销售发票主表';
+
+/*Data for the table `chlsmbinvoicemain` */
+
+/*Table structure for table `chlsmbinvoicesub` */
+
+DROP TABLE IF EXISTS `chlsmbinvoicesub`;
+
+CREATE TABLE `chlsmbinvoicesub` (
+  `BillNo` varchar(15) NOT NULL COMMENT '单据号码，主键，PK',
+  `Flag` int(11) NOT NULL COMMENT '标记，主键，PK，',
+  `ProdId` varchar(20) DEFAULT NULL COMMENT '物料编号',
+  `Quantity` decimal(10,2) DEFAULT NULL COMMENT '数量',
+  `Price` float DEFAULT NULL COMMENT '价格',
+  `Amount` decimal(10,2) DEFAULT NULL COMMENT '金额',
+  `TaxRate` float DEFAULT NULL COMMENT '税率%',
+  `TaxAmt` decimal(10,2) DEFAULT NULL COMMENT '税额',
+  `AmountWithTax` decimal(10,2) DEFAULT NULL COMMENT '含税金额',
+  `LocalAmount` decimal(10,2) DEFAULT NULL COMMENT '金额本位币',
+  `LocalTaxAmt` decimal(10,2) DEFAULT NULL COMMENT '税额本位币',
+  `LocalAmountWithTax` decimal(10,2) DEFAULT NULL COMMENT '含税金额本位币',
+  `SerNo` int(11) DEFAULT NULL COMMENT '栏号',
+  `RowNo` int(11) NOT NULL COMMENT '行号，主键，PK',
+  `BillDate` int(11) DEFAULT NULL COMMENT '单据日期',
+  `LQty` decimal(10,2) DEFAULT NULL COMMENT '未出数量',
+  `HasCheck` bit(1) DEFAULT b'0' COMMENT '审核状态',
+  `Remark` varchar(400) DEFAULT NULL COMMENT '备注',
+  `ProdName` varchar(60) DEFAULT NULL COMMENT '物料名称',
+  `ProdSize` varchar(60) DEFAULT NULL COMMENT '规格型号',
+  `FromNo` varchar(15) DEFAULT NULL COMMENT '来源单号',
+  `FromRow` int(11) DEFAULT NULL COMMENT '来源行号',
+  `TranType` int(11) DEFAULT NULL COMMENT '转录',
+  `QtyRemain` int(11) DEFAULT NULL COMMENT '未出详情',
+  `IsMerge` bit(1) DEFAULT NULL COMMENT '合并',
+  `SUnitID` varchar(8) DEFAULT NULL COMMENT '单位编号',
+  `SPrice` float DEFAULT NULL COMMENT '实际金额',
+  `SQuantity` decimal(10,2) DEFAULT NULL COMMENT '实际数量',
+  `UnitRelation` float DEFAULT NULL COMMENT '单位关系',
+  PRIMARY KEY (`BillNo`,`Flag`,`RowNo`),
+  UNIQUE KEY `BillNo` (`BillNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='销售发票从表';
+
+/*Data for the table `chlsmbinvoicesub` */
+
 /*Table structure for table `comarea` */
 
 DROP TABLE IF EXISTS `comarea`;
