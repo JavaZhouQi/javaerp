@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.ChlsmbinvoicemainDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Chlsmbinvoicemain">
+        <id column="BillNo" property="BillNo" />
+        <result column="Flag" property="Flag" />
+        <result column="AffirmState" property="AffirmState" />
+        <result column="BillType" property="BillType" />
+        <result column="PayTerm" property="PayTerm" />
+        <result column="DelayDays" property="DelayDays" />
+        <result column="InvoTypeId" property="InvoTypeId" />
+        <result column="GatherOther" property="GatherOther" />
+        <result column="ExportDate" property="ExportDate" />
+        <result column="ExportID" property="ExportID" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        BillNo, Flag, AffirmState, BillType, PayTerm, DelayDays, InvoTypeId, GatherOther, ExportDate, ExportID
+    </sql>
+
+</mapper>
