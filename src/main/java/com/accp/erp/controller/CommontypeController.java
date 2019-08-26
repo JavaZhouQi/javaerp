@@ -101,6 +101,7 @@ public class CommontypeController {
     public Result update(@RequestBody Commontype commontype){
         QueryWrapper wrapper = new QueryWrapper();
         wrapper.eq(Commontype.TYPEID,commontype.getTypeId());
+        wrapper.eq(Commontype.FLAG,commontype.getFlag());
         commontypeService.update(commontype,wrapper);
         return new Result(ResultCode.SUCCESS,"修改成功");
     }

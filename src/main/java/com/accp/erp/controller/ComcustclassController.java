@@ -100,6 +100,7 @@ public class ComcustclassController {
     public Result update(@RequestBody Comcustclass comcustclass){
         QueryWrapper wrapper = new QueryWrapper();
         wrapper.eq(Comcustclass.CLASSID,comcustclass.getClassID());
+        wrapper.eq(Comcustclass.FLAG,comcustclass.getFlag());
         comcustclassService.update(comcustclass,wrapper);
         return new Result(ResultCode.SUCCESS,"修改成功");
     }
