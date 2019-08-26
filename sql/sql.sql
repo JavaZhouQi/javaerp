@@ -480,6 +480,20 @@ CREATE TABLE `cominvoicetype` (
 
 insert  into `cominvoicetype`(`Id`,`Name`,`Remark`,`EngName`) values ('001','增值税发票',NULL,NULL),('002','普通发票',NULL,NULL),('003','服务发票',NULL,NULL),('004','出口商业发票',NULL,NULL);
 
+/*Table structure for table `commontype` */
+
+DROP TABLE IF EXISTS `commontype`;
+
+CREATE TABLE `commontype` (
+  `flag` int(11) DEFAULT NULL,
+  `typeId` varchar(20) DEFAULT NULL,
+  `typeName` varchar(20) DEFAULT NULL,
+  `engName` varchar(20) DEFAULT NULL,
+  `memo` varchar(500) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `commontype` */
+
 /*Table structure for table `comperson` */
 
 DROP TABLE IF EXISTS `comperson`;
@@ -1001,8 +1015,8 @@ CREATE TABLE `lypurchaselist` (
 DROP TABLE IF EXISTS `smlordbillmain`;
 
 CREATE TABLE `smlordbillmain` (
-  `flag` int(4) DEFAULT NULL COMMENT '标识字段',
-  `billNo` varchar(14) DEFAULT NULL COMMENT '单据号码',
+  `flag` int(4) NOT NULL COMMENT '标识字段',
+  `billNo` varchar(14) NOT NULL COMMENT '单据号码',
   `billDate` date DEFAULT NULL COMMENT '单据日期',
   `customerID` varchar(20) NOT NULL COMMENT '客户编号',
   `dueTo` varchar(20) NOT NULL COMMENT '账款归属',
@@ -1042,7 +1056,8 @@ CREATE TABLE `smlordbillmain` (
   `localTax` float DEFAULT NULL COMMENT '税额本位币合计',
   `totalErrAmount` float DEFAULT NULL COMMENT '总计误差',
   `mlSumBTaxAmt` float DEFAULT NULL COMMENT '金额合计本位币',
-  `mlSumAmtATax` float DEFAULT NULL COMMENT '含税金额本位币合计'
+  `mlSumAmtATax` float DEFAULT NULL COMMENT '含税金额本位币合计',
+  PRIMARY KEY (`flag`,`billNo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='销售主表';
 
 /*Data for the table `smlordbillmain` */
@@ -1052,8 +1067,8 @@ CREATE TABLE `smlordbillmain` (
 DROP TABLE IF EXISTS `smlordbillsub`;
 
 CREATE TABLE `smlordbillsub` (
-  `flag` int(4) DEFAULT NULL COMMENT '标识字段',
-  `billNo` varchar(14) DEFAULT NULL COMMENT '单据号码',
+  `flag` int(4) NOT NULL COMMENT '标识字段',
+  `billNo` varchar(14) NOT NULL COMMENT '单据号码',
   `rowNO` int(4) NOT NULL COMMENT '行号',
   `serNO` int(4) NOT NULL COMMENT '行号',
   `billDate` date DEFAULT NULL COMMENT '单据日期',
@@ -1091,7 +1106,8 @@ CREATE TABLE `smlordbillsub` (
   `sUnitID` int(4) DEFAULT NULL COMMENT '单位编号',
   `eQuantity` int(10) DEFAULT NULL COMMENT '辅助数量',
   `eUnitID` varchar(20) DEFAULT NULL COMMENT '辅助单位',
-  `eUnitRelation` float DEFAULT NULL COMMENT '辅助换算率'
+  `eUnitRelation` float DEFAULT NULL COMMENT '辅助换算率',
+  PRIMARY KEY (`flag`,`billNo`,`rowNO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='销售报价、订单明细表';
 
 /*Data for the table `smlordbillsub` */
@@ -1101,8 +1117,8 @@ CREATE TABLE `smlordbillsub` (
 DROP TABLE IF EXISTS `smlstkadjustmain`;
 
 CREATE TABLE `smlstkadjustmain` (
-  `flag` int(4) DEFAULT NULL COMMENT '标识字段',
-  `adjustNO` varchar(20) DEFAULT NULL COMMENT '单据编号',
+  `flag` int(4) NOT NULL COMMENT '标识字段',
+  `adjustNO` varchar(20) NOT NULL COMMENT '单据编号',
   `adjustDate` date NOT NULL COMMENT '单据日期',
   `maker` varchar(20) DEFAULT NULL COMMENT '制单人员',
   `permitter` varchar(20) DEFAULT NULL COMMENT '复核人员',
@@ -1115,7 +1131,8 @@ CREATE TABLE `smlstkadjustmain` (
   `wareID` int(4) NOT NULL COMMENT '仓库id',
   `salesID` int(4) NOT NULL COMMENT '出库人员id',
   `billStyle` int(4) NOT NULL COMMENT '出库类型id',
-  `billStatus` int(4) DEFAULT NULL COMMENT '出库状态'
+  `billStatus` int(4) DEFAULT NULL COMMENT '出库状态',
+  PRIMARY KEY (`flag`,`adjustNO`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='销售报价、订单明细表';
 
 /*Data for the table `smlstkadjustmain` */
@@ -1125,15 +1142,16 @@ CREATE TABLE `smlstkadjustmain` (
 DROP TABLE IF EXISTS `smlstkadjustsub`;
 
 CREATE TABLE `smlstkadjustsub` (
-  `flag` int(4) DEFAULT NULL COMMENT '标识字段',
-  `adjustNO` varchar(20) DEFAULT NULL COMMENT '单据编号',
-  `rowNo` int(4) DEFAULT NULL COMMENT '行号',
+  `flag` int(4) NOT NULL COMMENT '标识字段',
+  `adjustNO` varchar(20) NOT NULL COMMENT '单据编号',
+  `rowNo` int(4) NOT NULL COMMENT '行号',
   `serNO` int(4) DEFAULT NULL COMMENT '栏号',
   `adjustDate` date DEFAULT NULL COMMENT '单据日期',
   `price` float NOT NULL COMMENT '单价',
   `amount` float NOT NULL COMMENT '金额',
   `haveBatch` varchar(20) NOT NULL COMMENT '批号',
-  `itemRemark` varchar(255) NOT NULL COMMENT '分录备注'
+  `itemRemark` varchar(255) NOT NULL COMMENT '分录备注',
+  PRIMARY KEY (`flag`,`adjustNO`,`rowNo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='销售报价、订单明细表';
 
 /*Data for the table `smlstkadjustsub` */
