@@ -251,7 +251,7 @@ CREATE TABLE `comarea` (
 
 /*Data for the table `comarea` */
 
-insert  into `comarea`(`areaID`,`areaName`,`engName`,`memo`,`mergeOutState`) values ('001','厦门','1','1',NULL);
+insert  into `comarea`(`areaID`,`areaName`,`engName`,`memo`,`mergeOutState`) values ('001','厦门','1','1',NULL),('002','株洲',NULL,NULL,NULL),('003','长沙',NULL,NULL,NULL),('004','湘潭',NULL,NULL,NULL);
 
 /*Table structure for table `combank` */
 
@@ -485,14 +485,17 @@ insert  into `cominvoicetype`(`Id`,`Name`,`Remark`,`EngName`) values ('001','增
 DROP TABLE IF EXISTS `commontype`;
 
 CREATE TABLE `commontype` (
-  `flag` int(11) DEFAULT NULL,
-  `typeId` varchar(20) DEFAULT NULL,
+  `flag` int(11) NOT NULL,
+  `typeId` varchar(20) NOT NULL,
   `typeName` varchar(20) DEFAULT NULL,
   `engName` varchar(20) DEFAULT NULL,
-  `memo` varchar(500) DEFAULT NULL
+  `memo` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`flag`,`typeId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `commontype` */
+
+insert  into `commontype`(`flag`,`typeId`,`typeName`,`engName`,`memo`) values (1,'001','采购类型2',NULL,NULL),(1,'003','采购请购类型',NULL,NULL),(2,'001','采购入库类型',NULL,NULL),(2,'002','采购入库类型02',NULL,NULL),(2,'003','采购入库类型03',NULL,NULL),(3,'001','采购订单类型01',NULL,NULL),(3,'002','采购订单类型02',NULL,NULL),(4,'001','销售订单类型01',NULL,NULL),(4,'002','销售订单类型02',NULL,NULL),(4,'003','销售订单类型03',NULL,NULL),(5,'001','销售出库类型01',NULL,NULL),(5,'002','销售出库类型02',NULL,NULL),(5,'003','销售出库类型03',NULL,NULL),(6,'001','入库类型01',NULL,NULL),(6,'002','入库类型1',NULL,NULL),(7,'001','出库类型01',NULL,NULL),(7,'002','出库类型02',NULL,NULL);
 
 /*Table structure for table `comperson` */
 
@@ -598,23 +601,23 @@ CREATE TABLE `comproduct` (
   `OverReceRate` float DEFAULT NULL,
   `PurchPolicy` smallint(6) DEFAULT NULL,
   `MajorSupplier` varchar(12) DEFAULT NULL,
-  `BOutStockDay` int(11) DEFAULT NULL,
-  `BInStockDay` int(11) DEFAULT NULL,
-  `BPurchDate` int(11) DEFAULT NULL,
-  `BSalesDate` int(11) DEFAULT NULL,
+  `BOutStockDay` date DEFAULT NULL,
+  `BInStockDay` date DEFAULT NULL,
+  `BPurchDate` date DEFAULT NULL,
+  `BSalesDate` date DEFAULT NULL,
   `SluggishDays` int(11) DEFAULT NULL,
-  `LatestIndate` int(11) DEFAULT NULL,
-  `LatestOutDate` int(11) DEFAULT NULL,
-  `LatestPurchDate` int(11) DEFAULT NULL,
-  `LatestSalesDate` int(11) DEFAULT NULL,
-  `StopDate` int(11) DEFAULT NULL,
+  `LatestIndate` date DEFAULT NULL,
+  `LatestOutDate` date DEFAULT NULL,
+  `LatestPurchDate` date DEFAULT NULL,
+  `LatestSalesDate` date DEFAULT NULL,
+  `StopDate` date DEFAULT NULL,
   `Main_Des` varchar(60) DEFAULT NULL,
   `CCC_CODE` varchar(20) DEFAULT NULL,
   `EngUnit` varchar(6) DEFAULT NULL,
   `FOBPrice` double DEFAULT NULL,
   `CY20` decimal(19,2) DEFAULT NULL,
   `CY40` decimal(19,2) DEFAULT NULL,
-  `InPackAmt` decimal(19,2) DEFAULT NULL,
+  `InPackAmt` decimal(19,2) unsigned DEFAULT NULL,
   `OutPackAmt` decimal(19,2) DEFAULT NULL,
   `VolumeUnit` varchar(6) DEFAULT NULL,
   `Volume` decimal(19,2) DEFAULT NULL,
@@ -643,16 +646,15 @@ CREATE TABLE `comproduct` (
   `PerDays` int(11) DEFAULT NULL,
   `StdUnitID` varchar(8) DEFAULT NULL,
   `StdUnitName` varchar(20) DEFAULT NULL,
-  `SafeQty` decimal(19,2) DEFAULT NULL,
-  `BSalesBackDate` int(11) DEFAULT NULL,
-  `BInOtherDate` int(11) DEFAULT NULL,
-  `BPurBackDate` int(11) DEFAULT NULL,
-  `BOutOtherDate` int(11) DEFAULT NULL,
+  `SafeQty` int(11) DEFAULT NULL,
+  `BSalesBackDate` date DEFAULT NULL,
+  `BInOtherDate` date DEFAULT NULL,
+  `BPurBackDate` date DEFAULT NULL,
+  `BOutOtherDate` date DEFAULT NULL,
   `StdCost` double DEFAULT NULL,
   `CAllAmt` decimal(19,2) DEFAULT NULL,
   `NWeight` decimal(19,2) DEFAULT NULL,
   `GWeight` decimal(19,2) DEFAULT NULL,
-  `Long` decimal(19,2) DEFAULT NULL,
   `LUnit` varchar(6) DEFAULT NULL,
   `Width` decimal(19,2) DEFAULT NULL,
   `Hight` decimal(19,2) DEFAULT NULL,
@@ -664,17 +666,29 @@ CREATE TABLE `comproduct` (
   `GrossWeightUnit` varchar(6) DEFAULT NULL,
   `MEAMTUnit` varchar(6) DEFAULT NULL,
   `MEAMT` decimal(19,2) DEFAULT NULL,
-  `TaxItemsID` varchar(10) DEFAULT NULL
+  `TaxItemsID` varchar(10) DEFAULT NULL,
+  `doesItIncludeTax` varchar(20) DEFAULT NULL,
+  `CSafeAllstk` int(11) DEFAULT NULL,
+  `BAllAmt` int(11) DEFAULT NULL,
+  `CCurrStock` int(11) DEFAULT NULL,
+  `BAllCost` double DEFAULT NULL,
+  `CAllCost` double DEFAULT NULL,
+  `COutStockDay` date DEFAULT NULL,
+  `CInStockDay` date DEFAULT NULL,
+  `invaliDate` date DEFAULT NULL,
+  `cstdCost` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `comproduct` */
+
+insert  into `comproduct`(`ProdID`,`FOBCurrID`,`CAvgCost`,`SubID`,`ClassID`,`BarCodeID`,`UnitID`,`Unit`,`ProdName`,`ProdSize`,`EngName`,`CurrID`,`SuggestPrice`,`SalesPriceA`,`SalesPriceB`,`SalesPriceC`,`SalesPriceD`,`SalesPriceE`,`StdPrice`,`ConverUnit`,`ConverRate`,`PackAmt1`,`PackAmt2`,`PackUnit1`,`PackUnit2`,`InventoryID`,`BusiTaxRate`,`Excise`,`ImpTaxRate`,`BatchUsed`,`EffectDateUsed`,`ProdDesc`,`ProdPic`,`ProdForm`,`BaseInc`,`MinPurch`,`SafeStock`,`AdvanceDays`,`MaterialWare`,`OverReceRate`,`PurchPolicy`,`MajorSupplier`,`BOutStockDay`,`BInStockDay`,`BPurchDate`,`BSalesDate`,`SluggishDays`,`LatestIndate`,`LatestOutDate`,`LatestPurchDate`,`LatestSalesDate`,`StopDate`,`Main_Des`,`CCC_CODE`,`EngUnit`,`FOBPrice`,`CY20`,`CY40`,`InPackAmt`,`OutPackAmt`,`VolumeUnit`,`Volume`,`NetWeight`,`GrossWeigh`,`BAvgCost`,`BStdCost`,`MergeOutState`,`IsCheck`,`CTotalCost`,`InvoProdName`,`DefValidDay`,`ValidDateUsed`,`BackTaxRate`,`DataVer`,`MoreRate`,`UDef1`,`UDef2`,`RepairTerm`,`PriceOfTax`,`InsurRate`,`InsurRateEx`,`BTotalCost`,`HQ40`,`CY45`,`PerDays`,`StdUnitID`,`StdUnitName`,`SafeQty`,`BSalesBackDate`,`BInOtherDate`,`BPurBackDate`,`BOutOtherDate`,`StdCost`,`CAllAmt`,`NWeight`,`GWeight`,`LUnit`,`Width`,`Hight`,`MVolume`,`ProdBigType`,`InPackUnit`,`OutPackUnit`,`NetWeightUnit`,`GrossWeightUnit`,`MEAMTUnit`,`MEAMT`,`TaxItemsID`,`doesItIncludeTax`,`CSafeAllstk`,`BAllAmt`,`CCurrStock`,`BAllCost`,`CAllCost`,`COutStockDay`,`CInStockDay`,`invaliDate`,`cstdCost`) values ('001',NULL,21,NULL,'A01','645311','04',NULL,'物料名称','规格型号','eng','RMB',1,1,11,1,1,1,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,NULL,'1111',NULL,1,NULL,NULL,NULL,1,NULL,NULL,NULL,'1','2019-08-15','2019-08-15',NULL,NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,21,12,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'1','含税',45,12,21,12,12,'2019-08-19','2019-08-13','2019-08-06',11);
 
 /*Table structure for table `comproductclass` */
 
 DROP TABLE IF EXISTS `comproductclass`;
 
 CREATE TABLE `comproductclass` (
-  `ClassID` varchar(6) DEFAULT NULL,
+  `ClassID` varchar(6) NOT NULL,
   `ClassName` varchar(20) DEFAULT NULL,
   `EngName` varchar(20) DEFAULT NULL,
   `AccInventory` varchar(16) DEFAULT NULL,
@@ -690,10 +704,13 @@ CREATE TABLE `comproductclass` (
   `OtherExpense` varchar(16) DEFAULT NULL,
   `OtherIncome` varchar(16) DEFAULT NULL,
   `OtherCost` varchar(16) DEFAULT NULL,
-  `Memo` varchar(4000) DEFAULT NULL
+  `Memo` varchar(4000) DEFAULT NULL,
+  PRIMARY KEY (`ClassID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `comproductclass` */
+
+insert  into `comproductclass`(`ClassID`,`ClassName`,`EngName`,`AccInventory`,`AccPurchased`,`ReturnPurchase`,`AccSale`,`AccSaleCost`,`ReturnSale`,`GiftExpense`,`MaterialWarehouse`,`MergeOutState`,`DataVer`,`OtherExpense`,`OtherIncome`,`OtherCost`,`Memo`) values ('001','物料类别名称','eng','存货科目',NULL,NULL,'销售收入科目','发出商品科目',NULL,'赠品费用科目',NULL,NULL,NULL,'其他收入科目','其他费用科目','其他成本科目','无'),('A01','主板','','1243','','','5101','5401','','','',0,5,'','','',''),('A02','硬盘','','1243','','','5101','5401','','','',0,5,'','','',''),('A03','显卡','','1243','','','5101','5401','','','',0,5,'','','',''),('A04','内存','','1243','','','5101','5401','','','',0,5,'','','',''),('A05','显示器','','1243','','','5101','5401','','','',0,5,'','','',''),('A06','机箱','','1243','','','5101','5401','','','',0,5,'','','',''),('A07','CPU','','1243','','','5101','5401','','','',0,4,'','','',''),('B01','集线器','','','','','','','','','',0,3,'','','',''),('B02','交换机','','','','','','','','','',0,3,'','','',''),('B03','路由器','','1241','','','5101','5401','','550104','',0,3,'','','',''),('C01','笔记本','','1243','','','5101','5401','','','',0,5,'','','',''),('Q01','汽车','','1243','','','5101','5401','','550104','',0,5,'','','',''),('Q02','祭','','','','','','','','','',0,2,'','','','');
 
 /*Table structure for table `comproject` */
 
@@ -711,7 +728,7 @@ CREATE TABLE `comproject` (
 
 /*Data for the table `comproject` */
 
-insert  into `comproject`(`projectID`,`projectName`,`engName`,`memo`,`mergeOutState`,`invalidDate`) values ('001','项目1','12','32',NULL,NULL);
+insert  into `comproject`(`projectID`,`projectName`,`engName`,`memo`,`mergeOutState`,`invalidDate`) values ('001','项目1','12','32',NULL,NULL),('002','项目02',NULL,NULL,NULL,NULL);
 
 /*Table structure for table `comstdunit` */
 
@@ -727,7 +744,7 @@ CREATE TABLE `comstdunit` (
 
 /*Data for the table `comstdunit` */
 
-insert  into `comstdunit`(`UnitID`,`UnitName`,`EngName`,`Memo`,`MergeOutState`) values ('001','克','ke','无',NULL),('002','吨','dun','无',NULL);
+insert  into `comstdunit`(`UnitID`,`UnitName`,`EngName`,`Memo`,`MergeOutState`) values ('001','克','ke','无',NULL),('002','吨','dun','无',NULL),('01','台','pcs','',0),('02','件','','',0),('03','条','','',0),('04','块','pcs','',0),('05','个','','',0),('06','片','','',0),('07','幢','','',0),('08','辆','','',0),('09','皮','','',0);
 
 /*Table structure for table `comtaxitems` */
 

@@ -100,7 +100,6 @@
         <result column="CAllAmt" property="CAllAmt" />
         <result column="NWeight" property="NWeight" />
         <result column="GWeight" property="GWeight" />
-        <result column="Long" property="Long" />
         <result column="LUnit" property="LUnit" />
         <result column="Width" property="Width" />
         <result column="Hight" property="Hight" />
@@ -113,11 +112,21 @@
         <result column="MEAMTUnit" property="MEAMTUnit" />
         <result column="MEAMT" property="meamt" />
         <result column="TaxItemsID" property="TaxItemsID" />
+        <result column="doesItIncludeTax" property="doesItIncludeTax" />
+        <result column="CSafeAllstk" property="CSafeAllstk" />
+        <result column="BAllAmt" property="BAllAmt" />
+        <result column="CCurrStock" property="CCurrStock" />
+        <result column="BAllCost" property="BAllCost" />
+        <result column="CAllCost" property="CAllCost" />
+        <result column="COutStockDay" property="COutStockDay" />
+        <result column="CInStockDay" property="CInStockDay" />
+        <result column="invaliDate" property="invaliDate" />
+        <result column="cstdCost" property="cstdCost" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        ProdID, FOBCurrID, CAvgCost, SubID, ClassID, BarCodeID, UnitID, Unit, ProdName, ProdSize, EngName, CurrID, SuggestPrice, SalesPriceA, SalesPriceB, SalesPriceC, SalesPriceD, SalesPriceE, StdPrice, ConverUnit, ConverRate, PackAmt1, PackAmt2, PackUnit1, PackUnit2, InventoryID, BusiTaxRate, Excise, ImpTaxRate, BatchUsed, EffectDateUsed, ProdDesc, ProdPic, ProdForm, BaseInc, MinPurch, SafeStock, AdvanceDays, MaterialWare, OverReceRate, PurchPolicy, MajorSupplier, BOutStockDay, BInStockDay, BPurchDate, BSalesDate, SluggishDays, LatestIndate, LatestOutDate, LatestPurchDate, LatestSalesDate, StopDate, Main_Des, CCC_CODE, EngUnit, FOBPrice, CY20, CY40, InPackAmt, OutPackAmt, VolumeUnit, Volume, NetWeight, GrossWeigh, BAvgCost, BStdCost, MergeOutState, IsCheck, CTotalCost, InvoProdName, DefValidDay, ValidDateUsed, BackTaxRate, DataVer, MoreRate, UDef1, UDef2, RepairTerm, PriceOfTax, InsurRate, InsurRateEx, BTotalCost, HQ40, CY45, PerDays, StdUnitID, StdUnitName, SafeQty, BSalesBackDate, BInOtherDate, BPurBackDate, BOutOtherDate, StdCost, CAllAmt, NWeight, GWeight, Long, LUnit, Width, Hight, MVolume, ProdBigType, InPackUnit, OutPackUnit, NetWeightUnit, GrossWeightUnit, MEAMTUnit, MEAMT, TaxItemsID
+        ProdID, FOBCurrID, CAvgCost, SubID, ClassID, BarCodeID, UnitID, Unit, ProdName, ProdSize, EngName, CurrID, SuggestPrice, SalesPriceA, SalesPriceB, SalesPriceC, SalesPriceD, SalesPriceE, StdPrice, ConverUnit, ConverRate, PackAmt1, PackAmt2, PackUnit1, PackUnit2, InventoryID, BusiTaxRate, Excise, ImpTaxRate, BatchUsed, EffectDateUsed, ProdDesc, ProdPic, ProdForm, BaseInc, MinPurch, SafeStock, AdvanceDays, MaterialWare, OverReceRate, PurchPolicy, MajorSupplier, BOutStockDay, BInStockDay, BPurchDate, BSalesDate, SluggishDays, LatestIndate, LatestOutDate, LatestPurchDate, LatestSalesDate, StopDate, Main_Des, CCC_CODE, EngUnit, FOBPrice, CY20, CY40, InPackAmt, OutPackAmt, VolumeUnit, Volume, NetWeight, GrossWeigh, BAvgCost, BStdCost, MergeOutState, IsCheck, CTotalCost, InvoProdName, DefValidDay, ValidDateUsed, BackTaxRate, DataVer, MoreRate, UDef1, UDef2, RepairTerm, PriceOfTax, InsurRate, InsurRateEx, BTotalCost, HQ40, CY45, PerDays, StdUnitID, StdUnitName, SafeQty, BSalesBackDate, BInOtherDate, BPurBackDate, BOutOtherDate, StdCost, CAllAmt, NWeight, GWeight, LUnit, Width, Hight, MVolume, ProdBigType, InPackUnit, OutPackUnit, NetWeightUnit, GrossWeightUnit, MEAMTUnit, MEAMT, TaxItemsID, doesItIncludeTax, CSafeAllstk, BAllAmt, CCurrStock, BAllCost, CAllCost, COutStockDay, CInStockDay, invaliDate, cstdCost
     </sql>
 
 </mapper>
