@@ -52,5 +52,9 @@
     <sql id="Base_Column_List">
         flag, billNo, billDate, customerID, dueTo, custAddres, billStyle, salesMan, currID, formalCust, validDate, departID, maker, permitter, detail, isTrans, sumBTaxAmt, taxType, sumTax, sumQty, billStatus, mergeOutState, linkMan, linkTelephone, priceOfTax, gatherStyle, gatherDelay, checkStyle, checkDelay, prepayDay, encashDay, accMonth, makerID, permitterID, signBack, hasCheck, sumAmtATax, localTotal, localTax, totalErrAmount, mlSumBTaxAmt, mlSumAmtATax
     </sql>
+    
+    <select id="query_num" resultType="java.lang.String" >
+    	SELECT (`billNo`+1) FROM `smlordbillmain` WHERE `flag`=#{flag} AND `billDate`=#{date} ORDER BY `billno` DESC LIMIT 1
+    </select>
 
 </mapper>

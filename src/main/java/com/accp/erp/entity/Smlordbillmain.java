@@ -10,6 +10,7 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * <p>
@@ -57,10 +58,16 @@ public class Smlordbillmain extends Model<Smlordbillmain> {
     @ApiModelProperty(value = "业务员编号")
     @TableField("salesMan")
     private String salesMan;
+    
+    
 
     @ApiModelProperty(value = "币别")
     @TableField("currID")
     private String currID;
+    
+    @ApiModelProperty(value = "汇率")
+    @TableField("exchrRate")
+    private String exchrRate;
 
     @ApiModelProperty(value = "正式客户")
     @TableField("formalCust")
@@ -190,7 +197,14 @@ public class Smlordbillmain extends Model<Smlordbillmain> {
     @ApiModelProperty(value = "含税金额本位币合计")
     @TableField("mlSumAmtATax")
     private Float mlSumAmtATax;
+    
+    //明细表集合
+    @TableField(exist=false)
+    private List<Smlordbillsub> subList;
 
+    //客户对象
+    @TableField(exist=false)
+    private Comcustomer comcustomer;
 
     public static final String FLAG = "flag";
 

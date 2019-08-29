@@ -1,5 +1,9 @@
 package com.accp.erp.dao;
 
+import java.util.Date;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.accp.erp.entity.Smlordbillmain;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
@@ -12,5 +16,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2019-08-25
  */
 public interface SmlordbillmainDao extends BaseMapper<Smlordbillmain> {
-
+	
+	String query_num(@Param("flag") Integer flag,@Param("date") String date);
 }

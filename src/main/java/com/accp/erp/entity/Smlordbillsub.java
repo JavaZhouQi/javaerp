@@ -49,6 +49,10 @@ public class Smlordbillsub extends Model<Smlordbillsub> {
     @ApiModelProperty(value = "物料编号")
     @TableField("prodID")
     private String prodID;
+    
+    //物料对象
+    @TableField(exist=false)
+    private Object prod;
 
     @ApiModelProperty(value = "物料名称")
     @TableField("prodName")
