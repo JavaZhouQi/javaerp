@@ -2,10 +2,10 @@ package com.accp.erp.entity;
 
 import java.math.BigDecimal;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
-import java.time.LocalDate;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import io.swagger.annotations.ApiModel;
@@ -15,7 +15,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author zq
@@ -147,7 +147,7 @@ public class Comcustomer extends Model<Comcustomer> {
     private String MemberCodeNo;
 
     @TableField("MembercodeDate")
-    private LocalDate MembercodeDate;
+    private Date MembercodeDate;
 
     @TableField("IdentityNO")
     private String IdentityNO;
@@ -186,16 +186,16 @@ public class Comcustomer extends Model<Comcustomer> {
     private Integer InvoTax;
 
     @TableField("LastVisitDate")
-    private LocalDate LastVisitDate;
+    private Date LastVisitDate;
 
     @TableField("BookVisitDate")
-    private LocalDate BookVisitDate;
+    private Date BookVisitDate;
 
     @TableField("UsePerms")
     private Boolean UsePerms;
 
     @TableField("BuildUpDate")
-    private LocalDate BuildUpDate;
+    private Date BuildUpDate;
 
     @TableField("LevelID")
     private String LevelID;
@@ -207,7 +207,7 @@ public class Comcustomer extends Model<Comcustomer> {
     private String LeaderID;
 
     @TableField("BeginStageDate")
-    private LocalDate BeginStageDate;
+    private Date BeginStageDate;
 
     @TableField("BargainAmt")
     private BigDecimal BargainAmt;
@@ -222,10 +222,10 @@ public class Comcustomer extends Model<Comcustomer> {
     private String InvoTypeID;
 
     @TableField("firstTradeDate")
-    private LocalDate firstTradeDate;
+    private Date firstTradeDate;
 
     @TableField("earliestTradeDate")
-    private LocalDate earliestTradeDate;
+    private Date earliestTradeDate;
 
     @TableField("BankId")
     private String BankId;
@@ -234,13 +234,13 @@ public class Comcustomer extends Model<Comcustomer> {
     private String PriceRank;
 
     @TableField("latelyTradeDate")
-    private LocalDate latelyTradeDate;
+    private Date latelyTradeDate;
 
     @TableField("latelyReturnDate")
-    private LocalDate latelyReturnDate;
+    private Date latelyReturnDate;
 
     @TableField("finalTradeDate")
-    private LocalDate finalTradeDate;
+    private Date finalTradeDate;
 
     @TableField("amountQuota")
     private BigDecimal amountQuota;

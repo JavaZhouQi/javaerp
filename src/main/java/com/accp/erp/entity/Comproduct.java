@@ -2,6 +2,7 @@ package com.accp.erp.entity;
 
 import java.math.BigDecimal;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import java.time.LocalDate;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
@@ -16,7 +17,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author zq
- * @since 2019-08-15
+ * @since 2019-08-27
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -153,34 +154,34 @@ public class Comproduct extends Model<Comproduct> {
     private String MajorSupplier;
 
     @TableField("BOutStockDay")
-    private Integer BOutStockDay;
+    private LocalDate BOutStockDay;
 
     @TableField("BInStockDay")
-    private Integer BInStockDay;
+    private LocalDate BInStockDay;
 
     @TableField("BPurchDate")
-    private Integer BPurchDate;
+    private LocalDate BPurchDate;
 
     @TableField("BSalesDate")
-    private Integer BSalesDate;
+    private LocalDate BSalesDate;
 
     @TableField("SluggishDays")
     private Integer SluggishDays;
 
     @TableField("LatestIndate")
-    private Integer LatestIndate;
+    private LocalDate LatestIndate;
 
     @TableField("LatestOutDate")
-    private Integer LatestOutDate;
+    private LocalDate LatestOutDate;
 
     @TableField("LatestPurchDate")
-    private Integer LatestPurchDate;
+    private LocalDate LatestPurchDate;
 
     @TableField("LatestSalesDate")
-    private Integer LatestSalesDate;
+    private LocalDate LatestSalesDate;
 
     @TableField("StopDate")
-    private Integer StopDate;
+    private LocalDate StopDate;
 
     @TableField("Main_Des")
     private String mainDes;
@@ -288,19 +289,19 @@ public class Comproduct extends Model<Comproduct> {
     private String StdUnitName;
 
     @TableField("SafeQty")
-    private BigDecimal SafeQty;
+    private Integer SafeQty;
 
     @TableField("BSalesBackDate")
-    private Integer BSalesBackDate;
+    private LocalDate BSalesBackDate;
 
     @TableField("BInOtherDate")
-    private Integer BInOtherDate;
+    private LocalDate BInOtherDate;
 
     @TableField("BPurBackDate")
-    private Integer BPurBackDate;
+    private LocalDate BPurBackDate;
 
     @TableField("BOutOtherDate")
-    private Integer BOutOtherDate;
+    private LocalDate BOutOtherDate;
 
     @TableField("StdCost")
     private Double StdCost;
@@ -313,9 +314,6 @@ public class Comproduct extends Model<Comproduct> {
 
     @TableField("GWeight")
     private BigDecimal GWeight;
-
-    @TableField("Long")
-    private BigDecimal Long;
 
     @TableField("LUnit")
     private String LUnit;
@@ -352,6 +350,36 @@ public class Comproduct extends Model<Comproduct> {
 
     @TableField("TaxItemsID")
     private String TaxItemsID;
+
+    @TableField("doesItIncludeTax")
+    private String doesItIncludeTax;
+
+    @TableField("CSafeAllstk")
+    private Integer CSafeAllstk;
+
+    @TableField("BAllAmt")
+    private Integer BAllAmt;
+
+    @TableField("CCurrStock")
+    private Integer CCurrStock;
+
+    @TableField("BAllCost")
+    private Double BAllCost;
+
+    @TableField("CAllCost")
+    private Double CAllCost;
+
+    @TableField("COutStockDay")
+    private LocalDate COutStockDay;
+
+    @TableField("CInStockDay")
+    private LocalDate CInStockDay;
+
+    @TableField("invaliDate")
+    private LocalDate invaliDate;
+
+    @TableField("cstdCost")
+    private Double cstdCost;
 
 
     public static final String PRODID = "ProdID";
@@ -546,8 +574,6 @@ public class Comproduct extends Model<Comproduct> {
 
     public static final String GWEIGHT = "GWeight";
 
-    public static final String LONG = "Long";
-
     public static final String LUNIT = "LUnit";
 
     public static final String WIDTH = "Width";
@@ -571,6 +597,26 @@ public class Comproduct extends Model<Comproduct> {
     public static final String MEAMT = "MEAMT";
 
     public static final String TAXITEMSID = "TaxItemsID";
+
+    public static final String DOESITINCLUDETAX = "doesItIncludeTax";
+
+    public static final String CSAFEALLSTK = "CSafeAllstk";
+
+    public static final String BALLAMT = "BAllAmt";
+
+    public static final String CCURRSTOCK = "CCurrStock";
+
+    public static final String BALLCOST = "BAllCost";
+
+    public static final String CALLCOST = "CAllCost";
+
+    public static final String COUTSTOCKDAY = "COutStockDay";
+
+    public static final String CINSTOCKDAY = "CInStockDay";
+
+    public static final String INVALIDATE = "invaliDate";
+
+    public static final String CSTDCOST = "cstdCost";
 
     @Override
     protected Serializable pkVal() {

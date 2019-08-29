@@ -25,4 +25,14 @@
         SELECT DISTINCT LEFT(${coumn},${size}) FROM ${table}
     </select>
 
+    <select id="myFindPage" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_users
+        <where>
+            ${ew.sqlSegment}
+        </where>
+    </select>
+
+
 </mapper>
