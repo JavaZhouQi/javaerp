@@ -71,12 +71,11 @@ public class ComcustomerController {
      * 根据 id 和 flag 查询
      */
     @RequestMapping("/findOne")
-    public Result findOne(){
-//        QueryWrapper wrapper = new QueryWrapper();
-//        wrapper.eq(Comcustomer.ID,comcustomer.getId());
-//        wrapper.eq(Comcustomer.FLAG,comcustomer.getFlag());
-
-        return new Result(ResultCode.SUCCESS,comcustomerService.findByIdAndFlag(1,001));
+    public Result findOne(@RequestBody Comcustomer comcustomer){
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq(Comcustomer.ID,comcustomer.getId());
+        wrapper.eq(Comcustomer.FLAG,comcustomer.getFlag());
+        return new Result(ResultCode.SUCCESS,comcustomerService.getOne(wrapper));
     }
 
     /**
