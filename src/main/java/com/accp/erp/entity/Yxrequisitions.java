@@ -10,6 +10,9 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * <p>
@@ -29,8 +32,9 @@ public class Yxrequisitions extends Model<Yxrequisitions> {
 
     @TableId("billNO")
     private String billNO;
-
+    
     @TableField("billDate")
+    @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
     private LocalDate billDate;
 
     @TableField("billStyleID")
@@ -69,6 +73,9 @@ public class Yxrequisitions extends Model<Yxrequisitions> {
     private String data4;
 
     private String data5;
+    
+    @TableField(exist=false)
+    private List<Yxrequisitionsdetail> yxrequisitionsdetails;
 
 
     public static final String BILLNO = "billNO";

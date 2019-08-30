@@ -1,6 +1,7 @@
 package com.accp.erp.service.impl;
 
 import com.accp.erp.dao.YxrequisitionsdetailDao;
+import com.accp.erp.entity.Yxrequisitions;
 import com.accp.erp.entity.Yxrequisitionsdetail;
 import com.accp.erp.service.IYxrequisitionsdetailService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -16,5 +17,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class YxrequisitionsdetailServiceImpl extends ServiceImpl<YxrequisitionsdetailDao, Yxrequisitionsdetail> implements IYxrequisitionsdetailService {
+
+	@Override
+	public int insertRDs(Yxrequisitions yxrequisitions) {
+		// TODO Auto-generated method stub
+		System.out.println(yxrequisitions);
+		return baseMapper.insertRD(yxrequisitions);
+	}
 
 }

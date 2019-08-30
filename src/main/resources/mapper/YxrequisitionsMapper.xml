@@ -27,5 +27,87 @@
     <sql id="Base_Column_List">
         billNO, billDate, billStyleID, billStyleName, billStatus, salesID, salesName, departID, departName, maker, permitter, remark, data1, data2, data3, data4, data5
     </sql>
-
+	
+	<select id="selectLikeBillNO" resultMap="BaseResultMap">
+		SELECT <include refid="Base_Column_List"/> FROM `yxrequisitions` WHERE `billNO` LIKE concat(#{billNO},'%') ORDER BY `billNO` DESC LIMIT 0,1
+	</select>
+	<insert id="insertDetails" useGeneratedKeys="true" keyProperty="billNO" parameterType="com.accp.erp.entity.Yxrequisitions" >
+		INSERT INTO `yxrequisitions`
+		<trim prefix="(" suffix=")" suffixOverrides="," >
+	      <if test="billNO != null" >
+	        billNO,
+	      </if>
+	      <if test="billDate != null" >
+	        billDate,
+	      </if>
+	      <if test="billStyleID != null" >
+	        billStyleID,
+	      </if>
+	      <if test="billStyleName != null" >
+	        billStyleName,
+	      </if>
+	      <if test="billStatus != null" >
+	        billStatus,
+	      </if>
+	      <if test="salesID != null" >
+	        salesID,
+	      </if>
+	      <if test="salesName != null" >
+	        salesName,
+	      </if>
+	      <if test="departID != null" >
+	        departID,
+	      </if>
+	      <if test="departName != null" >
+	        departName,
+	      </if>
+	      <if test="maker != null" >
+	        maker,
+	      </if>
+	      <if test="permitter != null" >
+	        permitter,
+	      </if>
+	      <if test="remark != null" >
+	        remark,
+	      </if>
+	    </trim>
+	    <trim prefix="values (" suffix=")" suffixOverrides="," >
+	      <if test="billNO != null" >
+	        #{billNO,jdbcType=VARCHAR},
+	      </if>
+	      <if test="billDate != null" >
+	        #{billDate,jdbcType=DATE},
+	      </if>
+	      <if test="billStyleID != null" >
+	        #{billStyleID,jdbcType=VARCHAR},
+	      </if>
+	      <if test="billStyleName != null" >
+	        #{billStyleName,jdbcType=VARCHAR},
+	      </if>
+	      <if test="billStatus != null" >
+	        #{billStatus,jdbcType=VARCHAR},
+	      </if>
+	      <if test="salesID != null" >
+	        #{salesID,jdbcType=VARCHAR},
+	      </if>
+	      <if test="salesName != null" >
+	        #{salesName,jdbcType=VARCHAR},
+	      </if>
+	      <if test="departID != null" >
+	        #{departID,jdbcType=VARCHAR},
+	      </if>
+	      <if test="departName != null" >
+	        #{departName,jdbcType=VARCHAR},
+	      </if>
+	      <if test="maker != null" >
+	        #{maker,jdbcType=VARCHAR},
+	      </if>
+	      <if test="permitter != null" >
+	        #{permitter,jdbcType=VARCHAR},
+	      </if>
+	      <if test="remark != null" >
+	        #{remark,jdbcType=VARCHAR},
+	      </if>
+	    </trim>
+	</insert>
 </mapper>

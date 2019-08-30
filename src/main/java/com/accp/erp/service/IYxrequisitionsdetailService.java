@@ -1,5 +1,6 @@
 package com.accp.erp.service;
 
+import com.accp.erp.entity.Yxrequisitions;
 import com.accp.erp.entity.Yxrequisitionsdetail;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -12,5 +13,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2019-08-25
  */
 public interface IYxrequisitionsdetailService extends IService<Yxrequisitionsdetail> {
-
+	public int insertRDs(Yxrequisitions yxrequisitions);
 }
