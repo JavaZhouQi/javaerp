@@ -1,16 +1,15 @@
 package com.accp.erp.entity;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import java.time.LocalDate;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableField;
+import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
-
-import java.io.Serializable;
-import java.time.LocalDate;
 
 /**
  * <p>
@@ -18,7 +17,7 @@ import java.time.LocalDate;
  * </p>
  *
  * @author zq
- * @since 2019-08-25
+ * @since 2019-08-30
  */
 @Data
 @EqualsAndHashCode(callSuper = false)

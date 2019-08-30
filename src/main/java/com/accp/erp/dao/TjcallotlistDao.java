@@ -1,6 +1,6 @@
 package com.accp.erp.dao;
 
-import com.accp.erp.entity.Tjcinventorybook;
+import com.accp.erp.entity.Tjcallotlist;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author zq
  * @since 2019-08-30
  */
-public interface TjcinventorybookDao extends BaseMapper<Tjcinventorybook> {
+public interface TjcallotlistDao extends BaseMapper<Tjcallotlist> {
 
 }

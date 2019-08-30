@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2019-08-30
  */
 @RestController
-@RequestMapping("/tjcallot")
-public class TjcallotController {
+@RequestMapping("/tjcallotlist")
+public class TjcallotlistController {
 
 }
 
