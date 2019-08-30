@@ -22,4 +22,13 @@
         WHERE `user_id` = #{uid}
     </select>
 
+    <select id="myFindPage" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_roles
+        <where>
+            ${ew.sqlSegment}
+        </where>
+    </select>
+
 </mapper>

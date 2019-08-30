@@ -1,19 +1,18 @@
 package com.accp.erp.entity;
 
 import com.baomidou.mybatisplus.extension.activerecord.Model;
-import java.time.LocalDate;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+import java.util.Date;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author zq
@@ -55,10 +54,10 @@ public class Comperson extends Model<Comperson> {
     private String EngProfTitle;
 
     @TableField("Birthday")
-    private LocalDate Birthday;
+    private Date Birthday;
 
     @TableField("OnJobDate")
-    private LocalDate OnJobDate;
+    private Date OnJobDate;
 
     @TableField("Nationality")
     private String Nationality;
@@ -70,7 +69,7 @@ public class Comperson extends Model<Comperson> {
     private String FamilyReg;
 
     @TableField("LeaveJobDate")
-    private LocalDate LeaveJobDate;
+    private Date LeaveJobDate;
 
     @TableField("MaritalStatus")
     private Integer MaritalStatus;
@@ -124,12 +123,12 @@ public class Comperson extends Model<Comperson> {
     private Integer humschoolId;
 
     @TableField("maturityDate")
-    private LocalDate maturityDate;
+    private Date maturityDate;
 
     @TableField("academicDegree")
     private String academicDegree;
 
-    private LocalDate dateofentry;
+    private Date dateofentry;
 
     @TableField("graduationSchool")
     private String graduationSchool;
@@ -139,15 +138,15 @@ public class Comperson extends Model<Comperson> {
     private String major;
 
     @TableField("Startingdateofcontract")
-    private LocalDate Startingdateofcontract;
+    private Date Startingdateofcontract;
 
     private String englishlevel;
 
     @TableField("TerminationDateofContract")
-    private LocalDate TerminationDateofContract;
+    private Date TerminationDateofContract;
 
     @TableField("Dateofphysicalexamination")
-    private LocalDate Dateofphysicalexamination;
+    private Date Dateofphysicalexamination;
 
     private String emergencycontact;
 
