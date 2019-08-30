@@ -56,5 +56,5 @@
     <select id="query_num" resultType="java.lang.String" >
     	SELECT (`billNo`+1) FROM `smlordbillmain` WHERE `flag`=#{flag} AND `billDate`=#{date} ORDER BY `billno` DESC LIMIT 1
     </select>
-
+	
 </mapper>

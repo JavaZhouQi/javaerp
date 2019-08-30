@@ -35,5 +35,13 @@ public class SmlordbillmainController {
 		return new Result(ResultCode.SUCCESS,num );
 //		return null;
 	}
+	
+	@PostMapping("/add")
+	private Result add(@RequestBody Smlordbillmain smlordbillmain) {
+		boolean b=service.add(smlordbillmain);
+		return new Result(ResultCode.SUCCESS,b );
+//		return null;
+	}
+	
 }
 

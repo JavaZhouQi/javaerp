@@ -15,4 +15,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ISmlordbillmainService extends IService<Smlordbillmain> {
 	String query_num(Integer flag,String date);
+	
+	boolean add(Smlordbillmain smlordbillmain);
 }

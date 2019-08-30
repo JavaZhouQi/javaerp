@@ -51,4 +51,5 @@
         flag, billNo, rowNO, serNO, billDate, prodID, prodName, prodSize, quantity, unit, oldPrice, price, amount, taxRate, taxAmt, mlTaxAmt, discount, isGift, itemRemark, detail, preInDate, needExamine, arrangeNO, fromRow, fromNO, tranType, qtyRemain, converRate, outQty, custBillNo, mark, mlAmount, hasCheck, sPrice, sQuantity, unitRelation, sUnitID, eQuantity, eUnitID, eUnitRelation
     </sql>
 
+
 </mapper>
