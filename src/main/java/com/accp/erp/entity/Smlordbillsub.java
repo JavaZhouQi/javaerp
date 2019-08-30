@@ -50,9 +50,6 @@ public class Smlordbillsub extends Model<Smlordbillsub> {
     @TableField("prodID")
     private String prodID;
     
-    //物料对象
-    @TableField(exist=false)
-    private Object prod;
 
     @ApiModelProperty(value = "物料名称")
     @TableField("prodName")
@@ -182,6 +179,9 @@ public class Smlordbillsub extends Model<Smlordbillsub> {
     @ApiModelProperty(value = "辅助换算率")
     @TableField("eUnitRelation")
     private Float eUnitRelation;
+    //物料对象
+    @TableField(exist=false)
+    private Comproduct comproduct;
 
 
     public static final String FLAG = "flag";

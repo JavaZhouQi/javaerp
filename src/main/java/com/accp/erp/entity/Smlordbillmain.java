@@ -12,6 +12,9 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.junit.experimental.theories.FromDataPoints;
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * <p>
  * 销售主表
@@ -35,6 +38,7 @@ public class Smlordbillmain extends Model<Smlordbillmain> {
     @TableField("billNo")
     private String billNo;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd'T'")
     @ApiModelProperty(value = "单据日期")
     @TableField("billDate")
     private LocalDate billDate;
@@ -59,15 +63,14 @@ public class Smlordbillmain extends Model<Smlordbillmain> {
     @TableField("salesMan")
     private String salesMan;
     
-    
+    @ApiModelProperty(value = "审核状态")
+    @TableField("auditStatus")
+    private Integer auditStatus;
 
     @ApiModelProperty(value = "币别")
     @TableField("currID")
     private String currID;
     
-    @ApiModelProperty(value = "汇率")
-    @TableField("exchrRate")
-    private String exchrRate;
 
     @ApiModelProperty(value = "正式客户")
     @TableField("formalCust")
@@ -205,7 +208,9 @@ public class Smlordbillmain extends Model<Smlordbillmain> {
     //客户对象
     @TableField(exist=false)
     private Comcustomer comcustomer;
-
+    
+    public static final String AUDITSTATUS = "auditStatus";
+    
     public static final String FLAG = "flag";
 
     public static final String BILLNO = "billNo";

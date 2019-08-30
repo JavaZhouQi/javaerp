@@ -48,6 +48,7 @@ public class SmlordbillmainServiceImpl extends ServiceImpl<SmlordbillmainDao, Sm
 		if(bol>0) {
 			for (Smlordbillsub s : smlordbillmain.getSubList()) {
 				s.setBillNo(smlordbillmain.getBillNo());
+				s.setFlag(smlordbillmain.getFlag());
 				s.setBillDate(smlordbillmain.getBillDate());
 				subDao.insert(s);
 			}
