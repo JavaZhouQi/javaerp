@@ -1,6 +1,7 @@
 package com.accp.erp.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
@@ -36,7 +37,7 @@ public class SysRoles extends Model<SysRoles> {
     private String description;
 
     private Boolean available;
-
+    @TableField(exist = false)
     private List<SysPermissions> permissionsList;
 
     public static final String ID = "id";

@@ -1,7 +1,11 @@
 package com.accp.erp.dao;
 
 import com.accp.erp.entity.SysRoles;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -14,5 +18,8 @@ import java.util.List;
  * @since 2019-08-04
  */
 public interface SysRolesDao extends BaseMapper<SysRoles> {
+
     List<SysRoles> findByUid(Integer uid);
+
+    IPage<SysRoles> myFindPage(Page page, @Param("ew") Wrapper<SysRoles> wrapper);
 }
