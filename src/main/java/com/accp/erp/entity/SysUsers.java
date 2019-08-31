@@ -43,6 +43,9 @@ public class SysUsers extends Model<SysUsers> {
     @TableField(exist=false)
     private List<SysRoles> rolesList;
 
+    @TableField(exist=false)
+    private List<Long> rolesIdList;
+
     public static final String ID = "id";
 
     public static final String USERNAME = "username";

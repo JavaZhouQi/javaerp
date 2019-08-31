@@ -1,6 +1,6 @@
 package com.accp.erp.service;
 
-import com.accp.erp.entity.Tjcmaterialdull;
+import com.accp.erp.entity.Tjcallotlist;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author zq
  * @since 2019-08-30
  */
-public interface ITjcmaterialdullService extends IService<Tjcmaterialdull> {
+public interface ITjcallotlistService extends IService<Tjcallotlist> {
 
 }

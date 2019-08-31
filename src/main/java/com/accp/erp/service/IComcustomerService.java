@@ -18,5 +18,8 @@ import java.util.List;
  * @since 2019-08-22
  */
 public interface IComcustomerService extends IService<Comcustomer> {
+
     IPage<Comcustomer> select(Page page, Wrapper<Comcustomer> wrapper);
+    // 根据 flag 和 id 查询
+    Comcustomer findByIdAndFlag(Integer flag,Integer id);
 }
