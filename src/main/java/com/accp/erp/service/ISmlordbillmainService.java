@@ -17,4 +17,6 @@ public interface ISmlordbillmainService extends IService<Smlordbillmain> {
 	String query_num(Integer flag,String date);
 	
 	boolean add(Smlordbillmain smlordbillmain);
+	
+	boolean remove(String  billNo);
 }

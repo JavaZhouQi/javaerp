@@ -5,6 +5,7 @@ import com.accp.erp.dao.SmlordbillsubDao;
 import com.accp.erp.entity.Smlordbillmain;
 import com.accp.erp.entity.Smlordbillsub;
 import com.accp.erp.service.ISmlordbillmainService;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
 import java.text.ParseException;
@@ -55,6 +56,16 @@ public class SmlordbillmainServiceImpl extends ServiceImpl<SmlordbillmainDao, Sm
 		}
 		
 		return bol>0;
+	}
+	@Override
+	public boolean remove(String billNo) {
+		QueryWrapper<Smlordbillmain> queryWrapper=new QueryWrapper<>();
+		queryWrapper.eq(Smlordbillmain.BILLNO, billNo);
+		int bool=baseMapper.delete(queryWrapper);
+		QueryWrapper<Smlordbillsub> queryWrapper2=new QueryWrapper<>();
+		queryWrapper2.eq(Smlordbillsub.BILLNO, billNo);
+		subDao.delete(queryWrapper2);
+		return bool>0;
 	}
 	
 	

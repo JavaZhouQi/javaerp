@@ -51,6 +51,15 @@ public class SmlordbillmainController {
 //		return null;
 	}
 	
+	@PostMapping("/remove")
+	private Result remove(String billNo) {
+		QueryWrapper<Smlordbillmain> queryWrapper=new QueryWrapper<>();
+		queryWrapper.eq(Smlordbillmain.BILLNO, billNo);
+		boolean b=service.remove(billNo);
+		return new Result(ResultCode.SUCCESS,b );
+//		return null;
+	}
+	
 	/**
      * 分页查询
      */
