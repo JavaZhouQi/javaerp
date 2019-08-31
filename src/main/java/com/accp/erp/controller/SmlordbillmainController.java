@@ -50,12 +50,19 @@ public class SmlordbillmainController {
 		return new Result(ResultCode.SUCCESS,b );
 //		return null;
 	}
+	@PostMapping("/update")
+	private Result update(@RequestBody Smlordbillmain smlordbillmain) {
+		System.out.println("拿到的对象"+JSON.toJSONString(smlordbillmain));
+		boolean b=service.updateSmlordbillmain(smlordbillmain);
+		return new Result(ResultCode.SUCCESS,b );
+//		return null;
+	}
 	
 	@PostMapping("/remove")
-	private Result remove(String billNo) {
+	private Result remove(String billNo,Integer flag) {
 		QueryWrapper<Smlordbillmain> queryWrapper=new QueryWrapper<>();
 		queryWrapper.eq(Smlordbillmain.BILLNO, billNo);
-		boolean b=service.remove(billNo);
+		String b=service.remove(billNo,flag);
 		return new Result(ResultCode.SUCCESS,b );
 //		return null;
 	}
@@ -68,21 +75,41 @@ public class SmlordbillmainController {
                            @RequestParam(defaultValue = "10")Integer size,
                            @RequestBody Smlordbillmain smlordbillmain){
         QueryWrapper wrapper = new QueryWrapper();
-        if (smlordbillmain.getAuditStatus() != null) {
-            wrapper.eq(Smlordbillmain.AUDITSTATUS,smlordbillmain.getAuditStatus());
-        }
-        if (smlordbillmain.getBillDate() != null) {
-            wrapper.like(smlordbillmain.BILLDATE,smlordbillmain.getBillDate());
-        }
+//        if (smlordbillmain.getAuditStatus() != null) {
+//            wrapper.eq(Smlordbillmain.AUDITSTATUS,smlordbillmain.getAuditStatus());
+//        }
+//        if (smlordbillmain.getBillDate() != null) {
+//            wrapper.like(smlordbillmain.BILLDATE,smlordbillmain.getBillDate());
+//        }
 //        if (smlordbillmain.getEngName() != null) {
 //            wrapper.like(Comproduct.ENGNAME,smlordbillmain.getEngName());
 //        }
 
-        IPage<Smlordbillmain> page = service.page(new Page<>(current,size),wrapper);
+        IPage<Smlordbillmain> page = service.select(new Page<>(current,size),wrapper);
         PageResult pageResult = new PageResult(page.getTotal(),page.getRecords());
 
         return new Result(ResultCode.SUCCESS,pageResult);
 	
     }
+    
+    @RequestMapping("/queryOne")
+    public Result queryOne(@RequestBody Smlordbillmain smlordbillmain){
+        return new Result(ResultCode.SUCCESS,service.queryOne(smlordbillmain.getBillNo(), smlordbillmain.getFlag()));
+//        return null;
+    }
+    
+    //审核
+    @RequestMapping("/audit")
+    public Result audit(String billNo,Integer flag ,Integer auditStatus){
+    		Smlordbillmain smlordbillmain=new Smlordbillmain();
+    		smlordbillmain.setAuditStatus(auditStatus);
+    		QueryWrapper<Smlordbillmain> updateWrapper=new QueryWrapper<>();
+    		updateWrapper.eq(Smlordbillmain.FLAG, flag);
+    		updateWrapper.eq(Smlordbillmain.BILLNO, billNo);
+    		boolean bool= service.update(smlordbillmain, updateWrapper);
+        return new Result(ResultCode.SUCCESS,bool);
+//        return null;
+    }
+    
 }
 
