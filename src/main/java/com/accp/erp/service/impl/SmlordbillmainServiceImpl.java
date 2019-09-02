@@ -112,6 +112,14 @@ public class SmlordbillmainServiceImpl extends ServiceImpl<SmlordbillmainDao, Sm
 	public IPage<Smlordbillmain> select(Page page, Wrapper<Smlordbillmain> wrapper) {
 		return baseMapper.select(page, wrapper);
 	}
+	@Override
+	public String updateAudit(Smlordbillmain smlordbillmain, QueryWrapper<Smlordbillmain> updateWrapper) {
+		int bol=baseMapper.update(smlordbillmain, updateWrapper);
+		if(bol>0) {
+			return "true";
+		}
+		return null;
+	}
 	
 	
 

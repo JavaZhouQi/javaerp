@@ -106,7 +106,7 @@ public class SmlordbillmainController {
     		QueryWrapper<Smlordbillmain> updateWrapper=new QueryWrapper<>();
     		updateWrapper.eq(Smlordbillmain.FLAG, flag);
     		updateWrapper.eq(Smlordbillmain.BILLNO, billNo);
-    		boolean bool= service.update(smlordbillmain, updateWrapper);
+    		String bool= service.updateAudit(smlordbillmain, updateWrapper);
         return new Result(ResultCode.SUCCESS,bool);
 //        return null;
     }
