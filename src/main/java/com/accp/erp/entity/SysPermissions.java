@@ -1,9 +1,13 @@
 package com.accp.erp.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+import java.security.Permission;
+import java.util.List;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -45,6 +49,10 @@ public class SysPermissions extends Model<SysPermissions> {
 
     private String name;
 
+    private Long pid;
+
+    @TableField(exist = false)
+    private List<SysPermissions> permissionsList;
 
     public static final String ID = "id";
 
@@ -63,6 +71,8 @@ public class SysPermissions extends Model<SysPermissions> {
     public static final String COMPONENT = "component";
 
     public static final String NAME = "name";
+
+    public static final String PID = "pid";
 
     @Override
     protected Serializable pkVal() {

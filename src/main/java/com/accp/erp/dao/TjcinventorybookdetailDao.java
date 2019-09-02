@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author zq
- * @since 2019-08-25
+ * @since 2019-08-30
  */
 public interface TjcinventorybookdetailDao extends BaseMapper<Tjcinventorybookdetail> {
 

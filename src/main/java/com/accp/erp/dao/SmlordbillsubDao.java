@@ -1,5 +1,9 @@
 package com.accp.erp.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.accp.erp.entity.Smlordbillsub;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
@@ -12,5 +16,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2019-08-25
  */
 public interface SmlordbillsubDao extends BaseMapper<Smlordbillsub> {
-
+	
+	List<Smlordbillsub> queryByflagAndBillNo(@Param("billNo") String billNo,@Param("flag") Integer flag);
+	
 }

@@ -120,7 +120,7 @@ public class Comperson extends Model<Comperson> {
     private String PoliticCountenance;
 
     @TableField("humschoolId")
-    private Integer humschoolId;
+    private String humschoolId;
 
     @TableField("maturityDate")
     private Date maturityDate;
