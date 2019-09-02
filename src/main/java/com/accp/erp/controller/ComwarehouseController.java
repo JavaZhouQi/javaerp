@@ -109,5 +109,22 @@ public class ComwarehouseController {
         iComwarehouseService.remove(wrapper);
         return new Result(ResultCode.SUCCESS,"删除成功");
     }
+
+
+    @RequestMapping("/findByTable")
+    public Result findByTable(@RequestBody Comwarehouse comwarehouse){
+        QueryWrapper wrapper = new QueryWrapper();
+        if (comwarehouse.getWareHouseID() != null) {
+            wrapper.like(Comwarehouse.WAREHOUSEID,comwarehouse.getWareHouseID());
+        }
+        if (comwarehouse.getWareHouseName() != null) {
+            wrapper.like(Comwarehouse.WAREHOUSENAME,comwarehouse.getWareHouseName());
+        }
+        if (comwarehouse.getEngName() != null) {
+            wrapper.like(Comwarehouse.ENGNAME,comwarehouse.getEngName());
+        }
+        List list = iComwarehouseService.list(wrapper);
+        return new Result(ResultCode.SUCCESS,list);
+    }
 }
 

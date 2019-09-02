@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -25,4 +26,5 @@ public interface ISysUsersService extends IService<SysUsers> {
 
     IPage<SysUsers> myFindPage(Page page, @Param("ew") Wrapper<SysUsers> wrapper);
 
+    List<HashMap<String,Object>> findByTable(String table, String coumn, String selectName);
 }
