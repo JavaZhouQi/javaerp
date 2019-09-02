@@ -13,11 +13,12 @@
         <result column="icon" property="icon" />
         <result column="component" property="component" />
         <result column="name" property="name" />
+        <result column="pid" property="pid"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, permission, description, available, path, catalog, icon, component, name
+        id, permission, description, available, path, catalog, icon, component, name,pid
     </sql>
 
     <select id="findByRid" resultMap="BaseResultMap">

@@ -66,12 +66,16 @@ public class ComcustomerController {
         List<Comcustomer> list = comcustomerService.list();
         return new Result(ResultCode.SUCCESS,list);
     }
+
     /**
-     * 根据id查询
+     * 根据 id 和 flag 查询
      */
     @RequestMapping("/findOne")
-    public Result findOne(String id){
-        return new Result();
+    public Result findOne(@RequestBody Comcustomer comcustomer){
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq(Comcustomer.ID,comcustomer.getId());
+        wrapper.eq(Comcustomer.FLAG,comcustomer.getFlag());
+        return new Result(ResultCode.SUCCESS,comcustomerService.getOne(wrapper));
     }
 
     /**

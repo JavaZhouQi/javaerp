@@ -10,6 +10,11 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
+
+import org.junit.experimental.theories.FromDataPoints;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * <p>
@@ -34,9 +39,10 @@ public class Smlordbillmain extends Model<Smlordbillmain> {
     @TableField("billNo")
     private String billNo;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd'T'")
     @ApiModelProperty(value = "单据日期")
     @TableField("billDate")
-    private LocalDate billDate;
+    private Date billDate;
 
     @ApiModelProperty(value = "客户编号")
     @TableField("customerID")
@@ -57,10 +63,15 @@ public class Smlordbillmain extends Model<Smlordbillmain> {
     @ApiModelProperty(value = "业务员编号")
     @TableField("salesMan")
     private String salesMan;
+    
+    @ApiModelProperty(value = "审核状态")
+    @TableField("auditStatus")
+    private Integer auditStatus;
 
     @ApiModelProperty(value = "币别")
     @TableField("currID")
     private String currID;
+    
 
     @ApiModelProperty(value = "正式客户")
     @TableField("formalCust")
@@ -68,7 +79,7 @@ public class Smlordbillmain extends Model<Smlordbillmain> {
 
     @ApiModelProperty(value = "有效日期")
     @TableField("validDate")
-    private LocalDate validDate;
+    private Date validDate;
 
     @ApiModelProperty(value = "所属部门")
     @TableField("departID")
@@ -190,8 +201,25 @@ public class Smlordbillmain extends Model<Smlordbillmain> {
     @ApiModelProperty(value = "含税金额本位币合计")
     @TableField("mlSumAmtATax")
     private Float mlSumAmtATax;
+    
+    //明细表集合
+    @TableField(exist=false)
+    private List<Smlordbillsub> subList;
 
+    //客户名称
+    @TableField(exist=false)
+    private String fullName;
+    
+    //客户对象
+    @TableField(exist=false)
+    private Comcustomer comcustomer;
+    
+    public static final String AUDITSTATUS = "auditStatus";
+    
+    
+    public static final String FULLNAME = "fullName";
 
+    
     public static final String FLAG = "flag";
 
     public static final String BILLNO = "billNo";

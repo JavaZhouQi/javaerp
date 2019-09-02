@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  * <p>
@@ -57,6 +58,7 @@ public class SysPermissionsController {
         List<SysPermissions> list = sysPermissionsService.list();
         return new Result(ResultCode.SUCCESS,list);
     }
+
     /**
      * 根据id查询
      */
@@ -73,6 +75,8 @@ public class SysPermissionsController {
         sysPermissionsService.save(sysPermissions);
         return new Result(ResultCode.SUCCESS,"新增成功");
     }
+
+
 
     /**
      * 修改
