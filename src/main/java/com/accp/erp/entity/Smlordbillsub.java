@@ -10,6 +10,7 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * <p>
@@ -44,7 +45,7 @@ public class Smlordbillsub extends Model<Smlordbillsub> {
 
     @ApiModelProperty(value = "单据日期")
     @TableField("billDate")
-    private LocalDate billDate;
+    private Date billDate;
 
     @ApiModelProperty(value = "物料编号")
     @TableField("prodID")

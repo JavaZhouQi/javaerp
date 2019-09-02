@@ -17,6 +17,7 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * <p>
@@ -27,6 +28,7 @@ import org.springframework.stereotype.Service;
  * @since 2019-08-25
  */
 @Service
+@Transactional
 public class SmlordbillmainServiceImpl extends ServiceImpl<SmlordbillmainDao, Smlordbillmain> implements ISmlordbillmainService {
 
 	SimpleDateFormat df=new SimpleDateFormat("yyyyMMdd");
@@ -109,8 +111,8 @@ public class SmlordbillmainServiceImpl extends ServiceImpl<SmlordbillmainDao, Sm
 		return baseMapper.queryOne(billNo, flag);
 	}
 	@Override
-	public IPage<Smlordbillmain> select(Page page, Wrapper<Smlordbillmain> wrapper) {
-		return baseMapper.select(page, wrapper);
+	public IPage<Smlordbillmain> select(Page page, Smlordbillmain smlordbillmain, Wrapper<Smlordbillmain> wrapper) {
+		return baseMapper.select(page,smlordbillmain, wrapper);
 	}
 	@Override
 	public String updateAudit(Smlordbillmain smlordbillmain, QueryWrapper<Smlordbillmain> updateWrapper) {

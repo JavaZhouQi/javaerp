@@ -69,10 +69,13 @@
     <select id="select" resultMap="resultMap">
         SELECT
         <include refid="Base_Column_List" />
-        FROM smlordbillmain
+        FROM smlordbillmain 
         <where>
             ${ew.sqlSegment}
         </where>
+        <if test="smlordbillmain.fullName!=null">
+         	where `customerID`=(SELECT `ID` FROM `comcustomer` WHERE `Flag`=1 AND `FullName` LIKE #{smlordbillmain.fullName})
+        </if>
     </select>
     
     <select id="queryOne" resultMap="resultMapsubList">

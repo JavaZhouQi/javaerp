@@ -1,6 +1,7 @@
 package com.accp.erp.controller;
 
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,9 +37,11 @@ public class SmlordbillmainController {
 	@Autowired
 	ISmlordbillmainService service;
 	
+	SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd");
+	
 	@PostMapping("/querynum")
 	private Result query_num(@RequestBody Smlordbillmain smlordbillmain) {
-		String num=service.query_num(smlordbillmain.getFlag(),smlordbillmain.getBillDate()+"");
+		String num=service.query_num(smlordbillmain.getFlag(),df.format(smlordbillmain.getBillDate()));
 		return new Result(ResultCode.SUCCESS,num );
 //		return null;
 	}
@@ -75,17 +78,23 @@ public class SmlordbillmainController {
                            @RequestParam(defaultValue = "10")Integer size,
                            @RequestBody Smlordbillmain smlordbillmain){
         QueryWrapper wrapper = new QueryWrapper();
-//        if (smlordbillmain.getAuditStatus() != null) {
-//            wrapper.eq(Smlordbillmain.AUDITSTATUS,smlordbillmain.getAuditStatus());
-//        }
-//        if (smlordbillmain.getBillDate() != null) {
-//            wrapper.like(smlordbillmain.BILLDATE,smlordbillmain.getBillDate());
-//        }
-//        if (smlordbillmain.getEngName() != null) {
-//            wrapper.like(Comproduct.ENGNAME,smlordbillmain.getEngName());
-//        }
+        if(smlordbillmain.getFullName()=="") {
+        	smlordbillmain.setFullName(null) ;
+        }
+        if(smlordbillmain.getFullName()!=null) {
+        	smlordbillmain.setFullName("%"+smlordbillmain.getFullName()+"%") ;
+        }
+        if (smlordbillmain.getAuditStatus() != null) {
+            wrapper.eq(Smlordbillmain.AUDITSTATUS,smlordbillmain.getAuditStatus());
+        }
+        if (smlordbillmain.getBillNo() != null) {
+            wrapper.like(Smlordbillmain.BILLNO,smlordbillmain.getBillNo());
+        }
+        if (smlordbillmain.getBillDate() != null) {
+            wrapper.like(Smlordbillmain.BILLDATE,smlordbillmain.getBillDate());
+        }
 
-        IPage<Smlordbillmain> page = service.select(new Page<>(current,size),wrapper);
+        IPage<Smlordbillmain> page = service.select(new Page<>(current,size),smlordbillmain,wrapper);
         PageResult pageResult = new PageResult(page.getTotal(),page.getRecords());
 
         return new Result(ResultCode.SUCCESS,pageResult);

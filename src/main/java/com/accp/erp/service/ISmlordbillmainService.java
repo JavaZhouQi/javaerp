@@ -29,7 +29,7 @@ public interface ISmlordbillmainService extends IService<Smlordbillmain> {
 	
 	Smlordbillmain queryOne(String  billNo,Integer flag);
 	
-	IPage<Smlordbillmain> select(Page page, Wrapper<Smlordbillmain> wrapper);
+	IPage<Smlordbillmain> select(Page page,Smlordbillmain smlordbillmain, Wrapper<Smlordbillmain> wrapper);
 	
 	String updateAudit(Smlordbillmain smlordbillmain,QueryWrapper<Smlordbillmain> updateWrapper);
 }

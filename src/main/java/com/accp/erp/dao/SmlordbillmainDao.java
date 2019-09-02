@@ -23,7 +23,7 @@ public interface SmlordbillmainDao extends BaseMapper<Smlordbillmain> {
 	
 	String query_num(@Param("flag") Integer flag,@Param("date") String date);
 	
-	IPage<Smlordbillmain> select(Page page, @Param("ew") Wrapper<Smlordbillmain> wrapper);
+	IPage<Smlordbillmain> select( Page page, @Param("smlordbillmain") Smlordbillmain smlordbillmain, @Param("ew") Wrapper<Smlordbillmain> wrapper);
 	
 	Smlordbillmain queryOne(@Param("billNo") String  billNo,@Param("flag") Integer flag);
 }
