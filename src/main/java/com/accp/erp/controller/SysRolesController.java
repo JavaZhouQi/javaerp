@@ -2,6 +2,8 @@ package com.accp.erp.controller;
 
 
 import com.accp.erp.entity.SysRoles;
+import com.accp.erp.entity.SysRolesPermissions;
+import com.accp.erp.service.ISysRolesPermissionsService;
 import com.accp.erp.service.ISysRolesService;
 import com.accp.erp.uitis.PageResult;
 import com.accp.erp.uitis.Result;
@@ -32,6 +34,9 @@ public class SysRolesController {
 
     @Autowired
     ISysRolesService sysRolesService;
+
+    @Autowired
+    ISysRolesPermissionsService rolesPermissionsService;
 
     /**
      * 分页查询
@@ -72,6 +77,7 @@ public class SysRolesController {
     @RequestMapping("/add")
     public Result add(@RequestBody SysRoles sysRoles){
         sysRolesService.save(sysRoles);
+        addRolesPermission(sysRoles);
         return new Result(ResultCode.SUCCESS,"新增成功");
     }
 
@@ -83,7 +89,20 @@ public class SysRolesController {
         QueryWrapper wrapper = new QueryWrapper();
         wrapper.eq(SysRoles.ID,sysRoles.getId());
         sysRolesService.update(sysRoles,wrapper);
+        QueryWrapper wrapper1 = new QueryWrapper();
+        wrapper1.eq(SysRolesPermissions.ROLE_ID,sysRoles.getId());
+        rolesPermissionsService.remove(wrapper1);
+        addRolesPermission(sysRoles);
         return new Result(ResultCode.SUCCESS,"修改成功");
+    }
+    // 新增角色权限关联表
+    private void addRolesPermission(SysRoles sysRoles) {
+        for (Long permissionId : sysRoles.getPermissionsIdList()) {
+            SysRolesPermissions rolesPermissions = new SysRolesPermissions();
+            rolesPermissions.setRoleId(sysRoles.getId());
+            rolesPermissions.setPermissionId(permissionId);
+            rolesPermissionsService.save(rolesPermissions);
+        }
     }
 
     /**
@@ -103,6 +122,9 @@ public class SysRolesController {
         QueryWrapper wrapper = new QueryWrapper();
         wrapper.eq(SysRoles.ID,id);
         sysRolesService.remove(wrapper);
+        QueryWrapper wrapper1 = new QueryWrapper();
+        wrapper1.eq(SysRolesPermissions.ROLE_ID,id);
+        rolesPermissionsService.remove(wrapper1);
         return new Result(ResultCode.SUCCESS,"删除成功");
     }
 
