@@ -39,6 +39,8 @@ public class SysRoles extends Model<SysRoles> {
     private Boolean available;
     @TableField(exist = false)
     private List<SysPermissions> permissionsList;
+    @TableField(exist = false)
+    private List<Long> permissionsIdList;
 
     public static final String ID = "id";
 
