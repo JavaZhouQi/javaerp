@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -35,5 +36,10 @@ public class SysUsersServiceImpl extends ServiceImpl<SysUsersDao, SysUsers> impl
     @Override
     public IPage<SysUsers> myFindPage(Page page, Wrapper<SysUsers> wrapper) {
         return baseMapper.myFindPage(page,wrapper);
+    }
+
+    @Override
+    public List<HashMap<String, Object>> findByTable(String table, String coumn, String selectName) {
+        return baseMapper.findByTable(table,coumn,selectName);
     }
 }

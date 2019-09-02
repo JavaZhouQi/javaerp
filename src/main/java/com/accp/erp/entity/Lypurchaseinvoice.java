@@ -30,7 +30,7 @@ public class Lypurchaseinvoice extends Model<Lypurchaseinvoice> {
 
     @ApiModelProperty(value = "单据号码")
     @TableId("FundBillNo")
-    private Integer FundBillNo;
+    private String  FundBillNo;
 
     @ApiModelProperty(value = "单据日期")
     @TableField("BillDate")
@@ -42,7 +42,7 @@ public class Lypurchaseinvoice extends Model<Lypurchaseinvoice> {
 
     @ApiModelProperty(value = "供应商全称")
     @TableField("FullName")
-    private Integer FullName;
+    private String FullName;
 
     @ApiModelProperty(value = "账款归属")
     @TableField("DueTo")
