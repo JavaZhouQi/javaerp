@@ -108,5 +108,24 @@ public class ComproductController {
         return new Result(ResultCode.SUCCESS,"删除成功");
     }
 
+    /**
+     * 带条件查询
+     */
+    @RequestMapping("/findByTable")
+    public Result findByTable(@RequestBody Comproduct comproduct){
+        QueryWrapper wrapper = new QueryWrapper();
+        if (comproduct.getProdID() != null) {
+            wrapper.eq(Comproduct.PRODID,comproduct.getProdID());
+        }
+        if (comproduct.getProdName() != null) {
+            wrapper.like(Comproduct.PRODNAME,comproduct.getProdName());
+        }
+        if (comproduct.getEngName() != null) {
+            wrapper.like(Comproduct.ENGNAME,comproduct.getEngName());
+        }
+        List list = comproductService.list(wrapper);
+        return new Result(ResultCode.SUCCESS,list);
+    }
+
 }
 
