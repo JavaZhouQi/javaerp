@@ -110,4 +110,67 @@
 	      </if>
 	    </trim>
 	</insert>
+	 <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List1">
+        billNO, billDate, serNO, prodID, prodName, prodSize, sUnit, sQuantity, curr, stdPrice, amount, lastestCurr, lastestPrice, lastestAmount, preInDate, suggestPurDate, qtyRemain, itemRemark, fromNO, tranType
+    </sql>
+
+	<insert id="insertRD" parameterType="com.accp.erp.entity.Yxrequisitions" >
+  	  INSERT INTO `yxrequisitionsdetail` (<include refid="Base_Column_List1"/>) values 
+      <foreach collection="yxrequisitionsdetails" item="rd" separator=",">
+      	(#{billNO,jdbcType=VARCHAR},
+	        #{billDate,jdbcType=DATE},
+	        #{rd.serNO,jdbcType=VARCHAR},
+	        #{rd.prodID,jdbcType=VARCHAR},
+	        #{rd.prodName,jdbcType=VARCHAR},
+	        #{rd.prodSize,jdbcType=VARCHAR},
+	        #{rd.sUnit,jdbcType=VARCHAR},
+	        #{rd.sQuantity,jdbcType=VARCHAR},
+	        #{rd.curr,jdbcType=VARCHAR},
+	        #{rd.stdPrice,jdbcType=VARCHAR},
+	        #{rd.amount,jdbcType=VARCHAR},
+	        #{rd.lastestCurr,jdbcType=VARCHAR},
+	        #{rd.lastestPrice,jdbcType=VARCHAR},
+	        #{rd.lastestAmount,jdbcType=VARCHAR},
+	        #{rd.preInDate,jdbcType=VARCHAR},
+	        #{rd.suggestPurDate,jdbcType=VARCHAR},
+	        #{rd.qtyRemain,jdbcType=VARCHAR},
+	        #{rd.itemRemark,jdbcType=VARCHAR},
+	        #{rd.fromNO,jdbcType=VARCHAR},
+	        #{rd.tranType,jdbcType=VARCHAR}
+	        )
+      </foreach>
+  	</insert>
+  	
+  	
+  	<select id="selectRdNO" resultMap="RequisitionsDetailMap" >
+		SELECT * FROM `yxrequisitions` WHERE `billNO`=#{billNO}
+	</select>
+	<resultMap type="com.accp.erp.entity.Yxrequisitions" id="RequisitionsDetailMap" extends="BaseResultMap">
+	  	<collection property="yxrequisitionsdetails" column="billNO" select="ddd">
+	  		<result column="serNO" property="serNO" />
+	        <result column="prodID" property="prodID" />
+	        <result column="prodName" property="prodName" />
+	        <result column="prodSize" property="prodSize" />
+	        <result column="sUnit" property="sUnit" />
+	        <result column="sQuantity" property="sQuantity" />
+	        <result column="curr" property="curr" />
+	        <result column="stdPrice" property="stdPrice" />
+	        <result column="amount" property="amount" />
+	        <result column="lastestCurr" property="lastestCurr" />
+	        <result column="lastestPrice" property="lastestPrice" />
+	        <result column="lastestAmount" property="lastestAmount" />
+	        <result column="preInDate" property="preInDate" />
+	        <result column="suggestPurDate" property="suggestPurDate" />
+	        <result column="qtyRemain" property="qtyRemain" />
+	        <result column="itemRemark" property="itemRemark" />
+	        <result column="fromNO" property="fromNO" />
+	        <result column="tranType" property="tranType" />
+	  	</collection>
+  	</resultMap>
+  	<select id="ddd" resultType="com.accp.erp.entity.Yxrequisitionsdetail">
+  		SELECT `serNO`,`prodID`,`prodName`,`prodSize`,`sUnit`,`sQuantity`,`curr`,`stdPrice`,`amount`,`lastestCurr`,`lastestPrice`,`lastestAmount`,`preInDate`,`suggestPurDate`,`qtyRemain`,`itemRemark`,`fromNO`,`tranType` FROM `yxrequisitionsdetail`
+		WHERE `billNO`=#{billNO}
+  	</select>
+	
 </mapper>

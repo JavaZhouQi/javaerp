@@ -16,4 +16,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 public interface YxrequisitionsDao extends BaseMapper<Yxrequisitions> {
 	public Yxrequisitions selectLikeBillNO(@Param("billNO") String billNO);
 	public int insertDetails(Yxrequisitions yxrequisitions);
+	public int insertRD(Yxrequisitions yxrequisitions);
+	public Yxrequisitions selectRdNO(@Param("billNO") String billNO);
 }

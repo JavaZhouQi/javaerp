@@ -13,5 +13,4 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2019-08-25
  */
 public interface IYxrequisitionsdetailService extends IService<Yxrequisitionsdetail> {
-	public int insertRDs(Yxrequisitions yxrequisitions);
 }

@@ -14,4 +14,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface IYxrequisitionsService extends IService<Yxrequisitions> {
 	public Yxrequisitions selectLikeBillNO(String billNO);
 	public int insertRDs(Yxrequisitions yxrequisitions);
+	public Yxrequisitions selectRdNO (String billNO);
 }

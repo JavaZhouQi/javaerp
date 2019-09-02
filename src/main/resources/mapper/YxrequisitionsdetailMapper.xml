@@ -31,35 +31,5 @@
         <result column="data5" property="data5" />
     </resultMap>
 
-    <!-- 通用查询结果列 -->
-    <sql id="Base_Column_List">
-        billNO, billDate, serNO, prodID, prodName, prodSize, sUnit, sQuantity, curr, stdPrice, amount, lastestCurr, lastestPrice, lastestAmount, preInDate, suggestPurDate, qtyRemain, itemRemark, fromNO, tranType, data1, data2, data3, data4, data5
-    </sql>
-
-	<insert id="insertRD" parameterType="com.accp.erp.entity.Yxrequisitions" >
-  	  INSERT INTO `yxrequisitionsdetail` (<include refid="Base_Column_List"/>) values 
-      <foreach collection="yxrequisitionsdetails" item="rd" separator=",">
-      	(#{billNO,jdbcType=VARCHAR},
-	        #{billDate,jdbcType=DATE},
-	        #{rd.serNO,jdbcType=VARCHAR},
-	        #{rd.prodID,jdbcType=VARCHAR},
-	        #{rd.prodName,jdbcType=VARCHAR},
-	        #{rd.prodSize,jdbcType=VARCHAR},
-	        #{rd.sUnit,jdbcType=VARCHAR},
-	        #{rd.sQuantity,jdbcType=VARCHAR},
-	        #{rd.curr,jdbcType=VARCHAR},
-	        #{rd.stdPrice,jdbcType=VARCHAR},
-	        #{rd.amount,jdbcType=VARCHAR},
-	        #{rd.lastestCurr,jdbcType=VARCHAR},
-	        #{rd.lastestPrice,jdbcType=VARCHAR},
-	        #{rd.lastestAmount,jdbcType=VARCHAR},
-	        #{rd.preInDate,jdbcType=VARCHAR},
-	        #{rd.suggestPurDate,jdbcType=VARCHAR},
-	        #{rd.qtyRemain,jdbcType=VARCHAR},
-	        #{rd.itemRemark,jdbcType=VARCHAR},
-	        #{rd.fromNO,jdbcType=VARCHAR},
-	        #{rd.tranType,jdbcType=VARCHAR}
-	        )
-      </foreach>
-  	</insert>
+   
 </mapper>

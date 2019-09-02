@@ -18,11 +18,4 @@ import org.springframework.stereotype.Service;
 @Service
 public class YxrequisitionsdetailServiceImpl extends ServiceImpl<YxrequisitionsdetailDao, Yxrequisitionsdetail> implements IYxrequisitionsdetailService {
 
-	@Override
-	public int insertRDs(Yxrequisitions yxrequisitions) {
-		// TODO Auto-generated method stub
-		System.out.println(yxrequisitions);
-		return baseMapper.insertRD(yxrequisitions);
-	}
-
 }

@@ -10,6 +10,7 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -35,7 +36,7 @@ public class Yxrequisitions extends Model<Yxrequisitions> {
     
     @TableField("billDate")
     @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
-    private LocalDate billDate;
+    private Date billDate;
 
     @TableField("billStyleID")
     private Integer billStyleID;

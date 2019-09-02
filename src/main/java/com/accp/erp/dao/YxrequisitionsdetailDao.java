@@ -15,5 +15,4 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2019-08-25
  */
 public interface YxrequisitionsdetailDao extends BaseMapper<Yxrequisitionsdetail> {
-	public int insertRD(@Param("yxrequisitions") Yxrequisitions yxrequisitions);
 }

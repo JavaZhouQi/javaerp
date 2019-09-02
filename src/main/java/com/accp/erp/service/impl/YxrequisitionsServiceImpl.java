@@ -21,8 +21,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class YxrequisitionsServiceImpl extends ServiceImpl<YxrequisitionsDao, Yxrequisitions> implements IYxrequisitionsService {
-	@Autowired
-	private IYxrequisitionsdetailService service;
 	
 	@Override
 	public Yxrequisitions selectLikeBillNO(String billNO) {
@@ -34,14 +32,16 @@ public class YxrequisitionsServiceImpl extends ServiceImpl<YxrequisitionsDao, Yx
 	public int insertRDs(Yxrequisitions yxrequisitions) {
 		// TODO Auto-generated method stub
 		int count = baseMapper.insertDetails(yxrequisitions);
-		
-		for (Yxrequisitionsdetail yxrequisitionsdetail : yxrequisitions.getYxrequisitionsdetails()) {
-			service.save(yxrequisitionsdetail);
+		if(count>0) {
+			baseMapper.insertRD(yxrequisitions);
 		}
-//		if(count>0) {
-//			service.insertRD(yxrequisitions);
-//		}
 		return count;
+	}
+
+	@Override
+	public Yxrequisitions selectRdNO(String billNO) {
+		// TODO Auto-generated method stub
+		return baseMapper.selectRdNO(billNO);
 	}
 
 }

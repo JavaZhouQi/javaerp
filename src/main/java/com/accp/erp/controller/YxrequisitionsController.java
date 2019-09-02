@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.accp.erp.entity.Comarea;
 import com.accp.erp.entity.Yxrequisitions;
 import com.accp.erp.service.IYxrequisitionsService;
 import com.accp.erp.service.IYxrequisitionsdetailService;
@@ -41,10 +42,12 @@ public class YxrequisitionsController {
 	
 	@RequestMapping("/query")
 	@ResponseBody
-	public Result select(@RequestParam(defaultValue = "1") Long current,@RequestParam(defaultValue = "5") Long size/*,String billNO,Date billDate*/){
+	public Result select(@RequestParam(defaultValue = "1") Long current,@RequestParam(defaultValue = "5") Long size,@RequestBody Yxrequisitions yxrequisitions){
 		System.out.println(current+"....."+size);
 		QueryWrapper<Yxrequisitions> queryWrapper = new QueryWrapper<>();
-		//queryWrapper.lambda().like(Yxrequisitions::getBillDate, billDate).like(Yxrequisitions::getBillNO, billNO);
+		if (yxrequisitions.getBillNO() != null) {
+			queryWrapper.eq(Yxrequisitions.BILLNO,yxrequisitions.getBillNO());
+        }
 		IPage<Yxrequisitions> page = yxrequisitionsService.page(new Page<>(current,size),queryWrapper);
 		PageResult pageResult = new PageResult(page.getTotal(),page.getRecords());
 		return new Result(ResultCode.SUCCESS,pageResult);
@@ -56,20 +59,16 @@ public class YxrequisitionsController {
 		System.out.println(billDate);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 	    String bill = sdf.format(billDate);
-	    System.out.println(bill);
 	    String billNO = bill;
 		Yxrequisitions yxrequisitions = yxrequisitionsService.selectLikeBillNO(billNO);
 		System.out.println(yxrequisitions+".....................");
 		if(yxrequisitions!=null) {
-			int ls=Integer.parseInt(yxrequisitions.getBillNO().substring(8, 10))+1;
+			Integer ls=Integer.parseInt(yxrequisitions.getBillNO().substring(8, 10))+1;
 			System.out.println(yxrequisitions.getBillNO().substring(8, 9));
-			if(yxrequisitions.getBillNO().substring(8, 9)=="0") {
-				String billNO1=billNO+"0";
-				billNO=billNO1+""+ls;
-				System.out.println(billNO);
+			if(yxrequisitions.getBillNO().substring(8, 9).equals("0")) {
+				billNO=billNO+"0"+ls;
 			}else {
 				billNO=billNO+ls;
-				System.out.println(billNO);
 			}
 		}else {
 			billNO=billNO+"01";
@@ -82,11 +81,25 @@ public class YxrequisitionsController {
 	@ResponseBody
 	public Result insertRDs(@RequestBody Yxrequisitions yxrequisitions) {
 		System.out.println(yxrequisitions);
-		int count = yxrequisitionsService.insertRDs(yxrequisitions);
-		/*if(count>0) {
-			yxrequisitionsdetailService.insertRDs(yxrequisitions);
-		}*/
+		yxrequisitionsService.insertRDs(yxrequisitions);
 		return new Result(ResultCode.SUCCESS,"新增成功");
+	}
+	
+	@RequestMapping("/selectBillNO")
+	@ResponseBody
+	public Result selectBillNO(String billNO) {
+		Yxrequisitions req = yxrequisitionsService.selectRdNO(billNO);
+		System.out.println(req);
+		return new Result(ResultCode.SUCCESS,req);
+	}
+	
+	@RequestMapping("/deleteRDs")
+	@ResponseBody
+	public Result deleteRDs(String billNO) {
+		System.out.println(billNO);
+		yxrequisitionsdetailService.removeById(billNO);
+		yxrequisitionsService.removeById(billNO);
+		return new Result(ResultCode.SUCCESS,"删除成功");
 	}
 }
 

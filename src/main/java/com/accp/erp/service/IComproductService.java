@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author zq
- * @since 2019-08-27
+ * @since 2019-08-30
  */
 public interface IComproductService extends IService<Comproduct> {
 
