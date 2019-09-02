@@ -12,6 +12,7 @@
         <result column="custAddres" property="custAddres" />
         <result column="billStyle" property="billStyle" />
         <result column="salesMan" property="salesMan" />
+        <result column="auditStatus" property="auditStatus" />
         <result column="currID" property="currID" />
         <result column="formalCust" property="formalCust" />
         <result column="validDate" property="validDate" />
@@ -48,9 +49,37 @@
         <result column="mlSumAmtATax" property="mlSumAmtATax" />
     </resultMap>
 
+	<resultMap type="com.accp.erp.entity.Smlordbillmain" id="resultMap" extends="BaseResultMap">
+		<association property="comcustomer" column="{flag=flag,id=customerID}" javaType="com.accp.erp.entity.Comcustomer" select="com.accp.erp.dao.ComcustomerDao.findByIdAndFlag"></association>
+	</resultMap>
+	
+	<resultMap type="com.accp.erp.entity.Smlordbillmain" id="resultMapsubList" extends="resultMap">
+		<collection property="subList" column="{flag=flag,billNo=billNo}" ofType="com.accp.erp.entity.Smlordbillsub" select="com.accp.erp.dao.SmlordbillsubDao.queryByflagAndBillNo"></collection>
+	</resultMap>
+
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        flag, billNo, billDate, customerID, dueTo, custAddres, billStyle, salesMan, currID, formalCust, validDate, departID, maker, permitter, detail, isTrans, sumBTaxAmt, taxType, sumTax, sumQty, billStatus, mergeOutState, linkMan, linkTelephone, priceOfTax, gatherStyle, gatherDelay, checkStyle, checkDelay, prepayDay, encashDay, accMonth, makerID, permitterID, signBack, hasCheck, sumAmtATax, localTotal, localTax, totalErrAmount, mlSumBTaxAmt, mlSumAmtATax
+        flag, billNo, billDate, customerID, dueTo, custAddres,auditStatus, billStyle, salesMan, currID, formalCust, validDate, departID, maker, permitter, detail, isTrans, sumBTaxAmt, taxType, sumTax, sumQty, billStatus, mergeOutState, linkMan, linkTelephone, priceOfTax, gatherStyle, gatherDelay, checkStyle, checkDelay, prepayDay, encashDay, accMonth, makerID, permitterID, signBack, hasCheck, sumAmtATax, localTotal, localTax, totalErrAmount, mlSumBTaxAmt, mlSumAmtATax
     </sql>
-
+    
+    <select id="query_num" resultType="java.lang.String" >
+    	SELECT (`billNo`+1) FROM `smlordbillmain` WHERE `flag`=#{flag} AND `billDate`=#{date} ORDER BY `billno` DESC LIMIT 1
+    </select>
+    
+    <select id="select" resultMap="resultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM smlordbillmain 
+        <where>
+            ${ew.sqlSegment}
+        </where>
+        <if test="smlordbillmain.fullName!=null">
+         	where `customerID`=(SELECT `ID` FROM `comcustomer` WHERE `Flag`=1 AND `FullName` LIKE #{smlordbillmain.fullName})
+        </if>
+    </select>
+    
+    <select id="queryOne" resultMap="resultMapsubList">
+    	SELECT * FROM `smlordbillmain` WHERE `flag`=#{flag} and `billNo`=#{billNo}
+    </select>
+	
 </mapper>
