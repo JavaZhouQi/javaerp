@@ -21,7 +21,7 @@ public interface SysUsersDao extends BaseMapper<SysUsers> {
 
     SysUsers findByUsername(String username);
 
-    List<String> findByCoumnAndSize(String coumn,Integer size,String table);
+    List<String> findByCoumnAndSize(@Param("coumn") String coumn,@Param("size") Integer size,@Param("table") String table);
 
     IPage<SysUsers> myFindPage(Page page, @Param("ew") Wrapper<SysUsers> wrapper);
 }
