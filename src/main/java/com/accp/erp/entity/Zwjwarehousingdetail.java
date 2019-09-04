@@ -1,7 +1,11 @@
 package com.accp.erp.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -109,5 +113,12 @@ public class Zwjwarehousingdetail extends Model<Zwjwarehousingdetail> {
     protected Serializable pkVal() {
         return null;
     }
+
+	public static IPage<Zwjwarehousingdetail> page(Page page, QueryWrapper wrapper) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 
 }

@@ -49,6 +49,8 @@ public class ComdepartmentController {
         IPage<Comdepartment> page = comdepartmentService.page(new Page<>(current,size),wrapper);
         PageResult pageResult = new PageResult(page.getTotal(),page.getRecords());
 
+        System.out.println(pageResult);
+        
         return new Result(ResultCode.SUCCESS,pageResult);
     }
 
