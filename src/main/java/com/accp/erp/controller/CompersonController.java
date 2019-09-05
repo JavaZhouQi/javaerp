@@ -1,7 +1,9 @@
 package com.accp.erp.controller;
 
 
+import com.accp.erp.entity.Comdepartment;
 import com.accp.erp.entity.Comperson;
+import com.accp.erp.service.IComdepartmentService;
 import com.accp.erp.service.ICompersonService;
 import com.accp.erp.uitis.PageResult;
 import com.accp.erp.uitis.Result;
@@ -32,6 +34,9 @@ public class CompersonController {
 
     @Autowired
     ICompersonService compersonService;
+
+    @Autowired
+    IComdepartmentService comdepartmentService;
     /**
      * 分页查询
      */
@@ -54,7 +59,6 @@ public class CompersonController {
         }
         IPage<Comperson> page = compersonService.page(new Page<>(current,size),wrapper);
         PageResult pageResult = new PageResult(page.getTotal(),page.getRecords());
-
         return new Result(ResultCode.SUCCESS,pageResult);
     }
 
@@ -129,7 +133,12 @@ public class CompersonController {
         if (comperson.getEngName() != null) {
             wrapper.like(Comperson.ENGNAME,comperson.getEngName());
         }
-        List list = compersonService.list(wrapper);
+        List<Comperson> list = compersonService.list(wrapper);
+        for (Comperson comperson1 : list) {
+            QueryWrapper wrapper1 = new QueryWrapper();
+            wrapper1.eq(Comdepartment.DEPARTID,comperson1.getDepartID());
+            comperson1.setComdepartment(comdepartmentService.getOne(wrapper1));
+        }
         return new Result(ResultCode.SUCCESS,list);
     }
 
