@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * <p>
@@ -155,6 +156,8 @@ public class Comperson extends Model<Comperson> {
     @TableField("Address3")
     private String Address3;
 
+    @TableField(exist = false)
+    private Comdepartment comdepartment;
 
     public static final String PERSONID = "PersonID";
 
