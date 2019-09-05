@@ -71,6 +71,8 @@ public class SysUsersController {
             // 存储权限
             map.put("permissions",permissionsList);
             map.put("sessionId",sessionId);
+            SysUsers users = (SysUsers) SecurityUtils.getSubject().getPrincipal();
+            map.put("session",users);
             return new Result(ResultCode.SUCCESS,map);
         } catch (UnknownAccountException e) {
             return new Result(ResultCode.FAIL,"用户名不存在！");
