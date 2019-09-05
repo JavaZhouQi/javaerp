@@ -151,7 +151,7 @@ public class ComcustomerController {
         QueryWrapper wrapper = new QueryWrapper();
         wrapper.eq(Comcustomer.FLAG,comcustomer.getFlag());
         if (comcustomer.getId() != null) {
-            wrapper.eq(Comcustomer.ID,comcustomer.getId());
+            wrapper.like(Comcustomer.ID,comcustomer.getId());
         }
         if (comcustomer.getFullName() != null) {
             wrapper.like(Comcustomer.FULLNAME,comcustomer.getFullName());
@@ -162,5 +162,6 @@ public class ComcustomerController {
         List list = comcustomerService.list(wrapper);
         return new Result(ResultCode.SUCCESS,list);
     }
+
 }
 

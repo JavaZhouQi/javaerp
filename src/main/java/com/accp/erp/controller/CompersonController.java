@@ -110,5 +110,28 @@ public class CompersonController {
         compersonService.remove(wrapper);
         return new Result(ResultCode.SUCCESS,"删除成功");
     }
+
+    /**
+     * 带条件查询
+     */
+    @RequestMapping("/findByTable")
+    public Result findByTable(@RequestBody Comperson comperson){
+        QueryWrapper wrapper = new QueryWrapper();
+        if (comperson.getPersonID() != null) {
+            wrapper.like(Comperson.PERSONID,comperson.getPersonID());
+        }
+        if (comperson.getPersonName() != null) {
+            wrapper.like(Comperson.PERSONNAME,comperson.getPersonName());
+        }
+        if (comperson.getMemo() != null) {
+            wrapper.like(Comperson.MEMO,comperson.getMemo());
+        }
+        if (comperson.getEngName() != null) {
+            wrapper.like(Comperson.ENGNAME,comperson.getEngName());
+        }
+        List list = compersonService.list(wrapper);
+        return new Result(ResultCode.SUCCESS,list);
+    }
+
 }
 
