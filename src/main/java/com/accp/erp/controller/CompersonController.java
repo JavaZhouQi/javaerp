@@ -65,6 +65,11 @@ public class CompersonController {
     @RequestMapping("/findAll")
     public Result findAll(){
         List<Comperson> list = compersonService.list();
+        for (Comperson comperson1 : list) {
+            QueryWrapper wrapper1 = new QueryWrapper();
+            wrapper1.eq(Comdepartment.DEPARTID,comperson1.getDepartID());
+            comperson1.setComdepartment(comdepartmentService.getOne(wrapper1));
+        }
         return new Result(ResultCode.SUCCESS,list);
     }
     /**
