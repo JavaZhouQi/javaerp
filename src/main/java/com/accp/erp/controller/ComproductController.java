@@ -115,7 +115,7 @@ public class ComproductController {
     public Result findByTable(@RequestBody Comproduct comproduct){
         QueryWrapper wrapper = new QueryWrapper();
         if (comproduct.getProdID() != null) {
-            wrapper.eq(Comproduct.PRODID,comproduct.getProdID());
+            wrapper.like(Comproduct.PRODID,comproduct.getProdID());
         }
         if (comproduct.getProdName() != null) {
             wrapper.like(Comproduct.PRODNAME,comproduct.getProdName());
