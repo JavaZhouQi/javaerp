@@ -110,7 +110,9 @@ public class ComwarehouseController {
         return new Result(ResultCode.SUCCESS,"删除成功");
     }
 
-
+    /**
+     * 带条件查询
+     */
     @RequestMapping("/findByTable")
     public Result findByTable(@RequestBody Comwarehouse comwarehouse){
         QueryWrapper wrapper = new QueryWrapper();

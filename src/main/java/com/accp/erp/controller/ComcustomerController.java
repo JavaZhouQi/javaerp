@@ -52,7 +52,9 @@ public class ComcustomerController {
         if (comcustomer.getFullName() != null) {
             wrapper.like(Comcustomer.FULLNAME,comcustomer.getFullName());
         }
-
+        if (comcustomer.getEngFullName() != null) {
+            wrapper.like(Comcustomer.ENGFULLNAME,comcustomer.getEngFullName());
+        }
 //        IPage<Comcustomer> page = comcustomerService.page(new Page<>(current,size),wrapper);
 //        PageResult pageResult = new PageResult(page.getTotal(),page.getRecords());
         IPage page = comcustomerService.select(new Page(current,size),wrapper);
@@ -140,5 +142,26 @@ public class ComcustomerController {
         comcustomerService.remove(wrapper);
         return new Result(ResultCode.SUCCESS,"删除成功");
     }
+
+    /**
+     * 带条件查询
+     */
+    @RequestMapping("/findByTable")
+    public Result findByTable(@RequestBody Comcustomer comcustomer){
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq(Comcustomer.FLAG,comcustomer.getFlag());
+        if (comcustomer.getId() != null) {
+            wrapper.like(Comcustomer.ID,comcustomer.getId());
+        }
+        if (comcustomer.getFullName() != null) {
+            wrapper.like(Comcustomer.FULLNAME,comcustomer.getFullName());
+        }
+        if (comcustomer.getEngFullName() != null) {
+            wrapper.like(Comcustomer.ENGFULLNAME,comcustomer.getEngFullName());
+        }
+        List list = comcustomerService.list(wrapper);
+        return new Result(ResultCode.SUCCESS,list);
+    }
+
 }
 
