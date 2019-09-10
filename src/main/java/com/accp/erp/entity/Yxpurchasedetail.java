@@ -46,7 +46,7 @@ public class Yxpurchasedetail extends Model<Yxpurchasedetail> {
     private String prodSize;
 
     @TableField("SUnit")
-    private String SUnit;
+    private String sUnit;
 
     @TableField("sQuantity")
     private Integer sQuantity;

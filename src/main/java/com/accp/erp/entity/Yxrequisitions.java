@@ -35,7 +35,6 @@ public class Yxrequisitions extends Model<Yxrequisitions> {
     private String billNO;
     
     @TableField("billDate")
-    @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
     private Date billDate;
 
     @TableField("billStyleID")

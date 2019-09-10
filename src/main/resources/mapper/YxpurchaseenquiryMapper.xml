@@ -73,7 +73,7 @@
   	
   	
   	
-  	<insert id="insertDetails" useGeneratedKeys="true" keyProperty="billNO" parameterType="com.accp.erp.entity.Yxrequisitions" >
+  	<insert id="insertDetails" useGeneratedKeys="true" keyProperty="billNO" parameterType="com.accp.erp.entity.Yxpurchaseenquiry" >
 		INSERT INTO `yxpurchaseenquiry`
 		<trim prefix="(" suffix=")" suffixOverrides="," >
 	      <if test="billNO != null" >
@@ -202,7 +202,7 @@
 	        #{pd.prodID,jdbcType=VARCHAR},
 	        #{pd.prodName,jdbcType=VARCHAR},
 	        #{pd.prodSize,jdbcType=VARCHAR},
-	        #{pd.sUnit,jdbcType=VARCHAR},
+	        #{pd.SUnit,jdbcType=VARCHAR},
 	        #{pd.sQuantity,jdbcType=VARCHAR},
 	        #{pd.oldPrice,jdbcType=VARCHAR},
 	        #{pd.discount,jdbcType=VARCHAR},
