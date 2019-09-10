@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -73,7 +74,7 @@ public class LypurchaseinvoiceController {
     public Result findOne(String id){
     	QueryWrapper wrapper = new QueryWrapper();
     	wrapper.eq(Lypurchaseinvoice.FUNDBILLNO,id);
-        return new Result(ResultCode.SUCCESS,service.list(wrapper));
+        return new Result(ResultCode.SUCCESS,service.list(wrapper).get(0));
     }
 
     /**
@@ -88,12 +89,11 @@ public class LypurchaseinvoiceController {
     /**
      * 修改
      */
-    @RequestMapping("/update")
+    @PostMapping("/update")
     public Result update(@RequestBody Lypurchaseinvoice purchaseinvoice){
-    	System.out.println("2202");
-        QueryWrapper wrapper = new QueryWrapper();
+        QueryWrapper<Lypurchaseinvoice> wrapper = new QueryWrapper();
         wrapper.eq(Lypurchaseinvoice.FUNDBILLNO,purchaseinvoice.getFundBillNo());
-        service.update(purchaseinvoice,wrapper);
+        boolean bol= service.update(purchaseinvoice,wrapper);
         return new Result(ResultCode.SUCCESS,"修改成功");
     }
 
