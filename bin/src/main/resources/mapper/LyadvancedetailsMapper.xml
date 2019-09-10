@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.LyadvancedetailsDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Lyadvancedetails">
+        <id column="advid" property="advid" />
+        <result column="advdetid" property="advdetid" />
+        <result column="advdetmoney" property="advdetmoney" />
+        <result column="advdetoddtype" property="advdetoddtype" />
+        <result column="advdetoddid" property="advdetoddid" />
+        <result column="advdetdegest" property="advdetdegest" />
+        <result column="advdetbalance" property="advdetbalance" />
+        <result column="enables" property="enables" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        advid, advdetid, advdetmoney, advdetoddtype, advdetoddid, advdetdegest, advdetbalance, enables
+    </sql>
+
+</mapper>

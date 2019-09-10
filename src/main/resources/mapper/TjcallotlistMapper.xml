@@ -23,5 +23,28 @@
     <sql id="Base_Column_List">
         MoveNo, MoveNumber, ColumnNo, StockNumber, StockName, Specifications, Unit, Current, Quantity, EntryNote, EffectiveDate, testone, testtwo
     </sql>
-
+	<insert id="addtjcalloteach">
+	  	INSERT INTO `erpdata`.`tjcallotlist` (
+  `MoveNo`,
+  `MoveNumber`,
+  `ColumnNo`,
+  `StockNumber`,
+  `StockName`,
+  `Specifications`,
+  `Unit`,
+  `Current`,
+  `Quantity`,
+  `EntryNote`,
+  `EffectiveDate`,
+  `testone`,
+  `testtwo`
+) 
+VALUES
+	  	<foreach collection="list" item="s" separator="," >
+	  		(#{allotId},#{s.moveNumber},#{s.columnNo},
+	  		#{s.stockNumber},#{s.stockName},#{s.specifications},#{s.unit},
+	  		#{s.current},#{s.quantity},#{s.entryNote},#{s.effectiveDate},#{s.testone},
+	  		#{s.testtwo})
+	  	</foreach>
+  </insert>
 </mapper>

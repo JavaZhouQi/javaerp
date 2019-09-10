@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.YzqsellshouldgatheringmainDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Yzqsellshouldgatheringmain">
+        <id column="costBillNo" property="costBillNo" />
+        <result column="originSysId" property="originSysId" />
+        <result column="originNo" property="originNo" />
+        <result column="billDate" property="billDate" />
+        <result column="ftyId" property="ftyId" />
+        <result column="ftyName" property="ftyName" />
+        <result column="custShortName" property="custShortName" />
+        <result column="invoiceNo" property="invoiceNo" />
+        <result column="voucherNo" property="voucherNo" />
+        <result column="memo" property="memo" />
+        <result column="total" property="total" />
+        <result column="tax" property="tax" />
+        <result column="sumAmtATax" property="sumAmtATax" />
+        <result column="personId" property="personId" />
+        <result column="personName" property="personName" />
+        <result column="departId" property="departId" />
+        <result column="departName" property="departName" />
+        <result column="maker" property="maker" />
+        <result column="permitter" property="permitter" />
+        <result column="projectId" property="projectId" />
+        <result column="projectName" property="projectName" />
+        <result column="dueTo" property="dueTo" />
+        <result column="prepayDay" property="prepayDay" />
+        <result column="gatherStyle" property="gatherStyle" />
+        <result column="gatherDelay" property="gatherDelay" />
+        <result column="accMonth" property="accMonth" />
+        <result column="UDef1" property="UDef1" />
+        <result column="UDef2" property="UDef2" />
+        <result column="cashPayStyleId" property="cashPayStyleId" />
+        <result column="visaPayStyleId" property="visaPayStyleId" />
+        <result column="otherPayStyleId" property="otherPayStyleId" />
+        <result column="cashPayStyleMoney" property="cashPayStyleMoney" />
+        <result column="visaPayStyleMoney" property="visaPayStyleMoney" />
+        <result column="otherPayStyleMoney" property="otherPayStyleMoney" />
+        <result column="enables" property="enables" />
+        <result column="safetyone" property="safetyone" />
+        <result column="safetytwo" property="safetytwo" />
+        <result column="checkstate" property="checkstate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        costBillNo, originSysId, originNo, billDate, ftyId, ftyName, custShortName, invoiceNo, voucherNo, memo, total, tax, sumAmtATax, personId, personName, departId, departName, maker, permitter, projectId, projectName, dueTo, prepayDay, gatherStyle, gatherDelay, accMonth, UDef1, UDef2, cashPayStyleId, visaPayStyleId, otherPayStyleId, cashPayStyleMoney, visaPayStyleMoney, otherPayStyleMoney, enables, safetyone, safetytwo, checkstate
+    </sql>
+
+</mapper>

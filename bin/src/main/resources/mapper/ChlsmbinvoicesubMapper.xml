@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.ChlsmbinvoicesubDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Chlsmbinvoicesub">
+        <id column="BillNo" property="BillNo" />
+        <result column="Flag" property="Flag" />
+        <result column="ProdId" property="ProdId" />
+        <result column="Quantity" property="Quantity" />
+        <result column="Price" property="Price" />
+        <result column="Amount" property="Amount" />
+        <result column="TaxRate" property="TaxRate" />
+        <result column="TaxAmt" property="TaxAmt" />
+        <result column="AmountWithTax" property="AmountWithTax" />
+        <result column="LocalAmount" property="LocalAmount" />
+        <result column="LocalTaxAmt" property="LocalTaxAmt" />
+        <result column="LocalAmountWithTax" property="LocalAmountWithTax" />
+        <result column="SerNo" property="SerNo" />
+        <result column="RowNo" property="RowNo" />
+        <result column="BillDate" property="BillDate" />
+        <result column="LQty" property="LQty" />
+        <result column="HasCheck" property="HasCheck" />
+        <result column="Remark" property="Remark" />
+        <result column="ProdName" property="ProdName" />
+        <result column="ProdSize" property="ProdSize" />
+        <result column="FromNo" property="FromNo" />
+        <result column="FromRow" property="FromRow" />
+        <result column="TranType" property="TranType" />
+        <result column="QtyRemain" property="QtyRemain" />
+        <result column="IsMerge" property="IsMerge" />
+        <result column="SUnitID" property="SUnitID" />
+        <result column="SPrice" property="SPrice" />
+        <result column="SQuantity" property="SQuantity" />
+        <result column="UnitRelation" property="UnitRelation" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        BillNo, Flag, ProdId, Quantity, Price, Amount, TaxRate, TaxAmt, AmountWithTax, LocalAmount, LocalTaxAmt, LocalAmountWithTax, SerNo, RowNo, BillDate, LQty, HasCheck, Remark, ProdName, ProdSize, FromNo, FromRow, TranType, QtyRemain, IsMerge, SUnitID, SPrice, SQuantity, UnitRelation
+    </sql>
+
+</mapper>

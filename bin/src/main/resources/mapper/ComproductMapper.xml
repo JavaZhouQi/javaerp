@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.ComproductDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Comproduct">
+        <result column="ProdID" property="ProdID" />
+        <result column="FOBCurrID" property="FOBCurrID" />
+        <result column="CAvgCost" property="CAvgCost" />
+        <result column="SubID" property="SubID" />
+        <result column="ClassID" property="ClassID" />
+        <result column="BarCodeID" property="BarCodeID" />
+        <result column="UnitID" property="UnitID" />
+        <result column="Unit" property="Unit" />
+        <result column="ProdName" property="ProdName" />
+        <result column="ProdSize" property="ProdSize" />
+        <result column="EngName" property="EngName" />
+        <result column="CurrID" property="CurrID" />
+        <result column="SuggestPrice" property="SuggestPrice" />
+        <result column="SalesPriceA" property="SalesPriceA" />
+        <result column="SalesPriceB" property="SalesPriceB" />
+        <result column="SalesPriceC" property="SalesPriceC" />
+        <result column="SalesPriceD" property="SalesPriceD" />
+        <result column="SalesPriceE" property="SalesPriceE" />
+        <result column="StdPrice" property="StdPrice" />
+        <result column="ConverUnit" property="ConverUnit" />
+        <result column="ConverRate" property="ConverRate" />
+        <result column="PackAmt1" property="PackAmt1" />
+        <result column="PackAmt2" property="PackAmt2" />
+        <result column="PackUnit1" property="PackUnit1" />
+        <result column="PackUnit2" property="PackUnit2" />
+        <result column="InventoryID" property="InventoryID" />
+        <result column="BusiTaxRate" property="BusiTaxRate" />
+        <result column="Excise" property="Excise" />
+        <result column="ImpTaxRate" property="ImpTaxRate" />
+        <result column="BatchUsed" property="BatchUsed" />
+        <result column="EffectDateUsed" property="EffectDateUsed" />
+        <result column="ProdDesc" property="ProdDesc" />
+        <result column="ProdPic" property="ProdPic" />
+        <result column="ProdForm" property="ProdForm" />
+        <result column="BaseInc" property="BaseInc" />
+        <result column="MinPurch" property="MinPurch" />
+        <result column="SafeStock" property="SafeStock" />
+        <result column="AdvanceDays" property="AdvanceDays" />
+        <result column="MaterialWare" property="MaterialWare" />
+        <result column="OverReceRate" property="OverReceRate" />
+        <result column="PurchPolicy" property="PurchPolicy" />
+        <result column="MajorSupplier" property="MajorSupplier" />
+        <result column="BOutStockDay" property="BOutStockDay" />
+        <result column="BInStockDay" property="BInStockDay" />
+        <result column="BPurchDate" property="BPurchDate" />
+        <result column="BSalesDate" property="BSalesDate" />
+        <result column="SluggishDays" property="SluggishDays" />
+        <result column="LatestIndate" property="LatestIndate" />
+        <result column="LatestOutDate" property="LatestOutDate" />
+        <result column="LatestPurchDate" property="LatestPurchDate" />
+        <result column="LatestSalesDate" property="LatestSalesDate" />
+        <result column="StopDate" property="StopDate" />
+        <result column="Main_Des" property="mainDes" />
+        <result column="CCC_CODE" property="cccCode" />
+        <result column="EngUnit" property="EngUnit" />
+        <result column="FOBPrice" property="FOBPrice" />
+        <result column="CY20" property="cy20" />
+        <result column="CY40" property="cy40" />
+        <result column="InPackAmt" property="InPackAmt" />
+        <result column="OutPackAmt" property="OutPackAmt" />
+        <result column="VolumeUnit" property="VolumeUnit" />
+        <result column="Volume" property="Volume" />
+        <result column="NetWeight" property="NetWeight" />
+        <result column="GrossWeigh" property="GrossWeigh" />
+        <result column="BAvgCost" property="BAvgCost" />
+        <result column="BStdCost" property="BStdCost" />
+        <result column="MergeOutState" property="MergeOutState" />
+        <result column="IsCheck" property="IsCheck" />
+        <result column="CTotalCost" property="CTotalCost" />
+        <result column="InvoProdName" property="InvoProdName" />
+        <result column="DefValidDay" property="DefValidDay" />
+        <result column="ValidDateUsed" property="ValidDateUsed" />
+        <result column="BackTaxRate" property="BackTaxRate" />
+        <result column="DataVer" property="DataVer" />
+        <result column="MoreRate" property="MoreRate" />
+        <result column="UDef1" property="UDef1" />
+        <result column="UDef2" property="UDef2" />
+        <result column="RepairTerm" property="RepairTerm" />
+        <result column="PriceOfTax" property="PriceOfTax" />
+        <result column="InsurRate" property="InsurRate" />
+        <result column="InsurRateEx" property="InsurRateEx" />
+        <result column="BTotalCost" property="BTotalCost" />
+        <result column="HQ40" property="hq40" />
+        <result column="CY45" property="cy45" />
+        <result column="PerDays" property="PerDays" />
+        <result column="StdUnitID" property="StdUnitID" />
+        <result column="StdUnitName" property="StdUnitName" />
+        <result column="SafeQty" property="SafeQty" />
+        <result column="BSalesBackDate" property="BSalesBackDate" />
+        <result column="BInOtherDate" property="BInOtherDate" />
+        <result column="BPurBackDate" property="BPurBackDate" />
+        <result column="BOutOtherDate" property="BOutOtherDate" />
+        <result column="StdCost" property="StdCost" />
+        <result column="CAllAmt" property="CAllAmt" />
+        <result column="NWeight" property="NWeight" />
+        <result column="GWeight" property="GWeight" />
+        <result column="LUnit" property="LUnit" />
+        <result column="Width" property="Width" />
+        <result column="Hight" property="Hight" />
+        <result column="MVolume" property="MVolume" />
+        <result column="ProdBigType" property="ProdBigType" />
+        <result column="InPackUnit" property="InPackUnit" />
+        <result column="OutPackUnit" property="OutPackUnit" />
+        <result column="NetWeightUnit" property="NetWeightUnit" />
+        <result column="GrossWeightUnit" property="GrossWeightUnit" />
+        <result column="MEAMTUnit" property="MEAMTUnit" />
+        <result column="MEAMT" property="meamt" />
+        <result column="TaxItemsID" property="TaxItemsID" />
+        <result column="doesItIncludeTax" property="doesItIncludeTax" />
+        <result column="CSafeAllstk" property="CSafeAllstk" />
+        <result column="BAllAmt" property="BAllAmt" />
+        <result column="CCurrStock" property="CCurrStock" />
+        <result column="BAllCost" property="BAllCost" />
+        <result column="CAllCost" property="CAllCost" />
+        <result column="COutStockDay" property="COutStockDay" />
+        <result column="CInStockDay" property="CInStockDay" />
+        <result column="invaliDate" property="invaliDate" />
+        <result column="cstdCost" property="cstdCost" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ProdID, FOBCurrID, CAvgCost, SubID, ClassID, BarCodeID, UnitID, Unit, ProdName, ProdSize, EngName, CurrID, SuggestPrice, SalesPriceA, SalesPriceB, SalesPriceC, SalesPriceD, SalesPriceE, StdPrice, ConverUnit, ConverRate, PackAmt1, PackAmt2, PackUnit1, PackUnit2, InventoryID, BusiTaxRate, Excise, ImpTaxRate, BatchUsed, EffectDateUsed, ProdDesc, ProdPic, ProdForm, BaseInc, MinPurch, SafeStock, AdvanceDays, MaterialWare, OverReceRate, PurchPolicy, MajorSupplier, BOutStockDay, BInStockDay, BPurchDate, BSalesDate, SluggishDays, LatestIndate, LatestOutDate, LatestPurchDate, LatestSalesDate, StopDate, Main_Des, CCC_CODE, EngUnit, FOBPrice, CY20, CY40, InPackAmt, OutPackAmt, VolumeUnit, Volume, NetWeight, GrossWeigh, BAvgCost, BStdCost, MergeOutState, IsCheck, CTotalCost, InvoProdName, DefValidDay, ValidDateUsed, BackTaxRate, DataVer, MoreRate, UDef1, UDef2, RepairTerm, PriceOfTax, InsurRate, InsurRateEx, BTotalCost, HQ40, CY45, PerDays, StdUnitID, StdUnitName, SafeQty, BSalesBackDate, BInOtherDate, BPurBackDate, BOutOtherDate, StdCost, CAllAmt, NWeight, GWeight, LUnit, Width, Hight, MVolume, ProdBigType, InPackUnit, OutPackUnit, NetWeightUnit, GrossWeightUnit, MEAMTUnit, MEAMT, TaxItemsID, doesItIncludeTax, CSafeAllstk, BAllAmt, CCurrStock, BAllCost, CAllCost, COutStockDay, CInStockDay, invaliDate, cstdCost
+    </sql>
+
+</mapper>

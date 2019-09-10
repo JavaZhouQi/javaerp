@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.LypurchaseinvoicedetailsDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Lypurchaseinvoicedetails">
+        <id column="ProdID" property="ProdID" />
+        <result column="StdUnitName" property="StdUnitName" />
+        <result column="StdUnitID" property="StdUnitID" />
+        <result column="Amount" property="Amount" />
+        <result column="TaxAmt" property="TaxAmt" />
+        <result column="AmountWithTax" property="AmountWithTax" />
+        <result column="SerNo" property="SerNo" />
+        <result column="LQty" property="LQty" />
+        <result column="Remark" property="Remark" />
+        <result column="ProdName" property="ProdName" />
+        <result column="ProdSize" property="ProdSize" />
+        <result column="FormNo" property="FormNo" />
+        <result column="SUnitID" property="SUnitID" />
+        <result column="SUnit" property="SUnit" />
+        <result column="SPriice" property="SPriice" />
+        <result column="SQuantity" property="SQuantity" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ProdID, StdUnitName, StdUnitID, Amount, TaxAmt, AmountWithTax, SerNo, LQty, Remark, ProdName, ProdSize, FormNo, SUnitID, SUnit, SPriice, SQuantity
+    </sql>
+
+</mapper>

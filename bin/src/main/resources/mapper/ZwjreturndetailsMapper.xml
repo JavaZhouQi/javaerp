@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.ZwjreturndetailsDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Zwjreturndetails">
+        <result column="ProdID" property="ProdID" />
+        <result column="SerNo" property="SerNo" />
+        <result column="ProdName" property="ProdName" />
+        <result column="ProdSize" property="ProdSize" />
+        <result column="UnitName" property="UnitName" />
+        <result column="SQuantity" property="SQuantity" />
+        <result column="Sprice" property="Sprice" />
+        <result column="Amount" property="Amount" />
+        <result column="HaveBatch" property="HaveBatch" />
+        <result column="ItwmRemark" property="ItwmRemark" />
+        <result column="CsOne" property="CsOne" />
+        <result column="CsTow" property="CsTow" />
+        <result column="CsThree" property="CsThree" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ProdID, SerNo, ProdName, ProdSize, UnitName, SQuantity, Sprice, Amount, HaveBatch, ItwmRemark, CsOne, CsTow, CsThree
+    </sql>
+
+</mapper>

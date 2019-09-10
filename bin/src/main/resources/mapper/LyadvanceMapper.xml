@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.LyadvanceDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Lyadvance">
+        <result column="advid" property="advid" />
+        <result column="advdate" property="advdate" />
+        <result column="purveyid" property="purveyid" />
+        <result column="purveyname" property="purveyname" />
+        <result column="advstrike1" property="advstrike1" />
+        <result column="advstrike2" property="advstrike2" />
+        <result column="advstrike3" property="advstrike3" />
+        <result column="advmoney1" property="advmoney1" />
+        <result column="advmoney2" property="advmoney2" />
+        <result column="advmoney3" property="advmoney3" />
+        <result column="advmakeing" property="advmakeing" />
+        <result column="stodept" property="stodept" />
+        <result column="stodeptid" property="stodeptid" />
+        <result column="advcheckman" property="advcheckman" />
+        <result column="advremark" property="advremark" />
+        <result column="isaditing" property="isaditing" />
+        <result column="safetyone" property="safetyone" />
+        <result column="enables" property="enables" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        advid, advdate, purveyid, purveyname, advstrike1, advstrike2, advstrike3, advmoney1, advmoney2, advmoney3, advmakeing, stodept, stodeptid, advcheckman, advremark, isaditing, safetyone, enables
+    </sql>
+
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.ZwjexpensedetailDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Zwjexpensedetail">
+        <result column="PeeClassID" property="PeeClassID" />
+        <result column="SerNo" property="SerNo" />
+        <result column="PareClassName" property="PareClassName" />
+        <result column="CurrID" property="CurrID" />
+        <result column="ExchRate" property="ExchRate" />
+        <result column="Amount" property="Amount" />
+        <result column="CsOne" property="CsOne" />
+        <result column="CsTow" property="CsTow" />
+        <result column="CsThree" property="CsThree" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        PeeClassID, SerNo, PareClassName, CurrID, ExchRate, Amount, CsOne, CsTow, CsThree
+    </sql>
+
+</mapper>

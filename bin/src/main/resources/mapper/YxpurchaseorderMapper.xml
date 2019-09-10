@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.YxpurchaseorderDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Yxpurchaseorder">
+        <id column="billNO" property="billNO" />
+        <result column="billDate" property="billDate" />
+        <result column="billStatus" property="billStatus" />
+        <result column="priceOfTax" property="priceOfTax" />
+        <result column="billStyleID" property="billStyleID" />
+        <result column="billStyleName" property="billStyleName" />
+        <result column="customerID" property="customerID" />
+        <result column="custShortName" property="custShortName" />
+        <result column="addressID" property="addressID" />
+        <result column="custAddress" property="custAddress" />
+        <result column="curr" property="curr" />
+        <result column="exchRate" property="exchRate" />
+        <result column="outAddress" property="outAddress" />
+        <result column="factFundsAttribution" property="factFundsAttribution" />
+        <result column="prepayDay" property="prepayDay" />
+        <result column="accMonth" property="accMonth" />
+        <result column="gatherStyle" property="gatherStyle" />
+        <result column="gatherDelay" property="gatherDelay" />
+        <result column="salesID" property="salesID" />
+        <result column="salesName" property="salesName" />
+        <result column="departID" property="departID" />
+        <result column="departName" property="departName" />
+        <result column="projectID" property="projectID" />
+        <result column="projectName" property="projectName" />
+        <result column="maker" property="maker" />
+        <result column="permitter" property="permitter" />
+        <result column="remark" property="remark" />
+        <result column="data1" property="data1" />
+        <result column="data2" property="data2" />
+        <result column="data3" property="data3" />
+        <result column="data4" property="data4" />
+        <result column="data5" property="data5" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        billNO, billDate, billStatus, priceOfTax, billStyleID, billStyleName, customerID, custShortName, addressID, custAddress, curr, exchRate, outAddress, factFundsAttribution, prepayDay, accMonth, gatherStyle, gatherDelay, salesID, salesName, departID, departName, projectID, projectName, maker, permitter, remark, data1, data2, data3, data4, data5
+    </sql>
+
+</mapper>

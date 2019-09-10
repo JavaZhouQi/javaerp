@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.SmlordbillmainDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Smlordbillmain">
+        <result column="flag" property="flag" />
+        <result column="billNo" property="billNo" />
+        <result column="billDate" property="billDate" />
+        <result column="customerID" property="customerID" />
+        <result column="dueTo" property="dueTo" />
+        <result column="custAddres" property="custAddres" />
+        <result column="billStyle" property="billStyle" />
+        <result column="salesMan" property="salesMan" />
+        <result column="currID" property="currID" />
+        <result column="formalCust" property="formalCust" />
+        <result column="validDate" property="validDate" />
+        <result column="departID" property="departID" />
+        <result column="maker" property="maker" />
+        <result column="permitter" property="permitter" />
+        <result column="detail" property="detail" />
+        <result column="isTrans" property="isTrans" />
+        <result column="sumBTaxAmt" property="sumBTaxAmt" />
+        <result column="taxType" property="taxType" />
+        <result column="sumTax" property="sumTax" />
+        <result column="sumQty" property="sumQty" />
+        <result column="billStatus" property="billStatus" />
+        <result column="mergeOutState" property="mergeOutState" />
+        <result column="linkMan" property="linkMan" />
+        <result column="linkTelephone" property="linkTelephone" />
+        <result column="priceOfTax" property="priceOfTax" />
+        <result column="gatherStyle" property="gatherStyle" />
+        <result column="gatherDelay" property="gatherDelay" />
+        <result column="checkStyle" property="checkStyle" />
+        <result column="checkDelay" property="checkDelay" />
+        <result column="prepayDay" property="prepayDay" />
+        <result column="encashDay" property="encashDay" />
+        <result column="accMonth" property="accMonth" />
+        <result column="makerID" property="makerID" />
+        <result column="permitterID" property="permitterID" />
+        <result column="signBack" property="signBack" />
+        <result column="hasCheck" property="hasCheck" />
+        <result column="sumAmtATax" property="sumAmtATax" />
+        <result column="localTotal" property="localTotal" />
+        <result column="localTax" property="localTax" />
+        <result column="totalErrAmount" property="totalErrAmount" />
+        <result column="mlSumBTaxAmt" property="mlSumBTaxAmt" />
+        <result column="mlSumAmtATax" property="mlSumAmtATax" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        flag, billNo, billDate, customerID, dueTo, custAddres, billStyle, salesMan, currID, formalCust, validDate, departID, maker, permitter, detail, isTrans, sumBTaxAmt, taxType, sumTax, sumQty, billStatus, mergeOutState, linkMan, linkTelephone, priceOfTax, gatherStyle, gatherDelay, checkStyle, checkDelay, prepayDay, encashDay, accMonth, makerID, permitterID, signBack, hasCheck, sumAmtATax, localTotal, localTax, totalErrAmount, mlSumBTaxAmt, mlSumAmtATax
+    </sql>
+
+</mapper>
