@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.extension.activerecord.Model;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
+import java.util.List;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -42,11 +44,11 @@ public class Chlsmbinvoicemain extends Model<Chlsmbinvoicemain> {
     @TableField("BillType")
     private Integer BillType;
 
-    @ApiModelProperty(value = "收款条件")
+    @ApiModelProperty(value = "单价是否含税")
     @TableField("PayTerm")
     private Integer PayTerm;
 
-    @ApiModelProperty(value = "收款天数")
+    @ApiModelProperty(value = "单据号码")
     @TableField("DelayDays")
     private Integer DelayDays;
 
@@ -54,18 +56,20 @@ public class Chlsmbinvoicemain extends Model<Chlsmbinvoicemain> {
     @TableField("InvoTypeId")
     private String InvoTypeId;
 
-    @ApiModelProperty(value = "其他收款方式")
+    @ApiModelProperty(value = "币别")
     @TableField("GatherOther")
     private String GatherOther;
 
-    @ApiModelProperty(value = "导出日期")
+    @ApiModelProperty(value = "单据日期")
     @TableField("ExportDate")
     private Integer ExportDate;
 
     @ApiModelProperty(value = "导出人员")
     @TableField("ExportID")
     private String ExportID;
-
+    
+    @TableField(exist=false)
+    private List<Chlsmbinvoicesub> chlsmbinvoicesubList;
 
     public static final String BILLNO = "BillNo";
 
