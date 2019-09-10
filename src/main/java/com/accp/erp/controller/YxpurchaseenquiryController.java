@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.accp.erp.entity.Yxpurchasedetail;
 import com.accp.erp.entity.Yxpurchaseenquiry;
 import com.accp.erp.entity.Yxrequisitions;
 import com.accp.erp.service.IYxpurchasedetailService;
@@ -97,8 +98,10 @@ public class YxpurchaseenquiryController {
 	@ResponseBody
 	public Result deleteRDs(String billNO) {
 		System.out.println(billNO);
-		//yxpurchaseenquiryService.removeById(billNO);
-		//yxpurchasedetailService.removeById(billNO);
+		QueryWrapper<Yxpurchasedetail> queryWrapper = new QueryWrapper<>();
+		queryWrapper.eq(Yxpurchasedetail.BILLS, 1).eq(Yxpurchasedetail.BILLNO, billNO);
+		yxpurchaseenquiryService.removeById(billNO);
+		yxpurchasedetailService.remove(queryWrapper);
 		return new Result(ResultCode.SUCCESS,"删除成功");
 	}
 }
