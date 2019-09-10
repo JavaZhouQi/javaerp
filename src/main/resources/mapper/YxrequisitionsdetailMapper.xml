@@ -31,9 +31,5 @@
         <result column="data5" property="data5" />
     </resultMap>
 
-    <!-- 通用查询结果列 -->
-    <sql id="Base_Column_List">
-        billNO, billDate, serNO, prodID, prodName, prodSize, sUnit, sQuantity, curr, stdPrice, amount, lastestCurr, lastestPrice, lastestAmount, preInDate, suggestPurDate, qtyRemain, itemRemark, fromNO, tranType, data1, data2, data3, data4, data5
-    </sql>
-
+   
 </mapper>
