@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.ComcustomerDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Comcustomer">
+        <id column="Flag" property="Flag" />
+        <result column="ID" property="id" />
+        <result column="engFullName" property="engFullName" />
+        <result column="engShortName" property="engShortName" />
+        <result column="FundsAttribution" property="FundsAttribution" />
+        <result column="TransNewID" property="TransNewID" />
+        <result column="ClassID" property="ClassID" />
+        <result column="AreaID" property="AreaID" />
+        <result column="CurrencyID" property="CurrencyID" />
+        <result column="FullName" property="FullName" />
+        <result column="IsTemp" property="IsTemp" />
+        <result column="IsForeign" property="IsForeign" />
+        <result column="ShortName" property="ShortName" />
+        <result column="TaxNo" property="TaxNo" />
+        <result column="ChiefName" property="ChiefName" />
+        <result column="Capitalization" property="Capitalization" />
+        <result column="LinkMan" property="LinkMan" />
+        <result column="LinkManProf" property="LinkManProf" />
+        <result column="Telephone1" property="Telephone1" />
+        <result column="Telephone2" property="Telephone2" />
+        <result column="Telephone3" property="Telephone3" />
+        <result column="MobileTel" property="MobileTel" />
+        <result column="Moderm" property="Moderm" />
+        <result column="FaxNo" property="FaxNo" />
+        <result column="PersonID" property="PersonID" />
+        <result column="ServerID" property="ServerID" />
+        <result column="DealerID" property="DealerID" />
+        <result column="IndustrialClass" property="IndustrialClass" />
+        <result column="Email" property="Email" />
+        <result column="WebAddress" property="WebAddress" />
+        <result column="MergeOutState" property="MergeOutState" />
+        <result column="IsFactory" property="IsFactory" />
+        <result column="StartReceivable" property="StartReceivable" />
+        <result column="PriceofTax" property="PriceofTax" />
+        <result column="DirectCust" property="DirectCust" />
+        <result column="VIP" property="vip" />
+        <result column="VIPLevel" property="VIPLevel" />
+        <result column="DataVer" property="DataVer" />
+        <result column="MemberCodeNo" property="MemberCodeNo" />
+        <result column="MembercodeDate" property="MembercodeDate" />
+        <result column="IdentityNO" property="IdentityNO" />
+        <result column="MaritalStatus" property="MaritalStatus" />
+        <result column="SexDistinction" property="SexDistinction" />
+        <result column="Metier" property="Metier" />
+        <result column="NativePlace" property="NativePlace" />
+        <result column="NativeAddress" property="NativeAddress" />
+        <result column="FamilyAddress" property="FamilyAddress" />
+        <result column="ZipCode" property="ZipCode" />
+        <result column="InvoiceHead" property="InvoiceHead" />
+        <result column="GatherOther" property="GatherOther" />
+        <result column="CheckOther" property="CheckOther" />
+        <result column="InvoTax" property="InvoTax" />
+        <result column="LastVisitDate" property="LastVisitDate" />
+        <result column="BookVisitDate" property="BookVisitDate" />
+        <result column="UsePerms" property="UsePerms" />
+        <result column="BuildUpDate" property="BuildUpDate" />
+        <result column="LevelID" property="LevelID" />
+        <result column="StageID" property="StageID" />
+        <result column="LeaderID" property="LeaderID" />
+        <result column="BeginStageDate" property="BeginStageDate" />
+        <result column="BargainAmt" property="BargainAmt" />
+        <result column="CustIntro" property="CustIntro" />
+        <result column="Efficiency" property="Efficiency" />
+        <result column="InvoTypeID" property="InvoTypeID" />
+        <result column="firstTradeDate" property="firstTradeDate" />
+        <result column="earliestTradeDate" property="earliestTradeDate" />
+        <result column="BankId" property="BankId" />
+        <result column="PriceRank" property="PriceRank" />
+        <result column="latelyTradeDate" property="latelyTradeDate" />
+        <result column="latelyReturnDate" property="latelyReturnDate" />
+        <result column="finalTradeDate" property="finalTradeDate" />
+        <result column="amountQuota" property="amountQuota" />
+        <result column="billQuota" property="billQuota" />
+        <result column="unEnCashQuota" property="unEnCashQuota" />
+        <result column="noChkUnEnCashQuota" property="noChkUnEnCashQuota" />
+        <result column="dayOfClose" property="dayOfClose" />
+        <result column="dayOfRecv" property="dayOfRecv" />
+        <result column="endreceivables" property="endreceivables" />
+        <result column="distDays" property="distDays" />
+        <result column="initialreceivables" property="initialreceivables" />
+        <result column="creditLevel" property="creditLevel" />
+        <result column="accBillRecv" property="accBillRecv" />
+        <result column="invoiceType" property="invoiceType" />
+        <result column="taxKind" property="taxKind" />
+        <result column="rateOfDiscount" property="rateOfDiscount" />
+        <collection property="comcustaddressList" select="com.accp.erp.dao.ComcustaddressDao.findByIdAndFlag" column="{id=ID,flag=Flag}"></collection>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        Flag, ID, engFullName, engShortName, FundsAttribution, TransNewID, ClassID, AreaID, CurrencyID, FullName, IsTemp, IsForeign, ShortName, TaxNo, ChiefName, Capitalization, LinkMan, LinkManProf, Telephone1, Telephone2, Telephone3, MobileTel, Moderm, FaxNo, PersonID, ServerID, DealerID, IndustrialClass, Email, WebAddress, MergeOutState, IsFactory, StartReceivable, PriceofTax, DirectCust, VIP, VIPLevel, DataVer, MemberCodeNo, MembercodeDate, IdentityNO, MaritalStatus, SexDistinction, Metier, NativePlace, NativeAddress, FamilyAddress, ZipCode, InvoiceHead, GatherOther, CheckOther, InvoTax, LastVisitDate, BookVisitDate, UsePerms, BuildUpDate, LevelID, StageID, LeaderID, BeginStageDate, BargainAmt, CustIntro, Efficiency, InvoTypeID, firstTradeDate, earliestTradeDate, BankId, PriceRank, latelyTradeDate, latelyReturnDate, finalTradeDate, amountQuota, billQuota, unEnCashQuota, noChkUnEnCashQuota, dayOfClose, dayOfRecv, endreceivables, distDays, initialreceivables, creditLevel, accBillRecv, invoiceType, taxKind,rateOfDiscount
+    </sql>
+
+    <select id="select" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM comcustomer
+        <where>
+            ${ew.sqlSegment}
+        </where>
+    </select>
+
+</mapper>

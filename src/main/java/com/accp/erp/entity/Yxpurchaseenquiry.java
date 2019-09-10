@@ -10,6 +10,7 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * <p>
@@ -86,6 +87,9 @@ public class Yxpurchaseenquiry extends Model<Yxpurchaseenquiry> {
     private String data4;
 
     private String data5;
+    
+    @TableField(exist=false)
+    private List<Yxpurchasedetail> yxpurchasedetails;
 
 
     public static final String BILLNO = "billNO";

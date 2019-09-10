@@ -1,6 +1,7 @@
 package com.accp.erp.service.impl;
 
 import com.accp.erp.dao.YxrequisitionsdetailDao;
+import com.accp.erp.entity.Yxrequisitions;
 import com.accp.erp.entity.Yxrequisitionsdetail;
 import com.accp.erp.service.IYxrequisitionsdetailService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

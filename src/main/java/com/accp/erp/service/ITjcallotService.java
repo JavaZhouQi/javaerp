@@ -12,5 +12,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2019-08-30
  */
 public interface ITjcallotService extends IService<Tjcallot> {
-
+	//新增调拨单
+	public boolean addtjcallot(Tjcallot tjcallot);
 }

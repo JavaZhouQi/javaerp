@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.TjcchecklistDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Tjcchecklist">
+        <id column="BillNo" property="BillNo" />
+        <result column="MoveNumber" property="MoveNumber" />
+        <result column="ColumnNo" property="ColumnNo" />
+        <result column="StockNumber" property="StockNumber" />
+        <result column="StockName" property="StockName" />
+        <result column="Specifications" property="Specifications" />
+        <result column="Unit" property="Unit" />
+        <result column="Physical" property="Physical" />
+        <result column="Inventory" property="Inventory" />
+        <result column="NumberOfProfit" property="NumberOfProfit" />
+        <result column="UnitPrice" property="UnitPrice" />
+        <result column="Quantity" property="Quantity" />
+        <result column="EntryNote" property="EntryNote" />
+        <result column="testone" property="testone" />
+        <result column="testtwo" property="testtwo" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        BillNo, MoveNumber, ColumnNo, StockNumber, StockName, Specifications, Unit, Physical, Inventory, NumberOfProfit, UnitPrice, Quantity, EntryNote, testone, testtwo
+    </sql>
+
+</mapper>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.YzqsellissueorderDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Yzqsellissueorder">
+        <id column="billNo" property="billNo" />
+        <result column="billDate" property="billDate" />
+        <result column="hasForeignTrade" property="hasForeignTrade" />
+        <result column="custId" property="custId" />
+        <result column="custShortName" property="custShortName" />
+        <result column="addrId" property="addrId" />
+        <result column="custAddress" property="custAddress" />
+        <result column="priceOfTax" property="priceOfTax" />
+        <result column="wareId" property="wareId" />
+        <result column="wareName" property="wareName" />
+        <result column="voucherNo" property="voucherNo" />
+        <result column="hasAutoInv" property="hasAutoInv" />
+        <result column="salesId" property="salesId" />
+        <result column="salesName" property="salesName" />
+        <result column="departId" property="departId" />
+        <result column="departName" property="departName" />
+        <result column="maker" property="maker" />
+        <result column="permitter" property="permitter" />
+        <result column="projectId" property="projectId" />
+        <result column="projectName" property="projectName" />
+        <result column="sumNum" property="sumNum" />
+        <result column="total" property="total" />
+        <result column="Tax" property="Tax" />
+        <result column="totalTaxMoney" property="totalTaxMoney" />
+        <result column="dueTo" property="dueTo" />
+        <result column="prepayDay" property="prepayDay" />
+        <result column="recvWay" property="recvWay" />
+        <result column="gatherDelay" property="gatherDelay" />
+        <result column="accMonth" property="accMonth" />
+        <result column="UDef1" property="UDef1" />
+        <result column="UDef2" property="UDef2" />
+        <result column="remark" property="remark" />
+        <result column="safetyone" property="safetyone" />
+        <result column="safetytwo" property="safetytwo" />
+        <result column="checkstate" property="checkstate" />
+        <result column="enables" property="enables" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        billNo, billDate, hasForeignTrade, custId, custShortName, addrId, custAddress, priceOfTax, wareId, wareName, voucherNo, hasAutoInv, salesId, salesName, departId, departName, maker, permitter, projectId, projectName, sumNum, total, Tax, totalTaxMoney, dueTo, prepayDay, recvWay, gatherDelay, accMonth, UDef1, UDef2, remark, safetyone, safetytwo, checkstate, enables
+    </sql>
+
+</mapper>

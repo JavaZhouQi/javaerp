@@ -25,5 +25,4 @@
     <sql id="Base_Column_List">
         BillNo, MoveNumber, ColumnNo, StockNumber, StockName, Specifications, Unit, Physical, Inventory, NumberOfProfit, UnitPrice, Quantity, EntryNote, testone, testtwo
     </sql>
-
 </mapper>

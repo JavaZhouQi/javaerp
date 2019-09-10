@@ -27,10 +27,60 @@
         <result column="hasBillAttach" property="hasBillAttach" />
         <result column="noPowerToViewAdvPerms" property="noPowerToViewAdvPerms" />
     </resultMap>
-
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         allotId, moveDate, maker, permitter, sumQty, Remark, udef1, udef2, wareOutID, wareOutName, wareID, wareName, makerSign, permitterSign, moveNo, mergeOutState, makerID, permitterID, dateVar, hasCheck, hasBillAttach, noPowerToViewAdvPerms
     </sql>
-
+     <insert id="addtjcallot" useGeneratedKeys="true" keyProperty="allotId">
+  		INSERT INTO `erpdata`.`tjcallot` (
+  `allotId`,
+  `moveDate`,
+  `maker`,
+  `permitter`,
+  `sumQty`,
+  `Remark`,
+  `udef1`,
+  `udef2`,
+  `wareOutID`,
+  `wareOutName`,
+  `wareID`,
+  `wareName`,
+  `makerSign`,
+  `permitterSign`,
+  `moveNo`,
+  `mergeOutState`,
+  `makerID`,
+  `permitterID`,
+  `dateVar`,
+  `hasCheck`,
+  `hasBillAttach`,
+  `noPowerToViewAdvPerms`
+) 
+VALUES
+  (
+    'allotId',
+    'moveDate',
+    'maker',
+    'permitter',
+    'sumQty',
+    'Remark',
+    'udef1',
+    'udef2',
+    'wareOutID',
+    'wareOutName',
+    'wareID',
+    'wareName',
+    'makerSign',
+    'permitterSign',
+    'moveNo',
+    'mergeOutState',
+    'makerID',
+    'permitterID',
+    'dateVar',
+    'hasCheck',
+    'hasBillAttach',
+    'noPowerToViewAdvPerms'
+  ) ;
+  	</insert>
+    
 </mapper>

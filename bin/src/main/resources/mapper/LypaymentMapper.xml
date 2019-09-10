@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.LypaymentDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Lypayment">
+        <id column="payid" property="payid" />
+        <result column="paydate" property="paydate" />
+        <result column="purveyid" property="purveyid" />
+        <result column="purveyname" property="purveyname" />
+        <result column="paystrike1" property="paystrike1" />
+        <result column="paystrike2" property="paystrike2" />
+        <result column="paystrike3" property="paystrike3" />
+        <result column="paymoney1" property="paymoney1" />
+        <result column="paymoney2" property="paymoney2" />
+        <result column="paymoney3" property="paymoney3" />
+        <result column="paymakeing" property="paymakeing" />
+        <result column="paydept" property="paydept" />
+        <result column="stodeptid" property="stodeptid" />
+        <result column="paycheckman" property="paycheckman" />
+        <result column="payremark" property="payremark" />
+        <result column="isaditing" property="isaditing" />
+        <result column="enables" property="enables" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        payid, paydate, purveyid, purveyname, paystrike1, paystrike2, paystrike3, paymoney1, paymoney2, paymoney3, paymakeing, paydept, stodeptid, paycheckman, payremark, isaditing, enables
+    </sql>
+
+</mapper>

@@ -20,5 +20,13 @@
     <sql id="Base_Column_List">
         BillNo, Flag, AffirmState, BillType, PayTerm, DelayDays, InvoTypeId, GatherOther, ExportDate, ExportID
     </sql>
-
+	
+	<select id="select" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM Chlsmbinvoicemain
+        <where>
+            ${ew.sqlSegment}
+        </where>
+    </select>
 </mapper>

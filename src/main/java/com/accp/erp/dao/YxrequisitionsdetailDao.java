@@ -1,5 +1,8 @@
 package com.accp.erp.dao;
 
+import org.apache.ibatis.annotations.Param;
+
+import com.accp.erp.entity.Yxrequisitions;
 import com.accp.erp.entity.Yxrequisitionsdetail;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
@@ -12,5 +15,4 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2019-08-25
  */
 public interface YxrequisitionsdetailDao extends BaseMapper<Yxrequisitionsdetail> {
-
 }

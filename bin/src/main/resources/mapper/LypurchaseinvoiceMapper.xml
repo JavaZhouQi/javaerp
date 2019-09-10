@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.LypurchaseinvoiceDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Lypurchaseinvoice">
+        <id column="FundBillNo" property="FundBillNo" />
+        <result column="BillDate" property="BillDate" />
+        <result column="CustID" property="CustID" />
+        <result column="FullName" property="FullName" />
+        <result column="DueTo" property="DueTo" />
+        <result column="AccMonth" property="AccMonth" />
+        <result column="InvoiceNo" property="InvoiceNo" />
+        <result column="CurrID" property="CurrID" />
+        <result column="CurrencyName" property="CurrencyName" />
+        <result column="ExchRate" property="ExchRate" />
+        <result column="Total" property="Total" />
+        <result column="CashPay" property="CashPay" />
+        <result column="VisaPay" property="VisaPay" />
+        <result column="OffSet" property="OffSet" />
+        <result column="Discount" property="Discount" />
+        <result column="PrepayDay" property="PrepayDay" />
+        <result column="DaptID" property="DaptID" />
+        <result column="DaptName" property="DaptName" />
+        <result column="ProjectID" property="ProjectID" />
+        <result column="ProjectName" property="ProjectName" />
+        <result column="Salesman" property="Salesman" />
+        <result column="PersonName" property="PersonName" />
+        <result column="CashPayStyle" property="CashPayStyle" />
+        <result column="CashPayStyleName" property="CashPayStyleName" />
+        <result column="VisaPayStyle" property="VisaPayStyle" />
+        <result column="VisaPayStyleName" property="VisaPayStyleName" />
+        <result column="OtherPayStyle" property="OtherPayStyle" />
+        <result column="OtherPayStyleName" property="OtherPayStyleName" />
+        <result column="OtherPay" property="OtherPay" />
+        <result column="PriceOfTax" property="PriceOfTax" />
+        <result column="VoucherNo" property="VoucherNo" />
+        <result column="CVoucherNo" property="CVoucherNo" />
+        <result column="MakerID" property="MakerID" />
+        <result column="Maker" property="Maker" />
+        <result column="PermitterID" property="PermitterID" />
+        <result column="Permitter" property="Permitter" />
+        <result column="Remark" property="Remark" />
+        <result column="BillTypeID" property="BillTypeID" />
+        <result column="BillType" property="BillType" />
+        <result column="AffirmStateID" property="AffirmStateID" />
+        <result column="AffirmState" property="AffirmState" />
+        <result column="PayTermID" property="PayTermID" />
+        <result column="PayTerm" property="PayTerm" />
+        <result column="DelayDays" property="DelayDays" />
+        <result column="InvoTypeID" property="InvoTypeID" />
+        <result column="InvotypeName" property="InvotypeName" />
+        <result column="GatherOther" property="GatherOther" />
+        <result column="MakerSign" property="MakerSign" />
+        <result column="PermitterSign" property="PermitterSign" />
+        <result column="Tax" property="Tax" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        FundBillNo, BillDate, CustID, FullName, DueTo, AccMonth, InvoiceNo, CurrID, CurrencyName, ExchRate, Total, CashPay, VisaPay, OffSet, Discount, PrepayDay, DaptID, DaptName, ProjectID, ProjectName, Salesman, PersonName, CashPayStyle, CashPayStyleName, VisaPayStyle, VisaPayStyleName, OtherPayStyle, OtherPayStyleName, OtherPay, PriceOfTax, VoucherNo, CVoucherNo, MakerID, Maker, PermitterID, Permitter, Remark, BillTypeID, BillType, AffirmStateID, AffirmState, PayTermID, PayTerm, DelayDays, InvoTypeID, InvotypeName, GatherOther, MakerSign, PermitterSign, Tax
+    </sql>
+
+</mapper>

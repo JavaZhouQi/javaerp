@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.SmlstkadjustmainDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Smlstkadjustmain">
+        <result column="flag" property="flag" />
+        <result column="adjustNO" property="adjustNO" />
+        <result column="adjustDate" property="adjustDate" />
+        <result column="maker" property="maker" />
+        <result column="permitter" property="permitter" />
+        <result column="voucherNO" property="voucherNO" />
+        <result column="sumQty" property="sumQty" />
+        <result column="uDef1" property="uDef1" />
+        <result column="uDef2" property="uDef2" />
+        <result column="departID" property="departID" />
+        <result column="makerID" property="makerID" />
+        <result column="wareID" property="wareID" />
+        <result column="salesID" property="salesID" />
+        <result column="billStyle" property="billStyle" />
+        <result column="billStatus" property="billStatus" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        flag, adjustNO, adjustDate, maker, permitter, voucherNO, sumQty, uDef1, uDef2, departID, makerID, wareID, salesID, billStyle, billStatus
+    </sql>
+
+</mapper>
