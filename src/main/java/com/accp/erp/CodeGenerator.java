@@ -36,7 +36,7 @@ public class CodeGenerator {
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String URL = "jdbc:mysql://localhost:3306/erpdata?useUnicode=true&characterEncoding=utf-8&allowMutilQueries=true&serverTimezone=UTC";
     private static final String USER_NAME = "root";
-    private static final String PASSWORD = "123";
+    private static final String PASSWORD = "123456";
 
     /**
      * <p>

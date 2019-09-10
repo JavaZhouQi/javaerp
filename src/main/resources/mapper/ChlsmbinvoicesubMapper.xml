@@ -40,4 +40,10 @@
         BillNo, Flag, ProdId, Quantity, Price, Amount, TaxRate, TaxAmt, AmountWithTax, LocalAmount, LocalTaxAmt, LocalAmountWithTax, SerNo, RowNo, BillDate, LQty, HasCheck, Remark, ProdName, ProdSize, FromNo, FromRow, TranType, QtyRemain, IsMerge, SUnitID, SPrice, SQuantity, UnitRelation
     </sql>
 
+	<select id="findByIdAndFlag" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+         FROM `chlsmbinvoicesub`
+         WHERE `BillNo` = #{billno} AND `Flag` = #{flag}
+    </select>
 </mapper>
