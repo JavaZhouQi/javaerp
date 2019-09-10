@@ -17,4 +17,25 @@ import org.springframework.stereotype.Service;
 @Service
 public class YxpurchaseorderServiceImpl extends ServiceImpl<YxpurchaseorderDao, Yxpurchaseorder> implements IYxpurchaseorderService {
 
+	@Override
+	public Yxpurchaseorder selectLikeBillNO(String billNO) {
+		// TODO Auto-generated method stub
+		return baseMapper.selectLikeBillNO(billNO);
+	}
+
+	@Override
+	public int insertPDs(Yxpurchaseorder yxpurchaseorder) {
+		int count = baseMapper.insertDetails(yxpurchaseorder);
+		if(count>0) {
+			baseMapper.insertPD(yxpurchaseorder);
+		}
+		return count;
+	}
+
+	@Override
+	public Yxpurchaseorder selectRdNO(String billNO) {
+		// TODO Auto-generated method stub
+		return baseMapper.selectPdNO(billNO);
+	}
+
 }
