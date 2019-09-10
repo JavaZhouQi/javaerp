@@ -5,12 +5,12 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>
- *  服务类
+ *  	采购发票(主表)  Service
  * </p>
  *
- * @author zq
- * @since 2019-08-25
+ * @author 李佑
+ * @since 2019-08-29
  */
 public interface ILypurchaseinvoiceService extends IService<Lypurchaseinvoice> {
-
+	
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -23,6 +24,13 @@ public class CurrencyController {
     public Result find(String coumn,Integer size,String table){
         List<String> list = usersService.findByCoumnAndSize(coumn,size,table);
         return new Result(ResultCode.SUCCESS,list);
+    }
+
+    @RequestMapping("/findByTable")
+    public Result findByTable(String table, String coumn, String selectName){
+        selectName = "'" + selectName+"%'";
+        List<HashMap<String, Object>> byTable = usersService.findByTable(table, coumn, selectName);
+        return new Result(ResultCode.SUCCESS,byTable);
     }
 
 }

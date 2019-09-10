@@ -21,8 +21,21 @@
         SELECT * FROM `sys_users` WHERE `username` = #{username}
     </select>
 
+    <select id="myFindPage" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_users
+        <where>
+            ${ew.sqlSegment}
+        </where>
+    </select>
+
     <select id="findByCoumnAndSize" resultType="String">
         SELECT DISTINCT LEFT(${coumn},${size}) FROM ${table}
+    </select>
+
+    <select id="findByTable" resultType="java.util.HashMap">
+        SELECT * FROM ${table} WHERE ${coumn} LIKE ${selectName}
     </select>
 
 </mapper>

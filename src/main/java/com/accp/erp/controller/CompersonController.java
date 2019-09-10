@@ -1,7 +1,9 @@
 package com.accp.erp.controller;
 
 
+import com.accp.erp.entity.Comdepartment;
 import com.accp.erp.entity.Comperson;
+import com.accp.erp.service.IComdepartmentService;
 import com.accp.erp.service.ICompersonService;
 import com.accp.erp.uitis.PageResult;
 import com.accp.erp.uitis.Result;
@@ -32,6 +34,9 @@ public class CompersonController {
 
     @Autowired
     ICompersonService compersonService;
+
+    @Autowired
+    IComdepartmentService comdepartmentService;
     /**
      * 分页查询
      */
@@ -54,7 +59,6 @@ public class CompersonController {
         }
         IPage<Comperson> page = compersonService.page(new Page<>(current,size),wrapper);
         PageResult pageResult = new PageResult(page.getTotal(),page.getRecords());
-
         return new Result(ResultCode.SUCCESS,pageResult);
     }
 
@@ -110,5 +114,33 @@ public class CompersonController {
         compersonService.remove(wrapper);
         return new Result(ResultCode.SUCCESS,"删除成功");
     }
+
+    /**
+     * 带条件查询
+     */
+    @RequestMapping("/findByTable")
+    public Result findByTable(@RequestBody Comperson comperson){
+        QueryWrapper wrapper = new QueryWrapper();
+        if (comperson.getPersonID() != null) {
+            wrapper.like(Comperson.PERSONID,comperson.getPersonID());
+        }
+        if (comperson.getPersonName() != null) {
+            wrapper.like(Comperson.PERSONNAME,comperson.getPersonName());
+        }
+        if (comperson.getMemo() != null) {
+            wrapper.like(Comperson.MEMO,comperson.getMemo());
+        }
+        if (comperson.getEngName() != null) {
+            wrapper.like(Comperson.ENGNAME,comperson.getEngName());
+        }
+        List<Comperson> list = compersonService.list(wrapper);
+        for (Comperson comperson1 : list) {
+            QueryWrapper wrapper1 = new QueryWrapper();
+            wrapper1.eq(Comdepartment.DEPARTID,comperson1.getDepartID());
+            comperson1.setComdepartment(comdepartmentService.getOne(wrapper1));
+        }
+        return new Result(ResultCode.SUCCESS,list);
+    }
+
 }
 

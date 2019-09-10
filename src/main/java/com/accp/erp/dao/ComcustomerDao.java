@@ -19,4 +19,6 @@ import java.util.List;
  */
 public interface ComcustomerDao extends BaseMapper<Comcustomer> {
     IPage<Comcustomer> select(Page page, @Param("ew") Wrapper<Comcustomer> wrapper);
+
+    Comcustomer findByIdAndFlag(@Param("flag") Integer flag, @Param("id") Integer id);
 }

@@ -1,8 +1,13 @@
 package com.accp.erp.service;
 
 import com.accp.erp.entity.SysUsers;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.apache.ibatis.annotations.Param;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -19,4 +24,7 @@ public interface ISysUsersService extends IService<SysUsers> {
 
     List<String> findByCoumnAndSize(String coumn, Integer size, String table);
 
+    IPage<SysUsers> myFindPage(Page page, @Param("ew") Wrapper<SysUsers> wrapper);
+
+    List<HashMap<String,Object>> findByTable(String table, String coumn, String selectName);
 }
