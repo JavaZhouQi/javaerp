@@ -109,7 +109,7 @@ public class Smlordbillmain extends Model<Smlordbillmain> {
     @TableField("sumTax")
     private Float sumTax;
 
-    @ApiModelProperty(value = "数量合计")
+    @ApiModelProperty(value = "未出数量")
     @TableField("sumQty")
     private Integer sumQty;
 
@@ -149,7 +149,7 @@ public class Smlordbillmain extends Model<Smlordbillmain> {
     @TableField("checkDelay")
     private Integer checkDelay;
 
-    @ApiModelProperty(value = "收款日期")
+    @ApiModelProperty(value = "预出库日期")
     @TableField("prepayDay")
     private LocalDate prepayDay;
 
@@ -157,7 +157,7 @@ public class Smlordbillmain extends Model<Smlordbillmain> {
     @TableField("encashDay")
     private LocalDate encashDay;
 
-    @ApiModelProperty(value = "账款月份")
+    @ApiModelProperty(value = "来源单别")
     @TableField("accMonth")
     private String accMonth;
 
@@ -169,7 +169,7 @@ public class Smlordbillmain extends Model<Smlordbillmain> {
     @TableField("permitterID")
     private Integer permitterID;
 
-    @ApiModelProperty(value = "签回")
+    @ApiModelProperty(value = "来源单号")
     @TableField("signBack")
     private String signBack;
 

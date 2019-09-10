@@ -3,6 +3,7 @@ package com.accp.erp.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.accp.erp.entity.Comcustomer;
 import com.accp.erp.entity.Comproduct;
 import com.accp.erp.entity.Smlordbillmain;
 import com.accp.erp.service.ISmlordbillmainService;
@@ -56,6 +58,7 @@ public class SmlordbillmainController {
 	@PostMapping("/update")
 	private Result update(@RequestBody Smlordbillmain smlordbillmain) {
 		System.out.println("拿到的对象"+JSON.toJSONString(smlordbillmain));
+		System.out.println(smlordbillmain.getFlag());
 		boolean b=service.updateSmlordbillmain(smlordbillmain);
 		return new Result(ResultCode.SUCCESS,b );
 //		return null;
@@ -78,6 +81,7 @@ public class SmlordbillmainController {
                            @RequestParam(defaultValue = "10")Integer size,
                            @RequestBody Smlordbillmain smlordbillmain){
         QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq(Smlordbillmain.FLAG, smlordbillmain.getFlag());
         if(smlordbillmain.getFullName()=="") {
         	smlordbillmain.setFullName(null) ;
         }
@@ -107,6 +111,13 @@ public class SmlordbillmainController {
 //        return null;
     }
     
+    @RequestMapping("/queryOne2")
+    public Result queryOne2(@RequestBody Smlordbillmain smlordbillmain){
+    	Smlordbillmain smlordbillmain2=service.queryOne(smlordbillmain.getBillNo(), smlordbillmain.getFlag());
+        return new Result(ResultCode.SUCCESS,smlordbillmain2);
+//        return null;
+    }
+    
     //审核
     @RequestMapping("/audit")
     public Result audit(String billNo,Integer flag ,Integer auditStatus,Integer maker ){
@@ -121,5 +132,20 @@ public class SmlordbillmainController {
 //        return null;
     }
     
+    /**
+     * 带条件查询
+     */
+    @RequestMapping("/findByTable")
+    public Result findByTable(@RequestBody Smlordbillmain smlordbillmain){
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq(Comcustomer.FLAG,smlordbillmain.getFlag());
+        if (smlordbillmain.getBillNo() != null) {
+            wrapper.like(Smlordbillmain.BILLNO,smlordbillmain.getBillNo());
+        }
+        
+        List list = service.list(wrapper);
+        return new Result(ResultCode.SUCCESS,list);
+    }
+
 }
 
