@@ -4,6 +4,8 @@ package com.accp.erp.controller;
 import com.accp.erp.entity.SysPermissions;
 import com.accp.erp.entity.SysRoles;
 import com.accp.erp.entity.SysUsers;
+import com.accp.erp.entity.SysUsersRoles;
+import com.accp.erp.service.ISysUsersRolesService;
 import com.accp.erp.service.ISysUsersService;
 import com.accp.erp.service.impl.SysUsersServiceImpl;
 import com.accp.erp.uitis.PageResult;
@@ -45,6 +47,9 @@ public class SysUsersController {
     @Autowired
     ISysUsersService usersService;
 
+    @Autowired
+    ISysUsersRolesService usersRolesService;
+
     /**
      * 登录认证
      */
@@ -66,6 +71,8 @@ public class SysUsersController {
             // 存储权限
             map.put("permissions",permissionsList);
             map.put("sessionId",sessionId);
+            SysUsers users = (SysUsers) SecurityUtils.getSubject().getPrincipal();
+            map.put("session",users);
             return new Result(ResultCode.SUCCESS,map);
         } catch (UnknownAccountException e) {
             return new Result(ResultCode.FAIL,"用户名不存在！");
@@ -121,6 +128,12 @@ public class SysUsersController {
     @RequestMapping("/add")
     public Result add(@RequestBody SysUsers sysUsers){
         usersService.save(sysUsers);
+        for (Long rolesId : sysUsers.getRolesIdList()) {
+            SysUsersRoles sysUsersRoles = new SysUsersRoles();
+            sysUsersRoles.setRoleId(rolesId);
+            sysUsersRoles.setUserId(sysUsers.getId());
+            usersRolesService.save(sysUsersRoles);
+        }
         return new Result(ResultCode.SUCCESS,"新增成功");
     }
 
@@ -132,6 +145,19 @@ public class SysUsersController {
         QueryWrapper wrapper = new QueryWrapper();
         wrapper.eq(SysUsers.ID,sysUsers.getId());
         usersService.update(sysUsers,wrapper);
+
+        // 删除用户和角色的关联
+        QueryWrapper wrapper1 = new QueryWrapper();
+        wrapper1.eq(SysUsersRoles.USER_ID,sysUsers.getId());
+        usersRolesService.remove(wrapper1);
+
+        // 新增用户和角色的关联
+        for (Long rolesId : sysUsers.getRolesIdList()) {
+            SysUsersRoles sysUsersRoles = new SysUsersRoles();
+            sysUsersRoles.setRoleId(rolesId);
+            sysUsersRoles.setUserId(sysUsers.getId());
+            usersRolesService.save(sysUsersRoles);
+        }
         return new Result(ResultCode.SUCCESS,"修改成功");
     }
 
@@ -152,6 +178,10 @@ public class SysUsersController {
         QueryWrapper wrapper = new QueryWrapper();
         wrapper.eq(SysUsers.ID,id);
         usersService.remove(wrapper);
+        // 删除用户和角色的关联
+        QueryWrapper wrapper1 = new QueryWrapper();
+        wrapper1.eq(SysUsersRoles.USER_ID,id);
+        usersRolesService.remove(wrapper1);
         return new Result(ResultCode.SUCCESS,"删除成功");
     }
 

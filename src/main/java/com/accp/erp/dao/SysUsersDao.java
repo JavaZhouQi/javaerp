@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -21,7 +22,9 @@ public interface SysUsersDao extends BaseMapper<SysUsers> {
 
     SysUsers findByUsername(String username);
 
-    List<String> findByCoumnAndSize(String coumn,Integer size,String table);
+    List<String> findByCoumnAndSize(@Param("coumn") String coumn,@Param("size") Integer size,@Param("table") String table);
 
     IPage<SysUsers> myFindPage(Page page, @Param("ew") Wrapper<SysUsers> wrapper);
+
+    List<HashMap<String,Object>> findByTable(String table,String coumn,String selectName);
 }

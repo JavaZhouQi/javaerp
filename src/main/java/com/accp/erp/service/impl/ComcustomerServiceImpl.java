@@ -26,4 +26,9 @@ public class ComcustomerServiceImpl extends ServiceImpl<ComcustomerDao, Comcusto
     public IPage<Comcustomer> select(Page page, Wrapper<Comcustomer> wrapper) {
         return baseMapper.select(page,wrapper);
     }
+
+    @Override
+    public Comcustomer findByIdAndFlag(Integer flag, Integer id) {
+        return baseMapper.findByIdAndFlag(flag,id);
+    }
 }
