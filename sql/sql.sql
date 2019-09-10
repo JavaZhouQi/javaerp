@@ -1102,7 +1102,7 @@ CREATE TABLE `smlordbillsub` (
   `taxAmt` FLOAT DEFAULT NULL COMMENT '税额',
   `mlTaxAmt` FLOAT DEFAULT NULL COMMENT '税额本位币',
   `discount` FLOAT DEFAULT NULL COMMENT '折数',
-  `isGift` INT(2) DEFAULT NULL COMMENT '赠品',
+  `isGift` BOOLEAN DEFAULT NULL COMMENT '赠品',
   `itemRemark` VARCHAR(50) DEFAULT NULL COMMENT '分录备注',
   `detail` VARCHAR(20) DEFAULT NULL COMMENT '细项描述',
   `preInDate` DATE DEFAULT NULL COMMENT '预交货日期',

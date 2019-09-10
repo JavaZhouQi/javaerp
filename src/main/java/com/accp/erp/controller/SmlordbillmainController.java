@@ -109,9 +109,10 @@ public class SmlordbillmainController {
     
     //审核
     @RequestMapping("/audit")
-    public Result audit(String billNo,Integer flag ,Integer auditStatus){
+    public Result audit(String billNo,Integer flag ,Integer auditStatus,Integer maker ){
     		Smlordbillmain smlordbillmain=new Smlordbillmain();
     		smlordbillmain.setAuditStatus(auditStatus);
+    		smlordbillmain.setMakerID(maker);
     		QueryWrapper<Smlordbillmain> updateWrapper=new QueryWrapper<>();
     		updateWrapper.eq(Smlordbillmain.FLAG, flag);
     		updateWrapper.eq(Smlordbillmain.BILLNO, billNo);

@@ -93,7 +93,7 @@ public class Smlordbillsub extends Model<Smlordbillsub> {
 
     @ApiModelProperty(value = "赠品")
     @TableField("isGift")
-    private Integer isGift;
+    private boolean isGift;
 
     @ApiModelProperty(value = "分录备注")
     @TableField("itemRemark")
