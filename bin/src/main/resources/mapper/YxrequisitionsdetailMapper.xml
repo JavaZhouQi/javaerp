@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.YxrequisitionsdetailDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Yxrequisitionsdetail">
+        <id column="billNO" property="billNO" />
+        <result column="billDate" property="billDate" />
+        <result column="serNO" property="serNO" />
+        <result column="prodID" property="prodID" />
+        <result column="prodName" property="prodName" />
+        <result column="prodSize" property="prodSize" />
+        <result column="sUnit" property="sUnit" />
+        <result column="sQuantity" property="sQuantity" />
+        <result column="curr" property="curr" />
+        <result column="stdPrice" property="stdPrice" />
+        <result column="amount" property="amount" />
+        <result column="lastestCurr" property="lastestCurr" />
+        <result column="lastestPrice" property="lastestPrice" />
+        <result column="lastestAmount" property="lastestAmount" />
+        <result column="preInDate" property="preInDate" />
+        <result column="suggestPurDate" property="suggestPurDate" />
+        <result column="qtyRemain" property="qtyRemain" />
+        <result column="itemRemark" property="itemRemark" />
+        <result column="fromNO" property="fromNO" />
+        <result column="tranType" property="tranType" />
+        <result column="data1" property="data1" />
+        <result column="data2" property="data2" />
+        <result column="data3" property="data3" />
+        <result column="data4" property="data4" />
+        <result column="data5" property="data5" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        billNO, billDate, serNO, prodID, prodName, prodSize, sUnit, sQuantity, curr, stdPrice, amount, lastestCurr, lastestPrice, lastestAmount, preInDate, suggestPurDate, qtyRemain, itemRemark, fromNO, tranType, data1, data2, data3, data4, data5
+    </sql>
+
+</mapper>

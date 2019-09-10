@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.LypaymentdetailsDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Lypaymentdetails">
+        <id column="payid" property="payid" />
+        <result column="paydetid" property="paydetid" />
+        <result column="paydetoddtype" property="paydetoddtype" />
+        <result column="paydetoddid" property="paydetoddid" />
+        <result column="formeroddmoney" property="formeroddmoney" />
+        <result column="nocebalance" property="nocebalance" />
+        <result column="payzr" property="payzr" />
+        <result column="paydetmoney" property="paydetmoney" />
+        <result column="takadvmoney" property="takadvmoney" />
+        <result column="rushmoney" property="rushmoney" />
+        <result column="enables" property="enables" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        payid, paydetid, paydetoddtype, paydetoddid, formeroddmoney, nocebalance, payzr, paydetmoney, takadvmoney, rushmoney, enables
+    </sql>
+
+</mapper>

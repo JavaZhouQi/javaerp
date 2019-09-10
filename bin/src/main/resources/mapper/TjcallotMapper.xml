@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.TjcallotDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Tjcallot">
+        <id column="allotId" property="allotId" />
+        <result column="moveDate" property="moveDate" />
+        <result column="maker" property="maker" />
+        <result column="permitter" property="permitter" />
+        <result column="sumQty" property="sumQty" />
+        <result column="Remark" property="Remark" />
+        <result column="udef1" property="udef1" />
+        <result column="udef2" property="udef2" />
+        <result column="wareOutID" property="wareOutID" />
+        <result column="wareOutName" property="wareOutName" />
+        <result column="wareID" property="wareID" />
+        <result column="wareName" property="wareName" />
+        <result column="makerSign" property="makerSign" />
+        <result column="permitterSign" property="permitterSign" />
+        <result column="moveNo" property="moveNo" />
+        <result column="mergeOutState" property="mergeOutState" />
+        <result column="makerID" property="makerID" />
+        <result column="permitterID" property="permitterID" />
+        <result column="dateVar" property="dateVar" />
+        <result column="hasCheck" property="hasCheck" />
+        <result column="hasBillAttach" property="hasBillAttach" />
+        <result column="noPowerToViewAdvPerms" property="noPowerToViewAdvPerms" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        allotId, moveDate, maker, permitter, sumQty, Remark, udef1, udef2, wareOutID, wareOutName, wareID, wareName, makerSign, permitterSign, moveNo, mergeOutState, makerID, permitterID, dateVar, hasCheck, hasBillAttach, noPowerToViewAdvPerms
+    </sql>
+
+</mapper>

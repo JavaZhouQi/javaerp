@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.accp.erp.dao.LyaccountlistDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.accp.erp.entity.Lyaccountlist">
+        <id column="SerNo" property="SerNo" />
+        <result column="ProdID" property="ProdID" />
+        <result column="ProdName" property="ProdName" />
+        <result column="SourceAmount" property="SourceAmount" />
+        <result column="Amount" property="Amount" />
+        <result column="BalanceAmt" property="BalanceAmt" />
+        <result column="RateBalanceAmt" property="RateBalanceAmt" />
+        <result column="TotalBalanceAmt" property="TotalBalanceAmt" />
+        <result column="ProdSize" property="ProdSize" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        SerNo, ProdID, ProdName, SourceAmount, Amount, BalanceAmt, RateBalanceAmt, TotalBalanceAmt, ProdSize
+    </sql>
+
+</mapper>
