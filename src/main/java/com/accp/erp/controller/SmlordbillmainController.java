@@ -78,7 +78,7 @@ public class SmlordbillmainController {
      */
     @RequestMapping("/findPage")
     public Result findPage(@RequestParam(defaultValue = "1") Integer current,
-                           @RequestParam(defaultValue = "10")Integer size,
+                           @RequestParam(defaultValue = "10")Integer size, 
                            @RequestBody Smlordbillmain smlordbillmain){
         QueryWrapper wrapper = new QueryWrapper();
         wrapper.eq(Smlordbillmain.FLAG, smlordbillmain.getFlag());
