@@ -124,7 +124,7 @@ public class Smlordbillsub extends Model<Smlordbillsub> {
 
     @ApiModelProperty(value = "来源别")
     @TableField("tranType")
-    private Integer tranType;
+    private String tranType;
 
     @ApiModelProperty(value = "未转数量")
     @TableField("qtyRemain")

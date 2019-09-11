@@ -1110,7 +1110,7 @@ CREATE TABLE `smlordbillsub` (
   `arrangeNO` VARCHAR(20) DEFAULT NULL COMMENT '排程单号',
   `fromRow` INT(4) DEFAULT NULL COMMENT '来源栏号',
   `fromNO` VARCHAR(20) DEFAULT NULL COMMENT '来源单号',
-  `tranType` INT(4) DEFAULT NULL COMMENT '来源别',
+  `tranType` VARCHAR(20) DEFAULT NULL COMMENT '来源别',
   `qtyRemain` INT(10) DEFAULT NULL COMMENT '未转数量',
   `converRate` INT(4) DEFAULT NULL COMMENT '换算率',
   `outQty` INT(10) DEFAULT NULL COMMENT '数量1',
